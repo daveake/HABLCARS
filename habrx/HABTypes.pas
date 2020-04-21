@@ -2,7 +2,7 @@ unit HABTypes;
 
 interface
 
-uses Classes, generics.collections;
+uses Classes;
 
 type
   TFieldType = (ftPayloadID, ftCounter,

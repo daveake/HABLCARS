@@ -355,7 +355,7 @@ end;
 
 function GetSettingInteger(Section, Item: String; Default: Integer): Integer;
 var
-    Key, Temp: String;
+    Temp: String;
 begin
     Temp := GetSettingString(Section, Item, IntToStr(Default));
 
@@ -520,7 +520,7 @@ begin
     //LFormat.ThousandSeparator := ',';
 
     try
-        Result := StrToFloat(Value, LFormat);
+        Result := StrToFloat(Value);   // , LFormat);
     except
         Result := 0;
     end;

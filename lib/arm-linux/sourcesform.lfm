@@ -1,0 +1,90 @@
+inherited frmSources: TfrmSources
+  Left = 1153
+  Top = 633
+  Caption = 'Sources'
+  OnCreate = FormCreate
+  inherited pnlMain: TPanel
+    Height = 442
+    Width = 729
+    ClientHeight = 442
+    ClientWidth = 729
+    object Panel1: TPanel[0]
+      Left = 2
+      Height = 101
+      Top = 2
+      Width = 725
+      Align = alTop
+      BorderSpacing.Around = 2
+      BevelOuter = bvNone
+      Caption = 'Panel1'
+      ClientHeight = 101
+      ClientWidth = 725
+      Color = 7331825
+      ParentColor = False
+      TabOrder = 0
+      object Panel2: TPanel
+        Left = 2
+        Height = 97
+        Top = 2
+        Width = 721
+        Align = alClient
+        BorderSpacing.Around = 2
+        BevelOuter = bvNone
+        Caption = 'Panel2'
+        ClientHeight = 97
+        ClientWidth = 721
+        Color = clBlack
+        ParentColor = False
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 4
+          Height = 28
+          Top = 0
+          Width = 717
+          Align = alTop
+          BorderSpacing.Left = 4
+          Caption = 'Gateway'
+          Font.Color = clWhite
+          Font.Height = -21
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblGateway1: TLabel
+          Left = 2
+          Height = 28
+          Top = 30
+          Width = 717
+          Align = alTop
+          Alignment = taCenter
+          BorderSpacing.Around = 2
+          Caption = 'Telemetry'
+          Font.Color = clWhite
+          Font.Height = -21
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblGateway1RSSI: TLabel
+          Left = 2
+          Height = 28
+          Top = 60
+          Width = 717
+          Align = alTop
+          Alignment = taCenter
+          BorderSpacing.Around = 2
+          Caption = 'RSSI etc'
+          Font.Color = clWhite
+          Font.Height = -21
+          ParentColor = False
+          ParentFont = False
+        end
+      end
+    end
+  end
+  object Label2: TLabel[1]
+    Left = 0
+    Height = 1
+    Top = 0
+    Width = 1
+    ParentColor = False
+  end
+end

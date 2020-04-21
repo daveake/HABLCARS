@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/bin/fpc" Date="1549255624"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq -Fi/home/pi/HABLCARS/lib/arm-linux -Fu/home/pi/HABLCARS/habrx -Fu/home/pi/HABLCARS/generics.collections/src -Fu/home/pi/HABLCARS/synapse -Fu/usr/lib/lazarus/2.0.0/lcl/units/arm-linux/gtk2 -Fu/usr/lib/lazarus/2.0.0/lcl/units/arm-linux -Fu/usr/lib/lazarus/2.0.0/components/lazutils/lib/arm-linux -Fu/usr/lib/lazarus/2.0.0/packager/units/arm-linux -Fu/home/pi/HABLCARS/ -FU/home/pi/HABLCARS/lib/arm-linux/ -FE/home/pi/HABLCARS/ -o/home/pi/HABLCARS/HABLCARS -dLCL -dLCLgtk2 HABLCARS.lpr"/>
+</CONFIG>

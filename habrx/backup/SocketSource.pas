@@ -30,7 +30,7 @@ var
     Host, HostOrIP, Line: String;
     Port: Integer;
     //AClient: TIdTCPClient;
-    AClient: TBlockSocket;
+    AClient: TTCPBlockSocket;
 begin
     Commands := TStringList.Create;
     Port := 0;
@@ -42,7 +42,7 @@ begin
     while not Terminated do begin
         if GetSettingBoolean(GroupName, 'Enabled', True) then begin
             // Connect to socket server
-            Host := 'loragw5';   //GetSettingString(GroupName, 'Host', '');
+            Host := '192.168.1.184';   //GetSettingString(GroupName, 'Host', '');
             Port := 6004;        //GetSettingInteger(GroupName, 'Port', 0);
             SetGroupChangedFlag(GroupName, False);
 
@@ -61,26 +61,33 @@ begin
                         Position := Default(THABPosition);
                         SyncCallback(SourceID, True, 'Connecting to ' + HostOrIP + '...', Position);
                         //AClient.Host := HostOrIP;
-                        AClient.Connect(HostOrIP, IntToStr(Port));
-                        SyncCallback(SourceID, True, 'Connected to ' + HostOrIP, Position);
-                        InitialiseDevice;
-                        while not GetGroupChangedFlag(GroupName) do begin
-                            while Commands.Count > 0 do begin
-                                AClient.SendString(Commands[0] + '\n');
-                                Commands.Delete(0);
-                            end;
+                        //AClient.ConnectionTimeout := 5000;
+                        //Aclient.CreateSocket;
+                        AClient.Connect(Host, IntToStr(Port));
+                        if AClient.LastError = 0 then begin
+                            SyncCallback(SourceID, True, 'Connected to ' + HostOrIP, Position);
+                            InitialiseDevice;
+                            while not GetGroupChangedFlag(GroupName) do begin
+                                while Commands.Count > 0 do begin
+                                    AClient.SendString(Commands[0] + '\n');
+                                    Commands.Delete(0);
+                                end;
 
-                            Line := AClient.RecvString(100);
-                            if Line <> '' then begin
-                                Position := ExtractPositionFrom(Line);
-                                if Position.InUse or Position.HasPacketRSSI or Position.HasCurrentRSSI then begin
-                                    SyncCallback(SourceID, True, '', Position);
+                                Line := AClient.RecvString(100);
+                                if Line <> '' then begin
+                                    Position := ExtractPositionFrom(Line);
+                                    if Position.InUse or Position.HasPacketRSSI or Position.HasCurrentRSSI then begin
+                                        SyncCallback(SourceID, True, '', Position);
+                                    end;
                                 end;
                             end;
+                            // AClient.IOHandler.InputBuffer.clear;
+                            // AClient.IOHandler.CloseGracefully;
+                            AClient.CloseSocket;
+                        end else begin
+                            SyncCallback(SourceID, False, 'No Connection to ' + HostOrIP + ' Error ' + IntToStr(AClient.LastError), Position);
+                            Sleep(5000);
                         end;
-                        // AClient.IOHandler.InputBuffer.clear;
-                        // AClient.IOHandler.CloseGracefully;
-                        AClient.Disconnect;
                     except
                         // Wait before retrying
                         SyncCallback(SourceID, False, 'No Connection to ' + HostOrIP, Position);

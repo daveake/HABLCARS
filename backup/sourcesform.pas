@@ -6,7 +6,7 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-    base, miscellaneous, source, gatewaysource;
+    base, miscellaneous, source, GatewaySource;
 
 type
   TSourcePanel = record
@@ -73,7 +73,7 @@ begin
 //
 //    // Radio sources
     Sources[GATEWAY_SOURCE_1].ValueLabel := lblGateway1;
-    Sources[GATEWAY_SOURCE_1].Source := TGatewaySource.Create(GATEWAY_SOURCE_1, 'LoRaGateway1', HABCallback);
+    Sources[GATEWAY_SOURCE_1].Source := TGatewaySource.Create(GATEWAY_SOURCE_1, 'LoRaGateway1', @HABCallback);
     Sources[GATEWAY_SOURCE_1].RSSILabel := lblGateway1RSSI;
 //
 //    Sources[GATEWAY_SOURCE_2].ValueLabel := lblGateway2;

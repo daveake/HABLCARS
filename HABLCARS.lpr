@@ -6,6 +6,7 @@ uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
+  cthreads,
   Interfaces, // this includes the LCL widgetset
   Forms, main, base, sourcesform, splash, Miscellaneous
   { you can add units after this };

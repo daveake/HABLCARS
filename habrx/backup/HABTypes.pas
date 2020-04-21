@@ -27,19 +27,6 @@ type
 type
   TValueList = Array of String;
 
-  type
-  TSetting = record
-    Name:           String;
-    Value:          Variant;
-  end;
-
-type
-  TSettings = record
-    Settings:       Array[1..8] of TSetting;
-    Count:          Integer;
-  end;
-
-
 //type
 //  TExtraFields = TDictionary<String, Variant>;
 //

@@ -593,18 +593,18 @@ begin
 end;
 
 function MyFormatFloat(Format: String; Value: Double): String;
-var
-    LFormat: TFormatSettings;
+//var
+//    LFormat: TFormatSettings;
 begin
-    LFormat := TFormatSettings.Create;          // Note: no need to free this
-    LFormat.DecimalSeparator := '.';
-    LFormat.ThousandSeparator := ',';
+    //LFormat := TFormatSettings.Create;          // Note: no need to free this
+    //LFormat.DecimalSeparator := '.';
+    //LFormat.ThousandSeparator := ',';
+    //
+    //Result := FormatFloat(Format, Value, LFormat);
 
-    Result := FormatFloat(Format, Value, LFormat);
-
-//    if FormatSettings.DecimalSeparator <> '.' then begin
-//        Result := StringReplace(Result, FormatSettings.DecimalSeparator, '.', []);
-//    end;
+    if FormatSettings.DecimalSeparator <> '.' then begin
+        Result := StringReplace(Result, FormatSettings.DecimalSeparator, '.', []);
+    end;
 end;
 
 

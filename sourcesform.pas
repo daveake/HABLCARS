@@ -6,7 +6,7 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-    base, miscellaneous, source, gatewaysource;
+    base, miscellaneous, source, GatewaySource;
 
 type
   TSourcePanel = record

@@ -1,24 +1,24 @@
 inherited frmSources: TfrmSources
-  Left = 1971
+  Left = 1189
   Top = 655
   Caption = 'Sources'
   OnCreate = FormCreate
   inherited pnlMain: TPanel
-    Height = 848
-    Width = 1400
-    ClientHeight = 848
-    ClientWidth = 1400
+    Height = 442
+    Width = 729
+    ClientHeight = 442
+    ClientWidth = 729
     object Panel1: TPanel[0]
       Left = 2
       Height = 101
       Top = 2
-      Width = 1396
+      Width = 725
       Align = alTop
       BorderSpacing.Around = 2
       BevelOuter = bvNone
       Caption = 'Panel1'
       ClientHeight = 101
-      ClientWidth = 1396
+      ClientWidth = 725
       Color = 7331825
       ParentColor = False
       TabOrder = 0
@@ -26,21 +26,21 @@ inherited frmSources: TfrmSources
         Left = 2
         Height = 97
         Top = 2
-        Width = 1392
+        Width = 721
         Align = alClient
         BorderSpacing.Around = 2
         BevelOuter = bvNone
         Caption = 'Panel2'
         ClientHeight = 97
-        ClientWidth = 1392
+        ClientWidth = 721
         Color = clBlack
         ParentColor = False
         TabOrder = 0
         object Label1: TLabel
           Left = 4
-          Height = 30
+          Height = 28
           Top = 0
-          Width = 1388
+          Width = 717
           Align = alTop
           BorderSpacing.Left = 4
           Caption = 'Gateway'
@@ -51,9 +51,9 @@ inherited frmSources: TfrmSources
         end
         object lblGateway1: TLabel
           Left = 2
-          Height = 30
-          Top = 32
-          Width = 1388
+          Height = 28
+          Top = 30
+          Width = 717
           Align = alTop
           Alignment = taCenter
           BorderSpacing.Around = 2
@@ -65,9 +65,9 @@ inherited frmSources: TfrmSources
         end
         object lblGateway1RSSI: TLabel
           Left = 2
-          Height = 30
-          Top = 64
-          Width = 1388
+          Height = 28
+          Top = 60
+          Width = 717
           Align = alTop
           Alignment = taCenter
           BorderSpacing.Around = 2
