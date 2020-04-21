@@ -1,13 +1,14 @@
 object frmMain: TfrmMain
-  Left = 640
+  Left = 1922
   Height = 480
-  Top = 145
+  Top = 9
   Width = 800
   BorderStyle = bsNone
   Caption = 'LCARS - HAB Chase App'
   ClientHeight = 480
   ClientWidth = 800
   Color = clBlack
+  OnActivate = FormActivate
   Position = poScreenCenter
   LCLVersion = '2.0.6.0'
   object pnlTop: TPanel
@@ -456,7 +457,7 @@ object frmMain: TfrmMain
       Transparent = False
       WordWrap = True
     end
-    object btnPayloads5: TLabel
+    object btnSources: TLabel
       Left = 0
       Height = 40
       Top = 392
@@ -472,6 +473,7 @@ object frmMain: TfrmMain
       ParentFont = False
       Transparent = False
       WordWrap = True
+      OnClick = btnlSourcesClick
     end
     object btnPayloads6: TLabel
       Left = 0
@@ -567,7 +569,7 @@ object frmMain: TfrmMain
       ParentFont = False
       Transparent = False
     end
-    object btnPayloadsSpace6: TLabel
+    object lblSources: TLabel
       Left = 0
       Height = 12
       Top = 380
@@ -581,6 +583,7 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
       Transparent = False
+      OnClick = btnlSourcesClick
     end
     object btnPayloadsSpace7: TLabel
       Left = 0
@@ -598,32 +601,39 @@ object frmMain: TfrmMain
       Transparent = False
     end
   end
-  object pnlCentre: TPanel
-    Left = 98
-    Height = 426
-    Top = 27
-    Width = 700
+  object pnlMain: TPanel
+    Left = 97
+    Height = 428
+    Top = 26
+    Width = 702
     Align = alClient
-    BorderSpacing.Around = 2
+    BorderSpacing.Around = 1
     BevelOuter = bvNone
-    ClientHeight = 426
-    ClientWidth = 700
+    ClientHeight = 428
+    ClientWidth = 702
     Color = 7331825
     ParentColor = False
     ParentFont = False
     TabOrder = 3
-    object pnlMain: TPanel
-      Left = 2
-      Height = 422
-      Top = 2
-      Width = 696
+    object pnlCentre: TPanel
+      Left = 1
+      Height = 426
+      Top = 1
+      Width = 700
       Align = alClient
-      BorderSpacing.Around = 2
+      BorderSpacing.Around = 1
       BevelOuter = bvNone
       Color = clBlack
       ParentColor = False
       ParentFont = False
       TabOrder = 0
     end
+  end
+  object tmrLoad: TTimer
+    Enabled = False
+    Interval = 10
+    OnTimer = tmrLoadTimer
+    left = 176
+    top = 136
   end
 end

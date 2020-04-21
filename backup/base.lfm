@@ -1,0 +1,22 @@
+object frmBase: TfrmBase
+  Left = 2557
+  Height = 424
+  Top = 924
+  Width = 700
+  Caption = 'Base'
+  ClientHeight = 424
+  ClientWidth = 700
+  Color = clBlack
+  LCLVersion = '2.0.6.0'
+  object pnlMain: TPanel
+    Left = 0
+    Height = 424
+    Top = 0
+    Width = 700
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clBlack
+    ParentColor = False
+    TabOrder = 0
+  end
+end
