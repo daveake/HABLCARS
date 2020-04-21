@@ -7,7 +7,6 @@ uses Classes, SysUtils;
 
 type TFlightMode = (fmIdle, fmLaunched, fmDescending, fmLanded);
 
-
 type
   THABPosition = record
     InUse:          Boolean;
@@ -55,7 +54,16 @@ type
   end;
 
 type
-  TSourcePositionCallback = procedure(ID: Integer; Connected: Boolean; Line: String; Position: THABPosition) of object;
+  TCallbackParameters = record
+    ID:                 Integer;
+    Connected:          Boolean;
+    Line:               String;
+    Position:           THABPosition;
+  end;
+
+
+type
+  TSourcePositionCallback = procedure(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition) of object;
 
 type
   TSource = class(TThread)
@@ -68,6 +76,7 @@ type
     SentenceCount: Integer;
 //    Enabled: Boolean;
     PositionCallback: TSourcePositionCallback;
+    CallbackParameters: TCallbackParameters;
     procedure OurCallback;
     procedure LookForPredictionInFields(var Position: THABPosition; Fields: TStringList);
     procedure SendMessage(Line: String);
@@ -287,11 +296,16 @@ end;
 
 procedure TSource.OurCallback;
 begin
-
+    PositionCallback(CallbackParameters.ID, CallbackParameters.Connected, CallbackParameters.Line, CallbackParameters.Position);
 end;
 
 procedure TSource.SyncCallback(ID: Integer; Connected: Boolean; Line: String; Position: THABPosition);
 begin
+    CallbackParameters.ID          := ID;
+    CallbackParameters.Connected   := Connected;
+    CallbackParameters.Line        := Line;
+    CallbackParameters.Position    := Position;
+
     //Synchronize(
     //    procedure begin
     //        PositionCallback(SourceID, Connected, Line, Position);

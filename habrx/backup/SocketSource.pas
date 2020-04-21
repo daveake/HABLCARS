@@ -2,14 +2,14 @@ unit SocketSource;
 
 interface
 
-uses Source, Classes, SysUtils, Miscellaneous;
+uses Source, Classes, SysUtils, Miscellaneous,
+  blcksock;
      //IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient;
 
 type
   TSocketSource = class(TSource)
   private
     { Private declarations }
-    //AClient: TIdTCPClient;
     Commands: TStringList;
   protected
     { Protected declarations }
@@ -28,21 +28,25 @@ procedure TSocketSource.Execute;
 var
     Position: THABPosition;
     Host, HostOrIP, Line: String;
+    Port: Integer;
+    //AClient: TIdTCPClient;
+    AClient: TBlockSocket;
 begin
     Commands := TStringList.Create;
+    Port := 0;
 
     // Create client
     //AClient := TIdTCPClient.Create;
+    AClient := TBlockSocket.Create;
 
     while not Terminated do begin
         if GetSettingBoolean(GroupName, 'Enabled', True) then begin
             // Connect to socket server
-            Host := GetSettingString(GroupName, 'Host', '');
-            //AClient.Port := GetSettingInteger(GroupName, 'Port', 0);
+            Host := 'loragw5';   //GetSettingString(GroupName, 'Host', '');
+            Port := 6004;        //GetSettingInteger(GroupName, 'Port', 0);
             SetGroupChangedFlag(GroupName, False);
 
-            // if (Host = '') or (AClient.Port <= 0) then begin
-            if Host = '' then begin
+            if (Host = '') or (Port <= 0) then begin
                 Position := Default(THABPosition);
                 SyncCallback(SourceID, True, 'Source not configured', Position);
                 Sleep(1000);
@@ -54,20 +58,19 @@ begin
                     end;
 
                     try
-                        // FillChar(Position, SizeOf(Position), 0);
                         Position := Default(THABPosition);
                         SyncCallback(SourceID, True, 'Connecting to ' + HostOrIP + '...', Position);
                         //AClient.Host := HostOrIP;
-                        //AClient.Connect;
+                        AClient.Connect(HostOrIP, IntToStr(Port));
                         SyncCallback(SourceID, True, 'Connected to ' + HostOrIP, Position);
                         InitialiseDevice;
                         while not GetGroupChangedFlag(GroupName) do begin
                             while Commands.Count > 0 do begin
-                                //AClient.IOHandler.WriteLn(Commands[0]);
+                                AClient.SendString(Commands[0] + '\n');
                                 Commands.Delete(0);
                             end;
 
-                            //Line := AClient.IOHandler.ReadLn;
+                            Line := AClient.RecvString(100);
                             if Line <> '' then begin
                                 Position := ExtractPositionFrom(Line);
                                 if Position.InUse or Position.HasPacketRSSI or Position.HasCurrentRSSI then begin
@@ -75,8 +78,8 @@ begin
                                 end;
                             end;
                         end;
-                        AClient.IOHandler.InputBuffer.clear;
-                        AClient.IOHandler.CloseGracefully;
+                        // AClient.IOHandler.InputBuffer.clear;
+                        // AClient.IOHandler.CloseGracefully;
                         AClient.Disconnect;
                     except
                         // Wait before retrying
