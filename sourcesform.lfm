@@ -4,21 +4,17 @@ inherited frmSources: TfrmSources
   Caption = 'Sources'
   OnCreate = FormCreate
   inherited pnlMain: TPanel
-    Height = 442
-    Width = 729
-    ClientHeight = 442
-    ClientWidth = 729
     object Panel1: TPanel[0]
       Left = 2
       Height = 101
       Top = 2
-      Width = 725
+      Width = 696
       Align = alTop
       BorderSpacing.Around = 2
       BevelOuter = bvNone
       Caption = 'Panel1'
       ClientHeight = 101
-      ClientWidth = 725
+      ClientWidth = 696
       Color = 7331825
       ParentColor = False
       TabOrder = 0
@@ -26,21 +22,21 @@ inherited frmSources: TfrmSources
         Left = 2
         Height = 97
         Top = 2
-        Width = 721
+        Width = 692
         Align = alClient
         BorderSpacing.Around = 2
         BevelOuter = bvNone
         Caption = 'Panel2'
         ClientHeight = 97
-        ClientWidth = 721
+        ClientWidth = 692
         Color = clBlack
         ParentColor = False
         TabOrder = 0
         object Label1: TLabel
           Left = 4
-          Height = 28
+          Height = 30
           Top = 0
-          Width = 717
+          Width = 688
           Align = alTop
           BorderSpacing.Left = 4
           Caption = 'Gateway'
@@ -51,9 +47,9 @@ inherited frmSources: TfrmSources
         end
         object lblGateway1: TLabel
           Left = 2
-          Height = 28
-          Top = 30
-          Width = 717
+          Height = 30
+          Top = 32
+          Width = 688
           Align = alTop
           Alignment = taCenter
           BorderSpacing.Around = 2
@@ -65,9 +61,9 @@ inherited frmSources: TfrmSources
         end
         object lblGateway1RSSI: TLabel
           Left = 2
-          Height = 28
-          Top = 60
-          Width = 717
+          Height = 30
+          Top = 64
+          Width = 688
           Align = alTop
           Alignment = taCenter
           BorderSpacing.Around = 2

@@ -1,6 +1,6 @@
 inherited frmSources: TfrmSources
-  Left = 1189
-  Top = 655
+  Left = 1153
+  Top = 633
   Caption = 'Sources'
   OnCreate = FormCreate
   inherited pnlMain: TPanel

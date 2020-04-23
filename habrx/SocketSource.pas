@@ -66,7 +66,7 @@ begin
                             SyncCallback(SourceID, True, 'Connected to ' + HostOrIP, Position);
                             InitialiseDevice;
 
-                            while (AClient.LastError <> 104) and (not GetGroupChangedFlag(GroupName)) do begin
+                            while (AClient.LastError <> 104) and (AClient.LastError <> 10054) and (not GetGroupChangedFlag(GroupName)) do begin
                                 while Commands.Count > 0 do begin
                                     AClient.SendString(Commands[0] + '\n');
                                     Commands.Delete(0);
@@ -82,11 +82,11 @@ begin
                             end;
                             // AClient.IOHandler.InputBuffer.clear;
                             // AClient.IOHandler.CloseGracefully;
-                            SyncCallback(SourceID, False, 'Disconnected from ' + HostOrIP + ' Error ' + IntToStr(AClient.LastError), Position);
+                            SyncCallback(SourceID, False, 'Disconnected from ' + HostOrIP, Position);
                             AClient.CloseSocket;
                             Sleep(5000);
                         end else begin
-                            SyncCallback(SourceID, False, 'No Connection to ' + HostOrIP + ' Error ' + IntToStr(AClient.LastError), Position);
+                            SyncCallback(SourceID, False, 'No Connection to ' + HostOrIP, Position);
                             Sleep(5000);
                         end;
                     except

@@ -3,6 +3,7 @@ program HABLCARS;
 {$mode objfpc}{$H+}
 
 uses
+  #define UseCThreads
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}

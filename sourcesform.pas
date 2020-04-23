@@ -113,7 +113,7 @@ procedure TfrmSources.HABCallback(ID: Integer; Connected: Boolean; Line: String;
 var
     Callsign: String;
 begin
-    // New Position
+    // New Position                                  FLastError
     if HABPosition.InUse then begin
         frmMain.NewPosition(ID, HABPosition);
 

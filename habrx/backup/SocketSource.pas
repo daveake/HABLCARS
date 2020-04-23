@@ -66,20 +66,19 @@ begin
                             SyncCallback(SourceID, True, 'Connected to ' + HostOrIP, Position);
                             InitialiseDevice;
 
-                            while (AClient.LastError <> 104) and (not GetGroupChangedFlag(GroupName)) do begin
+                            while (AClient.LastError <> 104) and (AClient.LastError <> 10054) and (not GetGroupChangedFlag(GroupName)) do begin
                                 while Commands.Count > 0 do begin
                                     AClient.SendString(Commands[0] + '\n');
                                     Commands.Delete(0);
                                 end;
 
                                 Line := AClient.RecvString(100);
-                                SyncCallback(SourceID, False, 'Error ' + IntToStr(AClient.LastError), Position);
-                                //if Line <> '' then begin
-                                //    Position := ExtractPositionFrom(Line);
-                                //    if Position.InUse or Position.HasPacketRSSI or Position.HasCurrentRSSI then begin
-                                //        SyncCallback(SourceID, True, '', Position);
-                                //    end;
-                                //end;
+                                if Line <> '' then begin
+                                    Position := ExtractPositionFrom(Line);
+                                    if Position.InUse or Position.HasPacketRSSI or Position.HasCurrentRSSI then begin
+                                        SyncCallback(SourceID, True, '', Position);
+                                    end;
+                                end;
                             end;
                             // AClient.IOHandler.InputBuffer.clear;
                             // AClient.IOHandler.CloseGracefully;
