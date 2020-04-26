@@ -6,8 +6,26 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  LCLTMSFNCMaps, Base, SourcesForm, Splash, Source,
+  LCLTMSFNCMaps, Base, SourcesForm, Splash, Source, Miscellaneous,
   payloads, direction, navigate, map, ssdv, log, settings;
+
+type
+  TPayload = record
+      Previous:     THABPosition;
+      Position:     THABPosition;
+      Button:       TLabel;
+      Colour:       TColor;
+      ColourName:   String;
+      GoodPosition: Boolean;
+      LoggedLoss:   Boolean;
+  end;
+
+type
+  TSource = record
+    Button:         TLabel;
+    LastPositionAt: TDateTime;
+    Circle:         TShape;
+end;
 
 type
 
@@ -16,19 +34,19 @@ type
   TfrmMain = class(TForm)
     btnPayloads: TLabel;
     btnSSDV: TLabel;
-    btnPayloads10: TLabel;
-    btnPayloads11: TLabel;
-    btnPayloads12: TLabel;
-    btnPayloads13: TLabel;
-    btnPayloads14: TLabel;
+    btnPayload2: TLabel;
+    btnGPS: TLabel;
+    btnHabHub: TLabel;
+    btnGateway1: TLabel;
+    btnUDP: TLabel;
     btnNavigate: TLabel;
     btnMap: TLabel;
     btnDirection: TLabel;
     btnSources: TLabel;
     btnSettings: TLabel;
     btnLog: TLabel;
-    btnPayloads8: TLabel;
-    btnPayloads9: TLabel;
+    btnPayload1: TLabel;
+    btnPayload3: TLabel;
     lblDirection: TLabel;
     pnlMapHeader: TButton;
     lblMap: TLabel;
@@ -69,6 +87,7 @@ type
     procedure btnSettingsClick(Sender: TObject);
     procedure btnSSDVClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure pnlBottomResize(Sender: TObject);
     procedure pnlTopBarClick(Sender: TObject);
     procedure pnlTopResize(Sender: TObject);
@@ -77,10 +96,15 @@ type
     procedure tmrLoadTimer(Sender: TObject);
   private
     CurrentForm: TfrmBase;
+    SelectedPayload: Integer;
+    Payloads: Array[1..3] of TPayload;
+    Sources: Array[0..6] of TSource;
     procedure ShowSelectedButton(Button: TLabel);
   public
     procedure NewPosition(SourceID: Integer; HABPosition: THABPosition);
     function LoadForm(Button: TLabel; NewForm: TfrmBase): Boolean;
+    procedure ShowSourceStatus(SourceID: Integer; IsActive, Recent: Boolean);
+    procedure UploadStatus(SourceID: Integer; IsActive, OK: Boolean);
   end;
 
 var
@@ -201,6 +225,49 @@ begin
     end;
 end;
 
+procedure TfrmMain.FormCreate(Sender: TObject);
+begin
+     CurrentForm := nil;
+
+    // Payload info
+    Payloads[1].Button := btnPayload1;
+    Payloads[2].Button := btnPayload2;
+    Payloads[3].Button := btnPayload3;
+
+    Payloads[1].Colour := clBlue;
+    Payloads[2].Colour := clRed;
+    Payloads[3].Colour := clLime;
+
+    Payloads[1].ColourName := 'blue';
+    Payloads[2].ColourName := 'red';
+    Payloads[3].ColourName :='green';
+
+    // InitialiseSettings;
+
+    SelectedPayload := 0;
+
+    Sources[GPS_SOURCE].Button := btnGPS;
+    //Sources[GPS_SOURCE].Circle := crcGPS;
+
+    Sources[GATEWAY_SOURCE_1].Button := btnGateway1;
+    Sources[GATEWAY_SOURCE_1].Circle := nil;
+
+    //Sources[GATEWAY_SOURCE_2].Button := btnGateway2;
+    //Sources[GATEWAY_SOURCE_2].Circle := nil;
+
+    //Sources[SERIAL_SOURCE].Button := btnLoRaSerial;
+    //Sources[SERIAL_SOURCE].Circle := crcLoRaSerial;
+
+    //Sources[BLUETOOTH_SOURCE].Button := btnLoRaBT;
+    //Sources[BLUETOOTH_SOURCE].Circle := crcLoRaBluetooth;
+
+    Sources[UDP_SOURCE].Button := btnUDP;
+    Sources[UDP_SOURCE].Circle := nil;
+
+    Sources[HABITAT_SOURCE].Button := btnHabHub;
+    Sources[HABITAT_SOURCE].Circle := nil;
+end;
+
 function TfrmMain.LoadForm(Button: TLabel; NewForm: TfrmBase): Boolean;
 begin
     if NewForm <> nil then begin
@@ -230,18 +297,13 @@ end;
 
 procedure TfrmMain.ShowSelectedButton(Button: TLabel);
 begin
-    //btnPayloads.TextSettings.Font.Style := btnPayloads.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnMap.TextSettings.Font.Style := btnMap.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnSSDV.TextSettings.Font.Style := btnSSDV.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnDirection.TextSettings.Font.Style := btnDirection.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnNavigate.TextSettings.Font.Style := btnNavigate.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnLog.TextSettings.Font.Style := btnLog.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnSettings.TextSettings.Font.Style := btnSettings.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-
     btnPayloads.Font.Style := btnPayloads.Font.Style - [TFontStyle.fsUnderline];
     btnDirection.Font.Style := btnDirection.Font.Style - [TFontStyle.fsUnderline];
     btnMap.Font.Style := btnMap.Font.Style - [TFontStyle.fsUnderline];
     btnNavigate.Font.Style := btnNavigate.Font.Style - [TFontStyle.fsUnderline];
+    btnSSDV.Font.Style := btnSSDV.Font.Style - [TFontStyle.fsUnderline];
+    btnLog.Font.Style := btnLog.Font.Style - [TFontStyle.fsUnderline];
+    btnSettings.Font.Style := btnSettings.Font.Style - [TFontStyle.fsUnderline];
 
     btnSources.Font.Style := btnSources.Font.Style - [TFontStyle.fsUnderline];
 
@@ -255,7 +317,8 @@ var
     Index: Integer;
     PositionOK: Boolean;
 begin
-    //ShowSourceStatus(SourceID, True, True);
+    ShowSourceStatus(SourceID, True, True);
+
     //
     //Index := PlacePayloadInList(Position);
     //
@@ -316,6 +379,43 @@ begin
 //    if SourceID = 3 then Label3.FontColor := TAlphaColorRec.Black;
 //    if SourceID = 4 then Label4.FontColor := TAlphaColorRec.Black;
 //    if SourceID = 5 then Label5.FontColor := TAlphaColorRec.Black;
+end;
+
+procedure TfrmMain.ShowSourceStatus(SourceID: Integer; IsActive, Recent: Boolean);
+begin
+    if IsActive then begin
+        if Recent then begin
+            Sources[SourceID].Button.Font.Color := clGreen;
+            Sources[SourceID].LastPositionAt := Now;
+        end else begin
+            Sources[SourceID].Button.Font.Color := clRed;
+        end;
+    end else begin
+        Sources[SourceID].Button.Font.Color := clBlack;
+    end;
+end;
+
+procedure TfrmMain.UploadStatus(SourceID: Integer; IsActive, OK: Boolean);
+begin
+    // Show status on screen
+    if Sources[SourceID].Circle <> nil then begin
+        if Active then begin
+            Sources[SourceID].Button.Color := $006FDFF1;
+            if OK then begin
+                Sources[SourceID].Circle.Brush.Color := clLime;
+            end else begin
+                Sources[SourceID].Circle.Brush.Color := clRed;
+            end;
+        end else begin
+            Sources[SourceID].Button.Color := $0014AFCB;
+            Sources[SourceID].Circle.Brush.Color := clSilver;
+        end;
+    end;
+
+    // Log errors in debug screen
+    //if Active and (not OK) and (frmDebug <> nil) then begin
+    //    frmDebug.Debug(SourceName(SourceID) + ' failed to upload position');
+    //end;
 end;
 
 end.

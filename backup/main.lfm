@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 1066
+  Left = 1629
   Height = 480
-  Top = 907
+  Top = 902
   Width = 800
   BorderStyle = bsDialog
   Caption = 'LCARS - HAB Chase App'
@@ -9,6 +9,7 @@ object frmMain: TfrmMain
   ClientWidth = 800
   Color = clBlack
   OnActivate = FormActivate
+  OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '2.0.6.0'
   object pnlTop: TPanel
@@ -62,7 +63,7 @@ object frmMain: TfrmMain
         ParentColor = False
         ParentFont = False
         TabOrder = 0
-        object btnPayloads8: TLabel
+        object btnPayload1: TLabel
           Left = 4
           Height = 25
           Top = 0
@@ -79,7 +80,7 @@ object frmMain: TfrmMain
           Transparent = False
           WordWrap = True
         end
-        object btnPayloads9: TLabel
+        object btnPayload3: TLabel
           Left = 208
           Height = 25
           Top = 0
@@ -96,7 +97,7 @@ object frmMain: TfrmMain
           Transparent = False
           WordWrap = True
         end
-        object btnPayloads10: TLabel
+        object btnPayload2: TLabel
           Left = 106
           Height = 25
           Top = 0
@@ -212,7 +213,7 @@ object frmMain: TfrmMain
           ParentFont = False
           OnClick = btnCloseClick
         end
-        object btnPayloads11: TLabel
+        object btnGPS: TLabel
           Left = 4
           Height = 25
           Top = 0
@@ -230,7 +231,7 @@ object frmMain: TfrmMain
           Transparent = False
           WordWrap = True
         end
-        object btnPayloads12: TLabel
+        object btnHabHub: TLabel
           Left = 100
           Height = 25
           Top = 0
@@ -248,7 +249,7 @@ object frmMain: TfrmMain
           Transparent = False
           WordWrap = True
         end
-        object btnPayloads13: TLabel
+        object btnGateway1: TLabel
           Left = 52
           Height = 25
           Top = 0
@@ -266,7 +267,7 @@ object frmMain: TfrmMain
           Transparent = False
           WordWrap = True
         end
-        object btnPayloads14: TLabel
+        object btnUDP: TLabel
           Left = 148
           Height = 25
           Top = 0

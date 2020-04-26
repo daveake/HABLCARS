@@ -9,7 +9,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, main, base, sourcesform, splash, Miscellaneous, payloads, direction,
-  navigate, ssdv, log, settings
+  navigate, ssdv, log, settings, GPSSource
   { you can add units after this };
 
 {$R *.res}

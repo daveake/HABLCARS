@@ -37,9 +37,11 @@ type
     private
         Sources: Array[1..6] of TSourcePanel;
         GPSSource: TGPSSource;
+        CarUploader: TCarUpload;
         procedure NewGPSPosition(Timestamp: TDateTime; Latitude, Longitude, Altitude, Direction: Double; UsingCompass: Boolean);
         procedure GPSCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
         procedure HABCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
+        procedure CarStatusCallback(SourceID: Integer; IsActive, OK: Boolean);
     public
 
     end;
@@ -51,7 +53,7 @@ implementation
 
 {$R *.lfm}
 
-uses directions;
+uses main;
 
 { TfrmSources }
 
@@ -98,17 +100,21 @@ begin
 
     frmMain.NewPosition(0, GPSPosition);
 
-    //if CarUploader <> nil then begin
-    //    CarPosition.InUse := True;
-    //    CarPosition.TimeStamp := TTimeZone.Local.ToUniversalTime(Now);
-    //    CarPosition.Latitude := Position.Latitude;
-    //    CarPosition.Longitude := Position.Longitude;
-    //    CarPosition.Altitude := Position.Altitude;
-    //
-    //    CarUploader.SetPosition(CarPosition);
-    //end;
+    if CarUploader <> nil then begin
+        CarPosition.InUse := True;
+        CarPosition.TimeStamp := GPSPosition.TimeStamp;
+        CarPosition.Latitude := GPSPosition.Latitude;
+        CarPosition.Longitude := GPSPosition.Longitude;
+        CarPosition.Altitude := GPSPosition.Altitude;
+
+        CarUploader.SetPosition(CarPosition);
+    end;
 end;
 
+procedure TfrmSources.CarStatusCallback(SourceID: Integer; IsActive, OK: Boolean);
+begin
+    frmMain.UploadStatus(SourceID, IsActive, OK);
+end;
 
 procedure TfrmSources.GPSCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
 begin
@@ -126,7 +132,7 @@ begin
     lblGateway1RSSI.Caption := '';
 
     // Car uploader
-    //CarUploader := TCarUpload.Create(CarStatusCallback);
+    CarUploader := TCarUpload.Create(CarStatusCallback);
 
     // Habitat uploader
 //    HabitatUploader := THabitatThread.Create(HabitatStatusCallback);
