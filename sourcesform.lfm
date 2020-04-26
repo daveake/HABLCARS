@@ -75,6 +75,63 @@ inherited frmSources: TfrmSources
         end
       end
     end
+    object Panel3: TPanel[1]
+      Left = 2
+      Height = 77
+      Top = 105
+      Width = 696
+      Align = alTop
+      BorderSpacing.Around = 2
+      BevelOuter = bvNone
+      Caption = 'Panel3'
+      ClientHeight = 77
+      ClientWidth = 696
+      Color = 7331825
+      ParentColor = False
+      TabOrder = 1
+      object Panel4: TPanel
+        Left = 2
+        Height = 73
+        Top = 2
+        Width = 692
+        Align = alClient
+        BorderSpacing.Around = 2
+        BevelOuter = bvNone
+        Caption = 'Panel2'
+        ClientHeight = 73
+        ClientWidth = 692
+        Color = clBlack
+        ParentColor = False
+        TabOrder = 0
+        object Label3: TLabel
+          Left = 4
+          Height = 30
+          Top = 0
+          Width = 688
+          Align = alTop
+          BorderSpacing.Left = 4
+          Caption = 'GPS'
+          Font.Color = clWhite
+          Font.Height = -21
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblGPS: TLabel
+          Left = 2
+          Height = 30
+          Top = 32
+          Width = 688
+          Align = alTop
+          Alignment = taCenter
+          BorderSpacing.Around = 2
+          Caption = 'Position'
+          Font.Color = clWhite
+          Font.Height = -21
+          ParentColor = False
+          ParentFont = False
+        end
+      end
+    end
   end
   object Label2: TLabel[1]
     Left = 0

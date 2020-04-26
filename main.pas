@@ -36,11 +36,9 @@ type
     lblSources: TLabel;
     btnPayloadsSpace7: TLabel;
     btnPayloadsSpace8: TLabel;
-    btnClose: TLabel;
-    Label2: TLabel;
     Label3: TLabel;
     lblPayload: TLabel;
-    lblPayload1: TLabel;
+    lblGPS: TLabel;
     pnlBottomBar: TPanel;
     pnlCentre: TPanel;
     pnlTopBar1: TPanel;
@@ -110,7 +108,7 @@ begin
 
     //LoadMapIfNotLoaded;
 
-    frmSplash.lblLoading.Caption := '';
+    frmSplash.lblLoading.Caption := 'ACCESS GRANTED';
 
     //lblGPS.Text := '';
 end;

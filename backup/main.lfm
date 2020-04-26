@@ -1,0 +1,615 @@
+object frmMain: TfrmMain
+  Left = 246
+  Height = 480
+  Top = 882
+  Width = 800
+  BorderStyle = bsDialog
+  Caption = 'LCARS - HAB Chase App'
+  ClientHeight = 480
+  ClientWidth = 800
+  Color = clBlack
+  OnActivate = FormActivate
+  Position = poScreenCenter
+  LCLVersion = '2.0.6.0'
+  object pnlTop: TPanel
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 800
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 800
+    Color = clBlack
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 0
+    OnResize = pnlTopResize
+    object shpTopLeft: TShape
+      Left = 0
+      Height = 25
+      Top = 0
+      Width = 25
+      Align = alLeft
+      Brush.Color = 7331825
+      Pen.Width = 0
+      Shape = stCircle
+    end
+    object pnlTopBar: TPanel
+      Left = 12
+      Height = 25
+      Top = 0
+      Width = 775
+      BevelOuter = bvNone
+      ClientHeight = 25
+      ClientWidth = 775
+      Color = 7331825
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 0
+      object pnlTopBar1: TPanel
+        Left = 100
+        Height = 25
+        Top = 0
+        Width = 310
+        Align = alLeft
+        BorderSpacing.Left = 100
+        BevelOuter = bvNone
+        ClientHeight = 25
+        ClientWidth = 310
+        Color = clBlack
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        object btnPayloads8: TLabel
+          Left = 4
+          Height = 25
+          Top = 0
+          Width = 98
+          Align = alLeft
+          Alignment = taCenter
+          AutoSize = False
+          BorderSpacing.Left = 4
+          Color = 1355723
+          Font.Height = -25
+          Font.Name = 'Swiss911 UCm BT'
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+        end
+        object btnPayloads9: TLabel
+          Left = 208
+          Height = 25
+          Top = 0
+          Width = 98
+          Align = alLeft
+          Alignment = taCenter
+          AutoSize = False
+          BorderSpacing.Left = 4
+          Color = 1355723
+          Font.Height = -25
+          Font.Name = 'Swiss911 UCm BT'
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+        end
+        object btnPayloads10: TLabel
+          Left = 106
+          Height = 25
+          Top = 0
+          Width = 98
+          Align = alLeft
+          Alignment = taCenter
+          AutoSize = False
+          BorderSpacing.Left = 4
+          Color = 1355723
+          Font.Height = -25
+          Font.Name = 'Swiss911 UCm BT'
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+        end
+      end
+      object lblPayload: TLabel
+        Left = 410
+        Height = 23
+        Top = 2
+        Width = 365
+        Align = alClient
+        Alignment = taCenter
+        BorderSpacing.Top = 2
+        Font.Height = -20
+        Font.Name = 'Swiss911 XCm BT'
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object Shape2: TShape
+      Left = 775
+      Height = 25
+      Top = 0
+      Width = 25
+      Align = alRight
+      Brush.Color = 7331825
+      Pen.Width = 0
+      Shape = stCircle
+    end
+    object pnlTopLeft: TPanel
+      Left = 0
+      Height = 12
+      Top = 13
+      Width = 12
+      BevelOuter = bvNone
+      Color = 7331825
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 25
+    Top = 455
+    Width = 800
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 800
+    Color = clBlack
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 1
+    OnResize = pnlBottomResize
+    object Shape3: TShape
+      Left = 0
+      Height = 25
+      Top = 0
+      Width = 25
+      Align = alLeft
+      Brush.Color = 7331825
+      Pen.Width = 0
+      Shape = stCircle
+    end
+    object pnlBottomBar: TPanel
+      Left = 12
+      Height = 25
+      Top = 0
+      Width = 775
+      BevelOuter = bvNone
+      ClientHeight = 25
+      ClientWidth = 775
+      Color = 7331825
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 0
+      object pnlTopBar2: TPanel
+        Left = 100
+        Height = 25
+        Top = 0
+        Width = 196
+        Align = alLeft
+        BorderSpacing.Left = 100
+        BevelOuter = bvNone
+        ClientHeight = 25
+        ClientWidth = 196
+        Color = clBlack
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        object Label3: TLabel
+          Left = 762
+          Height = 30
+          Top = -3
+          Width = 14
+          Caption = 'X'
+          Font.Height = -21
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          OnClick = btnCloseClick
+        end
+        object btnPayloads11: TLabel
+          Left = 4
+          Height = 25
+          Top = 0
+          Width = 44
+          Align = alLeft
+          Alignment = taCenter
+          AutoSize = False
+          BorderSpacing.Left = 4
+          Caption = 'GPS'
+          Color = 1355723
+          Font.Height = -25
+          Font.Name = 'Swiss911 UCm BT'
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+        end
+        object btnPayloads12: TLabel
+          Left = 100
+          Height = 25
+          Top = 0
+          Width = 44
+          Align = alLeft
+          Alignment = taCenter
+          AutoSize = False
+          BorderSpacing.Left = 4
+          Caption = 'HH'
+          Color = 1355723
+          Font.Height = -25
+          Font.Name = 'Swiss911 UCm BT'
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+        end
+        object btnPayloads13: TLabel
+          Left = 52
+          Height = 25
+          Top = 0
+          Width = 44
+          Align = alLeft
+          Alignment = taCenter
+          AutoSize = False
+          BorderSpacing.Left = 4
+          Caption = 'GW'
+          Color = 1355723
+          Font.Height = -25
+          Font.Name = 'Swiss911 UCm BT'
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+        end
+        object btnPayloads14: TLabel
+          Left = 148
+          Height = 25
+          Top = 0
+          Width = 44
+          Align = alLeft
+          Alignment = taCenter
+          AutoSize = False
+          BorderSpacing.Left = 4
+          Caption = 'UDP'
+          Color = 1355723
+          Font.Height = -25
+          Font.Name = 'Swiss911 UCm BT'
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+        end
+      end
+      object lblGPS: TLabel
+        Left = 296
+        Height = 23
+        Top = 2
+        Width = 479
+        Align = alClient
+        Alignment = taCenter
+        BorderSpacing.Top = 2
+        Font.Height = -20
+        Font.Name = 'Swiss911 XCm BT'
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object Shape4: TShape
+      Left = 775
+      Height = 25
+      Top = 0
+      Width = 25
+      Align = alRight
+      Brush.Color = 7331825
+      Pen.Width = 0
+      Shape = stCircle
+    end
+    object Panel6: TPanel
+      Left = 0
+      Height = 12
+      Top = 0
+      Width = 12
+      BevelOuter = bvNone
+      Color = 7331825
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object pnlButtons: TPanel
+    Left = 0
+    Height = 430
+    Top = 25
+    Width = 96
+    Align = alLeft
+    BevelOuter = bvNone
+    ClientHeight = 430
+    ClientWidth = 96
+    Color = clBlack
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    object btnPayloads: TLabel
+      Left = 0
+      Height = 40
+      Top = 0
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Payloads '
+      Color = 7331825
+      Font.Height = -37
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object btnPayloadsSpace1: TLabel
+      Left = 0
+      Height = 12
+      Top = 44
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Top = 4
+      Color = 7331825
+      Font.Height = -32
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object btnPayloads1: TLabel
+      Left = 0
+      Height = 40
+      Top = 224
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'SSDV '
+      Color = 7331825
+      Font.Height = -37
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object btnPayloads2: TLabel
+      Left = 0
+      Height = 40
+      Top = 168
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Navigate '
+      Color = 7331825
+      Font.Height = -37
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object btnPayloads3: TLabel
+      Left = 0
+      Height = 40
+      Top = 112
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Map '
+      Color = 7331825
+      Font.Height = -37
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object btnPayloads4: TLabel
+      Left = 0
+      Height = 40
+      Top = 56
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Direction '
+      Color = 7331825
+      Font.Height = -37
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object btnSources: TLabel
+      Left = 0
+      Height = 40
+      Top = 392
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Sources '
+      Color = 7331825
+      Font.Height = -37
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+      OnClick = btnlSourcesClick
+    end
+    object btnPayloads6: TLabel
+      Left = 0
+      Height = 40
+      Top = 336
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Settings '
+      Color = 7331825
+      Font.Height = -37
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object btnPayloads7: TLabel
+      Left = 0
+      Height = 40
+      Top = 280
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Log '
+      Color = 7331825
+      Font.Height = -37
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object btnPayloadsSpace2: TLabel
+      Left = 0
+      Height = 12
+      Top = 100
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Top = 4
+      Color = 7331825
+      Font.Height = -32
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object btnPayloadsSpace3: TLabel
+      Left = 0
+      Height = 12
+      Top = 156
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Top = 4
+      Color = 7331825
+      Font.Height = -32
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object btnPayloadsSpace4: TLabel
+      Left = 0
+      Height = 12
+      Top = 212
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Top = 4
+      Color = 7331825
+      Font.Height = -32
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object btnPayloadsSpace5: TLabel
+      Left = 0
+      Height = 12
+      Top = 268
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Top = 4
+      Color = 7331825
+      Font.Height = -32
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object lblSources: TLabel
+      Left = 0
+      Height = 12
+      Top = 380
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Top = 4
+      Color = 7331825
+      Font.Height = -32
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      OnClick = btnlSourcesClick
+    end
+    object btnPayloadsSpace7: TLabel
+      Left = 0
+      Height = 12
+      Top = 324
+      Width = 96
+      Align = alTop
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Top = 4
+      Color = 7331825
+      Font.Height = -32
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+  end
+  object pnlMain: TPanel
+    Left = 97
+    Height = 428
+    Top = 26
+    Width = 702
+    Align = alClient
+    BorderSpacing.Around = 1
+    BevelOuter = bvNone
+    ClientHeight = 428
+    ClientWidth = 702
+    Color = 7331825
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 3
+    object pnlCentre: TPanel
+      Left = 1
+      Height = 426
+      Top = 1
+      Width = 700
+      Align = alClient
+      BorderSpacing.Around = 1
+      BevelOuter = bvNone
+      Color = clBlack
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+  object tmrLoad: TTimer
+    Enabled = False
+    Interval = 10
+    OnTimer = tmrLoadTimer
+    left = 176
+    top = 136
+  end
+end

@@ -84,15 +84,15 @@ begin
                             // AClient.IOHandler.CloseGracefully;
                             SyncCallback(SourceID, False, 'Disconnected from ' + HostOrIP, Position);
                             AClient.CloseSocket;
-                            Sleep(5000);
+                            Sleep(1000);
                         end else begin
                             SyncCallback(SourceID, False, 'No Connection to ' + HostOrIP, Position);
-                            Sleep(5000);
+                            Sleep(1000);
                         end;
                     except
                         // Wait before retrying
                         SyncCallback(SourceID, False, 'No Connection to ' + HostOrIP, Position);
-                        Sleep(5000);
+                        Sleep(1000);
                     end;
                 end;
             end;

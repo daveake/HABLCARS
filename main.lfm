@@ -1,9 +1,9 @@
 object frmMain: TfrmMain
-  Left = 1922
+  Left = 246
   Height = 480
-  Top = 9
+  Top = 882
   Width = 800
-  BorderStyle = bsNone
+  BorderStyle = bsDialog
   Caption = 'LCARS - HAB Chase App'
   ClientHeight = 480
   ClientWidth = 800
@@ -47,18 +47,6 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
       TabOrder = 0
-      object btnClose: TLabel
-        Left = 762
-        Height = 30
-        Top = -4
-        Width = 14
-        Caption = 'X'
-        Font.Height = -21
-        Font.Style = [fsBold]
-        ParentColor = False
-        ParentFont = False
-        OnClick = btnCloseClick
-      end
       object pnlTopBar1: TPanel
         Left = 100
         Height = 25
@@ -73,18 +61,6 @@ object frmMain: TfrmMain
         ParentColor = False
         ParentFont = False
         TabOrder = 0
-        object Label2: TLabel
-          Left = 762
-          Height = 30
-          Top = -3
-          Width = 14
-          Caption = 'X'
-          Font.Height = -21
-          Font.Style = [fsBold]
-          ParentColor = False
-          ParentFont = False
-          OnClick = btnCloseClick
-        end
         object btnPayloads8: TLabel
           Left = 4
           Height = 25
@@ -308,13 +284,13 @@ object frmMain: TfrmMain
           WordWrap = True
         end
       end
-      object lblPayload1: TLabel
+      object lblGPS: TLabel
         Left = 296
         Height = 23
         Top = 2
         Width = 479
         Align = alClient
-        Alignment = taCenter
+        Alignment = taRightJustify
         BorderSpacing.Top = 2
         Font.Height = -20
         Font.Name = 'Swiss911 XCm BT'

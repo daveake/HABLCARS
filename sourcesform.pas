@@ -6,7 +6,7 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-    base, miscellaneous, source, GatewaySource;
+    base, miscellaneous, source, GatewaySource, GPSSource, CarUpload;
 
 type
   TSourcePanel = record
@@ -25,13 +25,20 @@ type
     TfrmSources = class(TfrmBase)
         Label1: TLabel;
         Label2: TLabel;
+        Label3: TLabel;
         lblGateway1: TLabel;
         lblGateway1RSSI: TLabel;
+        lblGPS: TLabel;
         Panel1: TPanel;
         Panel2: TPanel;
+        Panel3: TPanel;
+        Panel4: TPanel;
         procedure FormCreate(Sender: TObject);
     private
         Sources: Array[1..6] of TSourcePanel;
+        GPSSource: TGPSSource;
+        procedure NewGPSPosition(Timestamp: TDateTime; Latitude, Longitude, Altitude, Direction: Double; UsingCompass: Boolean);
+        procedure GPSCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
         procedure HABCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
     public
 
@@ -48,6 +55,69 @@ uses Main;
 
 { TfrmSources }
 
+procedure TfrmSources.NewGPSPosition(Timestamp: TDateTime; Latitude, Longitude, Altitude, Direction: Double; UsingCompass: Boolean);
+var
+    GPSPosition: THABPosition;
+    Temp: String;
+    CarPosition: TCarPosition;
+begin
+    GPSPosition := default(THABPosition);
+
+    Temp := FormatDateTime('hh:nn:ss', Timestamp) + '  ' +
+                           Format('%2.6f', [Latitude]) + ',' +
+                           Format('%2.6f', [Longitude]) + ', ' +
+                           Format('%.0f', [Altitude]) + 'm ';
+    frmMain.lblGPS.Caption := Temp;
+
+    lblGPS.Caption := Temp;
+
+    // if Position.TimeStamp <> Timestamp then begin
+        GPSPosition.ReceivedAt := Now;
+    // end;
+
+    GPSPosition.TimeStamp := Timestamp;
+    GPSPosition.Latitude := Latitude;
+    GPSPosition.Longitude := Longitude;
+    GPSPosition.Altitude := Altitude;
+
+    //if IsNan(Direction) then begin
+    //    Position.DirectionValid := False;
+    //end else begin
+    //    Position.DirectionValid := True;
+    //    if UsingCompass then begin
+    //        lblDirection.Text := 'Compass Direction = ' + FormatFloat('0.0', Direction);
+    //    end else begin
+    //        lblDirection.Text := 'GPS Direction = ' + FormatFloat('0.0', Direction);
+    //    end;
+    //    Position.Direction := Direction;
+    //end;
+
+    GPSPosition.InUse := True;
+    GPSPosition.IsChase := True;
+    GPSPosition.PayloadID := 'Chase';
+
+    frmMain.NewPosition(0, GPSPosition);
+
+    //if CarUploader <> nil then begin
+    //    CarPosition.InUse := True;
+    //    CarPosition.TimeStamp := TTimeZone.Local.ToUniversalTime(Now);
+    //    CarPosition.Latitude := Position.Latitude;
+    //    CarPosition.Longitude := Position.Longitude;
+    //    CarPosition.Altitude := Position.Altitude;
+    //
+    //    CarUploader.SetPosition(CarPosition);
+    //end;
+end;
+
+
+procedure TfrmSources.GPSCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
+begin
+    if HABPosition.InUse and not Application.Terminated then begin
+        NewGPSPosition(HABPosition.TimeStamp, HABPosition.Latitude, HABPosition.Longitude, HABPosition.Altitude, HABPosition.Direction, False);
+    end;
+end;
+
+
 procedure TfrmSources.FormCreate(Sender: TObject);
 begin
     inherited;
@@ -60,18 +130,11 @@ begin
 
     // Habitat uploader
 //    HabitatUploader := THabitatThread.Create(HabitatStatusCallback);
-//
-//    // GPS Source
-//{$IFDEF MSWINDOWS}
-//    GPSSource := TGPSSource.Create(GPS_SOURCE, 'GPS', GPSCallback);
-//{$ELSE}
-//    if not LocationSensor.Active then begin
-//        LocationSensor.Active := True;
-//        tmrGPS.Enabled := True;
-//    end;
-//{$ENDIF}
-//
-//    // Radio sources
+
+    // GPS Source
+    GPSSource := TGPSSource.Create(GPS_SOURCE, 'GPS', @GPSCallback);
+
+    // Radio sources
     Sources[GATEWAY_SOURCE_1].ValueLabel := lblGateway1;
     Sources[GATEWAY_SOURCE_1].Source := TGatewaySource.Create(GATEWAY_SOURCE_1, 'LoRaGateway1', @HABCallback);
     Sources[GATEWAY_SOURCE_1].RSSILabel := lblGateway1RSSI;
