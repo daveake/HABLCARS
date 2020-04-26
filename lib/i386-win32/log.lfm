@@ -1,0 +1,5 @@
+inherited frmLog: TfrmLog
+  Left = 2031
+  Top = 888
+  Caption = 'Log'
+end

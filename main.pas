@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  LCLTMSFNCMaps, Base, SourcesForm, Splash, Source, Map;
+  LCLTMSFNCMaps, Base, SourcesForm, Splash, Source,
+  payloads, direction, navigate, map, ssdv, log, settings;
 
 type
 
@@ -14,28 +15,28 @@ type
 
   TfrmMain = class(TForm)
     btnPayloads: TLabel;
-    btnPayloads1: TLabel;
+    btnSSDV: TLabel;
     btnPayloads10: TLabel;
     btnPayloads11: TLabel;
     btnPayloads12: TLabel;
     btnPayloads13: TLabel;
     btnPayloads14: TLabel;
-    btnPayloads2: TLabel;
+    btnNavigate: TLabel;
     btnMap: TLabel;
-    btnPayloads4: TLabel;
+    btnDirection: TLabel;
     btnSources: TLabel;
-    btnPayloads6: TLabel;
-    btnPayloads7: TLabel;
+    btnSettings: TLabel;
+    btnLog: TLabel;
     btnPayloads8: TLabel;
     btnPayloads9: TLabel;
-    btnPayloadsSpace1: TLabel;
+    lblDirection: TLabel;
     pnlMapHeader: TButton;
     lblMap: TLabel;
-    btnPayloadsSpace3: TLabel;
-    btnPayloadsSpace4: TLabel;
-    btnPayloadsSpace5: TLabel;
+    lblNavigate: TLabel;
+    lblSSDV: TLabel;
+    lblLog: TLabel;
     lblSources: TLabel;
-    btnPayloadsSpace7: TLabel;
+    lblSettings: TLabel;
     btnPayloadsSpace8: TLabel;
     Label3: TLabel;
     lblPayload: TLabel;
@@ -59,8 +60,14 @@ type
     tmrLoad: TTimer;
     GMap: TTMSFNCMaps;
     procedure btnCloseClick(Sender: TObject);
+    procedure btnDirectionClick(Sender: TObject);
+    procedure btnLogClick(Sender: TObject);
     procedure btnlSourcesClick(Sender: TObject);
     procedure btnMapClick(Sender: TObject);
+    procedure btnNavigateClick(Sender: TObject);
+    procedure btnPayloadsClick(Sender: TObject);
+    procedure btnSettingsClick(Sender: TObject);
+    procedure btnSSDVClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure pnlBottomResize(Sender: TObject);
     procedure pnlTopBarClick(Sender: TObject);
@@ -99,18 +106,19 @@ procedure TfrmMain.tmrLoadTimer(Sender: TObject);
 begin
     tmrLoad.Enabled := False;
 
-    // Main forms
-    //frmPayloads := TfrmPayloads.Create(nil);
-    //frmSSDV := TfrmSSDV.Create(nil);
-    //frmDirection := TfrmDirection.Create(nil);
-    //frmNavigate := TfrmNavigate.Create(nil);
-    //frmLog := TfrmLog.Create(nil);
+    // Main Forms
+    frmMap := TfrmMap.Create(nil);
+    frmPayloads := TfrmPayloads.Create(nil);
+    frmDirection := TfrmDirection.Create(nil);
+    frmNavigate := TfrmNavigate.Create(nil);
+    frmSSDV := TfrmSSDV.Create(nil);
+    frmLog := TfrmLog.Create(nil);
+    frmSettings := TfrmSettings.Create(nil);
 
     // Sources Form
     frmSources := TfrmSources.Create(nil);
 
-    // Target Forms
-    frmMap := TfrmMap.Create(nil);
+
 
     // frmSources.EnableCompass;
 
@@ -136,6 +144,16 @@ begin
     Close;
 end;
 
+procedure TfrmMain.btnDirectionClick(Sender: TObject);
+begin
+    LoadForm(btnDirection, frmDirection);
+end;
+
+procedure TfrmMain.btnLogClick(Sender: TObject);
+begin
+    LoadForm(btnLog, frmLog);
+end;
+
 procedure TfrmMain.btnlSourcesClick(Sender: TObject);
 begin
     LoadForm(btnSources, frmSources);
@@ -144,6 +162,26 @@ end;
 procedure TfrmMain.btnMapClick(Sender: TObject);
 begin
      LoadForm(btnMap, frmMap);
+end;
+
+procedure TfrmMain.btnNavigateClick(Sender: TObject);
+begin
+    LoadForm(btnNavigate, frmNavigate);
+end;
+
+procedure TfrmMain.btnPayloadsClick(Sender: TObject);
+begin
+    LoadForm(btnPayloads, frmPayloads);
+end;
+
+procedure TfrmMain.btnSettingsClick(Sender: TObject);
+begin
+    LoadForm(btnSettings, frmSettings);
+end;
+
+procedure TfrmMain.btnSSDVClick(Sender: TObject);
+begin
+    LoadForm(btnSSDV, frmSSDV);
 end;
 
 procedure TfrmMain.FormActivate(Sender: TObject);
@@ -192,15 +230,14 @@ end;
 
 procedure TfrmMain.ShowSelectedButton(Button: TLabel);
 begin
-    //btnPayloads.TextSettings.Font.Style := btnPayloads.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnMap.TextSettings.Font.Style := btnMap.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnSSDV.TextSettings.Font.Style := btnSSDV.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnDirection.TextSettings.Font.Style := btnDirection.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnNavigate.TextSettings.Font.Style := btnNavigate.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnLog.TextSettings.Font.Style := btnLog.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    //btnSettings.TextSettings.Font.Style := btnSettings.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-
+    btnPayloads.Font.Style := btnPayloads.Font.Style - [TFontStyle.fsUnderline];
+    btnDirection.Font.Style := btnDirection.Font.Style - [TFontStyle.fsUnderline];
     btnMap.Font.Style := btnMap.Font.Style - [TFontStyle.fsUnderline];
+    btnNavigate.Font.Style := btnNavigate.Font.Style - [TFontStyle.fsUnderline];
+    btnSSDV.Font.Style := btnSSDV.Font.Style - [TFontStyle.fsUnderline];
+    btnLog.Font.Style := btnLog.Font.Style - [TFontStyle.fsUnderline];
+    btnSettings.Font.Style := btnSettings.Font.Style - [TFontStyle.fsUnderline];
+
     btnSources.Font.Style := btnSources.Font.Style - [TFontStyle.fsUnderline];
 
     if Button <> nil then begin

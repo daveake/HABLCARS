@@ -1,0 +1,5 @@
+inherited frmSettings: TfrmSettings
+  Left = 2765
+  Top = 888
+  Caption = 'Settings'
+end

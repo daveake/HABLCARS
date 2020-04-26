@@ -1,0 +1,3 @@
+inherited frmPayloads: TfrmPayloads
+  Caption = 'Payloads'
+end

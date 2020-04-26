@@ -34,7 +34,7 @@ var
 
 implementation
 
-uses Main;
+uses main;
 
 {$R *.lfm}
 

@@ -51,7 +51,7 @@ implementation
 
 {$R *.lfm}
 
-uses Main;
+uses main;
 
 { TfrmSources }
 

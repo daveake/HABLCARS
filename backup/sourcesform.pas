@@ -51,9 +51,64 @@ implementation
 
 {$R *.lfm}
 
-uses Main;
+uses directions;
 
 { TfrmSources }
+
+procedure TfrmSources.NewGPSPosition(Timestamp: TDateTime; Latitude, Longitude, Altitude, Direction: Double; UsingCompass: Boolean);
+var
+    GPSPosition: THABPosition;
+    Temp: String;
+    CarPosition: TCarPosition;
+begin
+    GPSPosition := default(THABPosition);
+
+    Temp := FormatDateTime('hh:nn:ss', Timestamp) + '  ' +
+                           Format('%2.6f', [Latitude]) + ',' +
+                           Format('%2.6f', [Longitude]) + ', ' +
+                           Format('%.0f', [Altitude]) + 'm ';
+    frmMain.lblGPS.Caption := Temp;
+
+    lblGPS.Caption := Temp;
+
+    // if Position.TimeStamp <> Timestamp then begin
+        GPSPosition.ReceivedAt := Now;
+    // end;
+
+    GPSPosition.TimeStamp := Timestamp;
+    GPSPosition.Latitude := Latitude;
+    GPSPosition.Longitude := Longitude;
+    GPSPosition.Altitude := Altitude;
+
+    //if IsNan(Direction) then begin
+    //    Position.DirectionValid := False;
+    //end else begin
+    //    Position.DirectionValid := True;
+    //    if UsingCompass then begin
+    //        lblDirection.Text := 'Compass Direction = ' + FormatFloat('0.0', Direction);
+    //    end else begin
+    //        lblDirection.Text := 'GPS Direction = ' + FormatFloat('0.0', Direction);
+    //    end;
+    //    Position.Direction := Direction;
+    //end;
+
+    GPSPosition.InUse := True;
+    GPSPosition.IsChase := True;
+    GPSPosition.PayloadID := 'Chase';
+
+    frmMain.NewPosition(0, GPSPosition);
+
+    //if CarUploader <> nil then begin
+    //    CarPosition.InUse := True;
+    //    CarPosition.TimeStamp := TTimeZone.Local.ToUniversalTime(Now);
+    //    CarPosition.Latitude := Position.Latitude;
+    //    CarPosition.Longitude := Position.Longitude;
+    //    CarPosition.Altitude := Position.Altitude;
+    //
+    //    CarUploader.SetPosition(CarPosition);
+    //end;
+end;
+
 
 procedure TfrmSources.GPSCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
 begin

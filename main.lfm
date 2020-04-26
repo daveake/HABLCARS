@@ -350,8 +350,9 @@ object frmMain: TfrmMain
       ParentFont = False
       Transparent = False
       WordWrap = True
+      OnClick = btnPayloadsClick
     end
-    object btnPayloadsSpace1: TLabel
+    object lblDirection: TLabel
       Left = 0
       Height = 12
       Top = 44
@@ -365,8 +366,9 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
       Transparent = False
+      OnClick = btnDirectionClick
     end
-    object btnPayloads1: TLabel
+    object btnSSDV: TLabel
       Left = 0
       Height = 40
       Top = 224
@@ -382,8 +384,9 @@ object frmMain: TfrmMain
       ParentFont = False
       Transparent = False
       WordWrap = True
+      OnClick = btnSSDVClick
     end
-    object btnPayloads2: TLabel
+    object btnNavigate: TLabel
       Left = 0
       Height = 40
       Top = 168
@@ -399,6 +402,7 @@ object frmMain: TfrmMain
       ParentFont = False
       Transparent = False
       WordWrap = True
+      OnClick = btnNavigateClick
     end
     object btnMap: TLabel
       Left = 0
@@ -418,7 +422,7 @@ object frmMain: TfrmMain
       WordWrap = True
       OnClick = btnMapClick
     end
-    object btnPayloads4: TLabel
+    object btnDirection: TLabel
       Left = 0
       Height = 40
       Top = 56
@@ -434,6 +438,7 @@ object frmMain: TfrmMain
       ParentFont = False
       Transparent = False
       WordWrap = True
+      OnClick = btnDirectionClick
     end
     object btnSources: TLabel
       Left = 0
@@ -453,7 +458,7 @@ object frmMain: TfrmMain
       WordWrap = True
       OnClick = btnlSourcesClick
     end
-    object btnPayloads6: TLabel
+    object btnSettings: TLabel
       Left = 0
       Height = 40
       Top = 336
@@ -469,8 +474,9 @@ object frmMain: TfrmMain
       ParentFont = False
       Transparent = False
       WordWrap = True
+      OnClick = btnSettingsClick
     end
-    object btnPayloads7: TLabel
+    object btnLog: TLabel
       Left = 0
       Height = 40
       Top = 280
@@ -486,6 +492,7 @@ object frmMain: TfrmMain
       ParentFont = False
       Transparent = False
       WordWrap = True
+      OnClick = btnLogClick
     end
     object lblMap: TLabel
       Left = 0
@@ -503,7 +510,7 @@ object frmMain: TfrmMain
       Transparent = False
       OnClick = btnMapClick
     end
-    object btnPayloadsSpace3: TLabel
+    object lblNavigate: TLabel
       Left = 0
       Height = 12
       Top = 156
@@ -517,8 +524,9 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
       Transparent = False
+      OnClick = btnNavigateClick
     end
-    object btnPayloadsSpace4: TLabel
+    object lblSSDV: TLabel
       Left = 0
       Height = 12
       Top = 212
@@ -532,8 +540,9 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
       Transparent = False
+      OnClick = btnSSDVClick
     end
-    object btnPayloadsSpace5: TLabel
+    object lblLog: TLabel
       Left = 0
       Height = 12
       Top = 268
@@ -547,6 +556,7 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
       Transparent = False
+      OnClick = btnLogClick
     end
     object lblSources: TLabel
       Left = 0
@@ -564,7 +574,7 @@ object frmMain: TfrmMain
       Transparent = False
       OnClick = btnlSourcesClick
     end
-    object btnPayloadsSpace7: TLabel
+    object lblSettings: TLabel
       Left = 0
       Height = 12
       Top = 324
@@ -578,6 +588,7 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
       Transparent = False
+      OnClick = btnSettingsClick
     end
   end
   object pnlMain: TPanel

@@ -8,7 +8,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, main, base, sourcesform, splash, Miscellaneous
+  Forms, main, base, sourcesform, splash, Miscellaneous, payloads, direction,
+  navigate, ssdv, log, settings
   { you can add units after this };
 
 {$R *.res}

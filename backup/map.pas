@@ -24,7 +24,7 @@ type
     protected
       function ProcessNewPosition(Index: Integer): Boolean; override;
     public
-      // procedure SetMapService(MapService: TTMSFNCMapsService);
+      procedure SetMapService(MapService: TTMSFNCMapsService);
       procedure LoadForm; override;
       procedure HideForm; override;
     end;
@@ -34,7 +34,7 @@ var
 
 implementation
 
-uses Main;
+uses directions;
 
 {$R *.lfm}
 
@@ -52,11 +52,11 @@ If you aren't going to use Google Maps then you don't need an API key so set it 
 THIS FILE IS SPECIFICALLY EXCLUDED in .gitignore TO AVOID SHARING API KEYS
 *)
 
-//procedure TfrmMap.SetMapService(MapService: TTMSFNCMapsService);
-//begin
-//    frmMain.GMap.APIKey := GoogleMapsAPIKey;
-//    frmMain.GMap.Service := MapService;
-//end;
+procedure TfrmMap.SetMapService(MapService: TTMSFNCMapsService);
+begin
+    frmMain.GMap.APIKey := GoogleMapsAPIKey;
+    frmMain.GMap.Service := MapService;
+end;
 
 procedure TfrmMap.FormCreate(Sender: TObject);
 begin
@@ -105,7 +105,7 @@ begin
         if Index = 0 then begin
             AddOrUpdateMapMarker('Car', Positions[0].Position.Latitude, Positions[0].Position.Longitude, 'car-blue');
             if FollowMode = fmCar then begin
-                // frmMain.GMap.SetCenterCoordinate(Positions[Index].Position.Latitude, Positions[Index].Position.Longitude);
+                frmMain.GMap.SetCenterCoordinate(Positions[Index].Position.Latitude, Positions[Index].Position.Longitude);
             end;
         end else begin
             AddOrUpdateMapMarker(Positions[Index].Position.PayloadID,
@@ -129,17 +129,13 @@ end;
 
 procedure TfrmMap.LoadForm;
 begin
-    // inherited;
-
-    // frmMain.GMap.Visible := True;
+    inherited;
 end;
 
 
 procedure TfrmMap.HideForm;
 begin
-    // frmMain.GMap.Visible := False;
-
-    // inherited;
+    inherited;
 end;
 
 end.
