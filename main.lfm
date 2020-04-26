@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 246
+  Left = 1066
   Height = 480
-  Top = 882
+  Top = 907
   Width = 800
   BorderStyle = bsDialog
   Caption = 'LCARS - HAB Chase App'
@@ -47,6 +47,7 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
       TabOrder = 0
+      OnClick = pnlTopBarClick
       object pnlTopBar1: TPanel
         Left = 100
         Height = 25
@@ -399,7 +400,7 @@ object frmMain: TfrmMain
       Transparent = False
       WordWrap = True
     end
-    object btnPayloads3: TLabel
+    object btnMap: TLabel
       Left = 0
       Height = 40
       Top = 112
@@ -415,6 +416,7 @@ object frmMain: TfrmMain
       ParentFont = False
       Transparent = False
       WordWrap = True
+      OnClick = btnMapClick
     end
     object btnPayloads4: TLabel
       Left = 0
@@ -485,7 +487,7 @@ object frmMain: TfrmMain
       Transparent = False
       WordWrap = True
     end
-    object btnPayloadsSpace2: TLabel
+    object lblMap: TLabel
       Left = 0
       Height = 12
       Top = 100
@@ -499,6 +501,7 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
       Transparent = False
+      OnClick = btnMapClick
     end
     object btnPayloadsSpace3: TLabel
       Left = 0
@@ -599,10 +602,51 @@ object frmMain: TfrmMain
       Align = alClient
       BorderSpacing.Around = 1
       BevelOuter = bvNone
+      ClientHeight = 426
+      ClientWidth = 700
       Color = clBlack
       ParentColor = False
       ParentFont = False
       TabOrder = 0
+      object pnlMap: TPanel
+        Left = 0
+        Height = 426
+        Top = 0
+        Width = 700
+        Align = alClient
+        BevelOuter = bvNone
+        ClientHeight = 426
+        ClientWidth = 700
+        Color = clBlack
+        ParentColor = False
+        TabOrder = 0
+        Visible = False
+        object pnlMapHeader: TButton
+          Left = 0
+          Height = 36
+          Top = 0
+          Width = 700
+          Align = alTop
+          TabOrder = 0
+        end
+        object GMap: TTMSFNCMaps
+          Left = 0
+          Height = 390
+          Top = 36
+          Width = 700
+          Align = alClient
+          DoubleBuffered = True
+          TabOrder = 1
+          Polylines = <>
+          Polygons = <>
+          Circles = <>
+          Rectangles = <>
+          Markers = <>
+          Options.DefaultLatitude = 40.689247
+          Options.DefaultLongitude = -74.044502
+          Service = msOpenLayers
+        end
+      end
     end
   end
   object tmrLoad: TTimer

@@ -1,0 +1,6 @@
+inherited frmMap: TfrmMap
+  Left = 2258
+  Top = 620
+  Caption = 'Map'
+  OnCreate = FormCreate
+end

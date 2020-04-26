@@ -1,0 +1,5 @@
+inherited frmTarget: TfrmTarget
+  Left = 3126
+  Top = 654
+  Caption = 'Target'
+end

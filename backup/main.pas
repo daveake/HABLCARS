@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Base, SourcesForm, Splash, Source;
+  LCLTMSFNCMaps, Base, SourcesForm, Splash, Source, Map;
 
 type
 
@@ -21,7 +21,7 @@ type
     btnPayloads13: TLabel;
     btnPayloads14: TLabel;
     btnPayloads2: TLabel;
-    btnPayloads3: TLabel;
+    btnMap: TLabel;
     btnPayloads4: TLabel;
     btnSources: TLabel;
     btnPayloads6: TLabel;
@@ -29,7 +29,8 @@ type
     btnPayloads8: TLabel;
     btnPayloads9: TLabel;
     btnPayloadsSpace1: TLabel;
-    btnPayloadsSpace2: TLabel;
+    pnlMapHeader: TButton;
+    lblMap: TLabel;
     btnPayloadsSpace3: TLabel;
     btnPayloadsSpace4: TLabel;
     btnPayloadsSpace5: TLabel;
@@ -41,6 +42,7 @@ type
     lblGPS: TLabel;
     pnlBottomBar: TPanel;
     pnlCentre: TPanel;
+    pnlMap: TPanel;
     pnlTopBar1: TPanel;
     pnlTopBar2: TPanel;
     pnlTopLeft: TPanel;
@@ -55,10 +57,13 @@ type
     Shape3: TShape;
     Shape4: TShape;
     tmrLoad: TTimer;
+    TMSFNCMaps1: TTMSFNCMaps;
     procedure btnCloseClick(Sender: TObject);
     procedure btnlSourcesClick(Sender: TObject);
+    procedure btnMapClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure pnlBottomResize(Sender: TObject);
+    procedure pnlTopBarClick(Sender: TObject);
     procedure pnlTopResize(Sender: TObject);
     procedure Shape2MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -104,6 +109,9 @@ begin
     // Sources Form
     frmSources := TfrmSources.Create(nil);
 
+    // Target Forms
+    frmMap := TfrmMap.Create(nil);
+
     // frmSources.EnableCompass;
 
     //LoadMapIfNotLoaded;
@@ -118,6 +126,11 @@ begin
     pnlBottomBar.Width := pnlBottom.Width - pnlBottom.Height;
 end;
 
+procedure TfrmMain.pnlTopBarClick(Sender: TObject);
+begin
+    LoadForm(nil, frmSplash);
+end;
+
 procedure TfrmMain.btnCloseClick(Sender: TObject);
 begin
     Close;
@@ -126,6 +139,11 @@ end;
 procedure TfrmMain.btnlSourcesClick(Sender: TObject);
 begin
     LoadForm(btnSources, frmSources);
+end;
+
+procedure TfrmMain.btnMapClick(Sender: TObject);
+begin
+     LoadForm(btnMap, frmMap);
 end;
 
 procedure TfrmMain.FormActivate(Sender: TObject);
@@ -138,6 +156,8 @@ begin
         // Splash form
         frmSplash := TfrmSplash.Create(nil);
         LoadForm(nil, frmSplash);
+
+        // Source Form
 
         tmrLoad.Enabled := True;
     end;
@@ -154,7 +174,14 @@ begin
 
         CurrentForm := NewForm;
 
-        NewForm.pnlMain.Parent := pnlCentre;
+        if NewForm = frmMap then begin
+            pnlMap.Visible := True;
+        end else begin
+            pnlMap.Visible := False;
+
+            NewForm.pnlMain.Parent := pnlCentre;
+        end;
+
         NewForm.LoadForm;
 
         Result := True;
@@ -172,7 +199,9 @@ begin
     //btnNavigate.TextSettings.Font.Style := btnNavigate.TextSettings.Font.Style - [TFontStyle.fsUnderline];
     //btnLog.TextSettings.Font.Style := btnLog.TextSettings.Font.Style - [TFontStyle.fsUnderline];
     //btnSettings.TextSettings.Font.Style := btnSettings.TextSettings.Font.Style - [TFontStyle.fsUnderline];
-    lblSources.Font.Style := lblSources.Font.Style - [TFontStyle.fsUnderline];
+
+    btnMap.Font.Style := btnMap.Font.Style - [TFontStyle.fsUnderline];
+    btnSources.Font.Style := btnSources.Font.Style - [TFontStyle.fsUnderline];
 
     if Button <> nil then begin
         Button.Font.Style := Button.Font.Style + [TFontStyle.fsUnderline];
