@@ -187,7 +187,7 @@ begin
                     if not Payloads[Index].LoggedLoss then begin
                         Payloads[Index].Button.Font.Color := clRed;
                         Payloads[Index].LoggedLoss := True;
-                        // frmLog.AddMessage(Payloads[Index].Position.PayloadID, 'Signal Lost', True, False);
+                        frmLog.AddMessage(Payloads[Index].Position.PayloadID, 'Signal Lost', True, False);
                         //if GetSettingBoolean('General', 'AlarmBeeps', False) then begin
                         //    tmrBleep.Tag := 2;
                         //end;
@@ -440,7 +440,7 @@ begin
     //        // Payloads only
             if Payloads[Index].LoggedLoss then begin
                 Payloads[Index].LoggedLoss := False;
-                // frmLog.AddMessage(Payloads[Index].Position.PayloadID, 'Signal Regained', True, False);
+                frmLog.AddMessage(Payloads[Index].Position.PayloadID, 'Signal Regained', True, False);
             end;
 
             PositionOK := (HABPosition.Latitude <> 0.0) or (HABPosition.Longitude <> 0.0);
@@ -449,9 +449,9 @@ begin
                 Payloads[Index].GoodPosition := PositionOK;
 
                 if PositionOK then begin
-                    //frmLog.AddMessage(Payloads[Index].Position.PayloadID, 'GPS Position Valid', True, False);
+                    frmLog.AddMessage(Payloads[Index].Position.PayloadID, 'GPS Position Valid', True, False);
                 end else begin
-                    //frmLog.AddMessage(Payloads[Index].Position.PayloadID, 'GPS Position Lost', True, False);
+                    frmLog.AddMessage(Payloads[Index].Position.PayloadID, 'GPS Position Lost', True, False);
                 end;
             end;
 
@@ -543,7 +543,7 @@ begin
         if Index > 0 then begin
             // Update forms with payload list, if it has changed
             if (not Payloads[Index].Position.InUse) or (HABPosition.PayloadID <> Payloads[Index].Position.PayloadID) then begin
-                // frmLog.AddMessage(HABPosition.PayloadID, 'Online', True, True);
+                frmLog.AddMessage(HABPosition.PayloadID, 'Online', True, True);
                 PayloadChanged := True;
             end else begin
                 PayloadChanged := False;
@@ -701,14 +701,14 @@ begin
                (Abs(HABPosition.AscentRate) > 20) or
                ((HABPosition.AscentRate > 1.0) and (HABPosition.Altitude > 300)) then begin
                 HABPosition.FlightMode := fmLaunched;
-                // frmLog.AddMessage(HABPosition.PayloadID, FlightModes[Ord(Position.FlightMode)], True, True);
+                frmLog.AddMessage(HABPosition.PayloadID, FlightModes[Ord(HABPosition.FlightMode)], True, True);
             end;
         end;
 
         fmLaunched: begin
             if HABPosition.AscentRate < -4 then begin
                 HABPosition.FlightMode := fmDescending;
-                // frmLog.AddMessage(Position.PayloadID, FlightModes[Ord(Position.FlightMode)], True, True);
+                frmLog.AddMessage(HABPosition.PayloadID, FlightModes[Ord(HABPosition.FlightMode)], True, True);
                 if GetSettingBoolean('General', 'AlarmBeeps', False) then begin
                     //tmrBleep.Tag := 3;
                 end;
@@ -718,7 +718,7 @@ begin
         fmDescending: begin
             if HABPosition.AscentRate > -1 then begin
                 HABPosition.FlightMode := fmLanded;
-                // frmLog.AddMessage(Position.PayloadID, FlightModes[Ord(Position.FlightMode)], True, True);
+                frmLog.AddMessage(HABPosition.PayloadID, FlightModes[Ord(HABPosition.FlightMode)], True, True);
             end;
         end;
 
@@ -726,7 +726,7 @@ begin
             if ((HABPosition.AscentRate > 3.0) and (HABPosition.Altitude > 100)) or
                ((HABPosition.AscentRate > 2.0) and (HABPosition.Altitude > 500)) then begin
                 HABPosition.FlightMode := fmLaunched;
-                // frmLog.AddMessage(Position.PayloadID, FlightModes[Ord(Position.FlightMode)], True, True);
+                frmLog.AddMessage(HABPosition.PayloadID, FlightModes[Ord(HABPosition.FlightMode)], True, True);
             end;
         end;
     end;

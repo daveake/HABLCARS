@@ -23,7 +23,6 @@ inherited frmLog: TfrmLog
         Width = 676
         Align = alClient
         BorderSpacing.Around = 4
-        BorderStyle = bsNone
         Color = clBlack
         Font.Color = clYellow
         Font.Height = -28
