@@ -1,6 +1,6 @@
 inherited frmSources: TfrmSources
-  Left = 1153
-  Top = 633
+  Left = 2784
+  Top = 906
   Caption = 'Sources'
   OnCreate = FormCreate
   inherited pnlMain: TPanel
@@ -78,7 +78,7 @@ inherited frmSources: TfrmSources
     object Panel3: TPanel[1]
       Left = 2
       Height = 77
-      Top = 105
+      Top = 269
       Width = 696
       Align = alTop
       BorderSpacing.Around = 2
@@ -125,6 +125,120 @@ inherited frmSources: TfrmSources
           Alignment = taCenter
           BorderSpacing.Around = 2
           Caption = 'Position'
+          Font.Color = clWhite
+          Font.Height = -21
+          ParentColor = False
+          ParentFont = False
+        end
+      end
+    end
+    object Panel5: TPanel[2]
+      Left = 2
+      Height = 80
+      Top = 105
+      Width = 696
+      Align = alTop
+      BorderSpacing.Around = 2
+      BevelOuter = bvNone
+      Caption = 'Panel5'
+      ClientHeight = 80
+      ClientWidth = 696
+      Color = 7331825
+      ParentColor = False
+      TabOrder = 2
+      object Panel6: TPanel
+        Left = 2
+        Height = 76
+        Top = 2
+        Width = 692
+        Align = alClient
+        BorderSpacing.Around = 2
+        BevelOuter = bvNone
+        Caption = 'Panel2'
+        ClientHeight = 76
+        ClientWidth = 692
+        Color = clBlack
+        ParentColor = False
+        TabOrder = 0
+        object Label4: TLabel
+          Left = 4
+          Height = 30
+          Top = 0
+          Width = 688
+          Align = alTop
+          BorderSpacing.Left = 4
+          Caption = 'Habitat'
+          Font.Color = clWhite
+          Font.Height = -21
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblHabitat: TLabel
+          Left = 2
+          Height = 30
+          Top = 32
+          Width = 688
+          Align = alTop
+          Alignment = taCenter
+          BorderSpacing.Around = 2
+          Caption = 'Telemetry'
+          Font.Color = clWhite
+          Font.Height = -21
+          ParentColor = False
+          ParentFont = False
+        end
+      end
+    end
+    object Panel7: TPanel[3]
+      Left = 2
+      Height = 80
+      Top = 187
+      Width = 696
+      Align = alTop
+      BorderSpacing.Around = 2
+      BevelOuter = bvNone
+      Caption = 'Panel7'
+      ClientHeight = 80
+      ClientWidth = 696
+      Color = 7331825
+      ParentColor = False
+      TabOrder = 3
+      object Panel8: TPanel
+        Left = 2
+        Height = 76
+        Top = 2
+        Width = 692
+        Align = alClient
+        BorderSpacing.Around = 2
+        BevelOuter = bvNone
+        Caption = 'Panel2'
+        ClientHeight = 76
+        ClientWidth = 692
+        Color = clBlack
+        ParentColor = False
+        TabOrder = 0
+        object Label5: TLabel
+          Left = 4
+          Height = 30
+          Top = 0
+          Width = 688
+          Align = alTop
+          BorderSpacing.Left = 4
+          Caption = 'UDP'
+          Font.Color = clWhite
+          Font.Height = -21
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblUDP: TLabel
+          Left = 2
+          Height = 30
+          Top = 32
+          Width = 688
+          Align = alTop
+          Alignment = taCenter
+          BorderSpacing.Around = 2
+          Caption = 'Telemetry'
           Font.Color = clWhite
           Font.Height = -21
           ParentColor = False

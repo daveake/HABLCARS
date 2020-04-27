@@ -119,7 +119,7 @@ end;
 
 procedure TCarUpload.OurCallback;
 begin
-    PositionCallback(GPS_SOURCE, CallbackParameters.Active, CallbackParameters.OK);
+    StatusCallback(GPS_SOURCE, CallbackParameters.Active, CallbackParameters.OK);
 end;
 
 procedure TCarUpload.SyncCallback(Active, OK: Boolean);

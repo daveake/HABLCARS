@@ -55,9 +55,6 @@ begin
         Callsign := GetSettingString('CHASE', 'Callsign', '');
         Upload := GetSettingBoolean('CHASE', 'Upload', False);
 
-        Callsign := 'M0RPI';
-        Upload := True;
-
         if Position.InUse and
            (Callsign <> '') and
             Upload and

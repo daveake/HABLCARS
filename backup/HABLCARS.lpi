@@ -34,7 +34,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="21">
+    <Units Count="23">
       <Unit0>
         <Filename Value="HABLCARS.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -158,6 +158,14 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Miscellaneous"/>
       </Unit20>
+      <Unit21>
+        <Filename Value="habrx/HabitatSource.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="habrx/UDPSource.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit22>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

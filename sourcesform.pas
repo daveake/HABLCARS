@@ -6,7 +6,7 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-    base, miscellaneous, source, GatewaySource, GPSSource, CarUpload;
+    base, miscellaneous, source, GatewaySource, GPSSource, CarUpload, HabitatSource, UDPSource;
 
 type
   TSourcePanel = record
@@ -26,13 +26,21 @@ type
         Label1: TLabel;
         Label2: TLabel;
         Label3: TLabel;
+        Label4: TLabel;
+        Label5: TLabel;
         lblGateway1: TLabel;
         lblGateway1RSSI: TLabel;
+        lblHabitat: TLabel;
         lblGPS: TLabel;
+        lblUDP: TLabel;
         Panel1: TPanel;
         Panel2: TPanel;
         Panel3: TPanel;
         Panel4: TPanel;
+        Panel5: TPanel;
+        Panel6: TPanel;
+        Panel7: TPanel;
+        Panel8: TPanel;
         procedure FormCreate(Sender: TObject);
     private
         Sources: Array[1..6] of TSourcePanel;
@@ -41,6 +49,7 @@ type
         procedure NewGPSPosition(Timestamp: TDateTime; Latitude, Longitude, Altitude, Direction: Double; UsingCompass: Boolean);
         procedure GPSCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
         procedure HABCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
+        procedure HabitatStatusCallback(SourceID: Integer; IsActive, OK: Boolean);
         procedure CarStatusCallback(SourceID: Integer; IsActive, OK: Boolean);
     public
 
@@ -111,6 +120,12 @@ begin
     end;
 end;
 
+procedure TfrmSources.HabitatStatusCallback(SourceID: Integer; IsActive, OK: Boolean);
+begin
+    frmMain.UploadStatus(SourceID, IsActive, OK);
+end;
+
+
 procedure TfrmSources.CarStatusCallback(SourceID: Integer; IsActive, OK: Boolean);
 begin
     frmMain.UploadStatus(SourceID, IsActive, OK);
@@ -135,7 +150,7 @@ begin
     CarUploader := TCarUpload.Create(@CarStatusCallback);
 
     // Habitat uploader
-//    HabitatUploader := THabitatThread.Create(HabitatStatusCallback);
+    // HabitatUploader := THabitatThread.Create(HabitatStatusCallback);
 
     // GPS Source
     GPSSource := TGPSSource.Create(GPS_SOURCE, 'GPS', @GPSCallback);
@@ -145,7 +160,7 @@ begin
     Sources[GATEWAY_SOURCE_1].Source := TGatewaySource.Create(GATEWAY_SOURCE_1, 'LoRaGateway1', @HABCallback);
     Sources[GATEWAY_SOURCE_1].RSSILabel := lblGateway1RSSI;
 //
-//    Sources[GATEWAY_SOURCE_2].ValueLabel := lblGateway2;
+//    Sources[GATEWAY_SOURCE_2].ValueLabel := lblHabitat;
 //    Sources[GATEWAY_SOURCE_2].Source := TGatewaySource.Create(GATEWAY_SOURCE_2, 'LoRaGateway2', HABCallback);
 //    Sources[GATEWAY_SOURCE_2].RSSILabel := lblGateway2RSSI;
 //
@@ -168,14 +183,14 @@ begin
 //        Sources[BLUETOOTH_SOURCE].Source := TBLESource.Create(BLUETOOTH_SOURCE, 'LoRaBluetooth', HABCallback);
 //        Label9.Text := 'BLE';
 //    {$ENDIF}
-//
-//    Sources[UDP_SOURCE].ValueLabel := lblUDP;
-//    Sources[UDP_SOURCE].Source := TUDPSource.Create(UDP_SOURCE, 'UDP', HABCallback);
-//    Sources[UDP_SOURCE].RSSILabel := nil;
-//
-//    Sources[HABITAT_SOURCE].ValueLabel := lblHabitat;
-//    Sources[HABITAT_SOURCE].Source := THabitatSource.Create(HABITAT_SOURCE, 'Habitat', HABCallback);
-//    Sources[HABITAT_SOURCE].RSSILabel := nil;
+
+    Sources[UDP_SOURCE].ValueLabel := lblUDP;
+    Sources[UDP_SOURCE].Source := TUDPSource.Create(UDP_SOURCE, 'UDP', @HABCallback);
+    Sources[UDP_SOURCE].RSSILabel := nil;
+
+    Sources[HABITAT_SOURCE].ValueLabel := lblHabitat;
+    Sources[HABITAT_SOURCE].Source := THabitatSource.Create(HABITAT_SOURCE, 'Habitat', @HABCallback);
+    Sources[HABITAT_SOURCE].RSSILabel := nil;
 end;
 
 procedure TfrmSources.HABCallback(ID: Integer; Connected: Boolean; Line: String; HABPosition: THABPosition);
