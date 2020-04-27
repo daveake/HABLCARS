@@ -127,7 +127,7 @@ begin
     Direction := Direction - Positions[SelectedIndex].Position.Direction * Pi / 180;
 
     Radius := Min(shpCompass.Width, shpCompass.Height) / 2;
-    Radius := Radius * (1 - shpCompass.Pen.Width * 0.5 / Radius);
+    Radius := Radius * (1 - shpCompass.Pen.Width * 0.48 / Radius);
 
     shpDot.Left := Round(((shpCompass.Width / 2) + shpCompass.BorderSpacing.Around - shpDot.Width / 2) + Radius * sin(Direction));
     shpDot.Top := Round(((shpCompass.Height / 2) + shpCompass.BorderSpacing.Around - shpDot.Height / 2) - Radius * cos(Direction));

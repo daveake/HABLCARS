@@ -435,7 +435,7 @@ begin
         if HABPosition.IsChase then begin
             // Chase car only
             ChasePosition := HABPosition;
-    //        if frmDirection <> nil then frmDirection.NewPosition(0, Position);
+            if frmDirection <> nil then frmDirection.NewPosition(0, Position);
         end else begin
     //        // Payloads only
             if Payloads[Index].LoggedLoss then begin
@@ -649,9 +649,9 @@ begin
 
             // Tell forms that need to know
             //if frmSSDV <> nil then frmSSDV.NewSelection(SelectedPayload);
-            //if frmDirection <> nil then frmDirection.NewSelection(SelectedPayload);
+            if frmDirection <> nil then frmDirection.NewSelection(SelectedPayload);
             //if frmNavigate <> nil then frmNavigate.NewSelection(SelectedPayload);
-            //if frmMap <> nil then frmMap.NewSelection(SelectedPayload);
+            if frmMap <> nil then frmMap.NewSelection(SelectedPayload);
 
             // Update main screen
             ShowSelectedPayloadPosition;
@@ -698,7 +698,7 @@ begin
         fmIdle: begin
             if ((HABPosition.AscentRate > 2.0) and (HABPosition.Altitude > 100)) or
                (HABPosition.Altitude > 5000) or
-               (Abs(Position.AscentRate) > 20) or
+               (Abs(HABPosition.AscentRate) > 20) or
                ((HABPosition.AscentRate > 1.0) and (HABPosition.Altitude > 300)) then begin
                 HABPosition.FlightMode := fmLaunched;
                 // frmLog.AddMessage(HABPosition.PayloadID, FlightModes[Ord(Position.FlightMode)], True, True);

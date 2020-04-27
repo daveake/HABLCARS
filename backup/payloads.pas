@@ -65,19 +65,19 @@ begin
     end;
 end;
 
-procedure TfrmPayloads.ShowTimeSinceUpdate(Index: Integer; TimeSinceUpdate: TDateTime; Repeated: Boolean);
-begin
-    if (Index >= Low(Rectangles)) and (Index <= High(Rectangles)) then begin
-        Labels[Index,1].Caption := FormatDateTime('nn:ss', TimeSinceUpdate) + RepeatString(Repeated);
-    end;
-end;
-
 function RepeatString(Repeated: Boolean): String;
 begin
     if Repeated then begin
         Result := ' (R)';
     end else begin
         Result := '';
+    end;
+end;
+
+procedure TfrmPayloads.ShowTimeSinceUpdate(Index: Integer; TimeSinceUpdate: TDateTime; Repeated: Boolean);
+begin
+    if (Index >= Low(Rectangles)) and (Index <= High(Rectangles)) then begin
+        Labels[Index,1].Caption := FormatDateTime('nn:ss', TimeSinceUpdate) + RepeatString(Repeated);
     end;
 end;
 

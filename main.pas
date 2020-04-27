@@ -435,7 +435,7 @@ begin
         if HABPosition.IsChase then begin
             // Chase car only
             ChasePosition := HABPosition;
-    //        if frmDirection <> nil then frmDirection.NewPosition(0, Position);
+            if frmDirection <> nil then frmDirection.NewPosition(0, HABPosition);
         end else begin
     //        // Payloads only
             if Payloads[Index].LoggedLoss then begin
@@ -649,9 +649,9 @@ begin
 
             // Tell forms that need to know
             //if frmSSDV <> nil then frmSSDV.NewSelection(SelectedPayload);
-            //if frmDirection <> nil then frmDirection.NewSelection(SelectedPayload);
+            if frmDirection <> nil then frmDirection.NewSelection(SelectedPayload);
             //if frmNavigate <> nil then frmNavigate.NewSelection(SelectedPayload);
-            //if frmMap <> nil then frmMap.NewSelection(SelectedPayload);
+            if frmMap <> nil then frmMap.NewSelection(SelectedPayload);
 
             // Update main screen
             ShowSelectedPayloadPosition;

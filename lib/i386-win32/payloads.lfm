@@ -1,6 +1,6 @@
 inherited frmPayloads: TfrmPayloads
-  Left = 2746
-  Top = 126
+  Left = 2025
+  Top = 945
   Caption = 'Payloads'
   Font.Name = 'Swiss911 UCm BT'
   OnCreate = FormCreate

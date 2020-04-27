@@ -1,3 +1,260 @@
 inherited frmDirection: TfrmDirection
+  Left = 2265
+  Top = 549
   Caption = 'Direction'
+  inherited pnlMain: TPanel
+    object shpCompass: TShape[0]
+      Left = 8
+      Height = 408
+      Top = 8
+      Width = 424
+      Align = alLeft
+      BorderSpacing.Around = 8
+      Brush.Style = bsClear
+      Pen.Color = 7331825
+      Pen.Width = 40
+      Shape = stCircle
+    end
+    object shpDot: TShape[1]
+      Left = 200
+      Height = 36
+      Top = 8
+      Width = 36
+      BorderSpacing.Around = 4
+      Brush.Color = clRed
+      Shape = stCircle
+    end
+    object Label2: TLabel[2]
+      Left = 0
+      Height = 1
+      Top = 0
+      Width = 1
+      ParentColor = False
+    end
+    object Label1: TLabel[3]
+      Left = 442
+      Height = 49
+      Top = 352
+      Width = 42
+      Alignment = taRightJustify
+      Caption = 'TTL:'
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label3: TLabel[4]
+      Left = 433
+      Height = 49
+      Top = 272
+      Width = 51
+      Alignment = taRightJustify
+      Caption = 'Rate:'
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label4: TLabel[5]
+      Left = 448
+      Height = 49
+      Top = 32
+      Width = 36
+      Alignment = taRightJustify
+      Caption = 'Lat:'
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label5: TLabel[6]
+      Left = 451
+      Height = 49
+      Top = 192
+      Width = 33
+      Alignment = taRightJustify
+      Caption = 'Alt:'
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label6: TLabel[7]
+      Left = 442
+      Height = 49
+      Top = 112
+      Width = 42
+      Alignment = taRightJustify
+      Caption = 'Lon:'
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Shape3: TShape[8]
+      Left = 496
+      Height = 57
+      Top = 24
+      Width = 200
+      Brush.Style = bsClear
+      Pen.Color = 7331825
+      Pen.Width = 3
+      Shape = stRoundRect
+    end
+    object Shape4: TShape[9]
+      Left = 496
+      Height = 57
+      Top = 104
+      Width = 200
+      Brush.Style = bsClear
+      Pen.Color = 7331825
+      Pen.Width = 3
+      Shape = stRoundRect
+    end
+    object Shape5: TShape[10]
+      Left = 496
+      Height = 57
+      Top = 184
+      Width = 200
+      Brush.Style = bsClear
+      Pen.Color = 7331825
+      Pen.Width = 3
+      Shape = stRoundRect
+    end
+    object Shape6: TShape[11]
+      Left = 496
+      Height = 57
+      Top = 264
+      Width = 200
+      Brush.Style = bsClear
+      Pen.Color = 7331825
+      Pen.Width = 3
+      Shape = stRoundRect
+    end
+    object Shape7: TShape[12]
+      Left = 496
+      Height = 57
+      Top = 344
+      Width = 200
+      Brush.Style = bsClear
+      Pen.Color = 7331825
+      Pen.Width = 3
+      Shape = stRoundRect
+    end
+    object lblLatitude: TLabel[13]
+      Left = 496
+      Height = 41
+      Top = 32
+      Width = 188
+      Alignment = taCenter
+      AutoSize = False
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblLongitude: TLabel[14]
+      Left = 496
+      Height = 41
+      Top = 112
+      Width = 188
+      Alignment = taCenter
+      AutoSize = False
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblAltitude: TLabel[15]
+      Left = 496
+      Height = 41
+      Top = 192
+      Width = 188
+      Alignment = taCenter
+      AutoSize = False
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblAscentRate: TLabel[16]
+      Left = 496
+      Height = 41
+      Top = 272
+      Width = 188
+      Alignment = taCenter
+      AutoSize = False
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblTTL: TLabel[17]
+      Left = 496
+      Height = 41
+      Top = 352
+      Width = 188
+      Alignment = taCenter
+      AutoSize = False
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblDistance: TLabel[18]
+      Left = 104
+      Height = 81
+      Top = 96
+      Width = 224
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Distance'
+      Font.Color = 7331825
+      Font.Height = -64
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+    object btnGoogle: TLabel[19]
+      Left = 128
+      Height = 32
+      Top = 216
+      Width = 184
+      Alignment = taCenter
+      AutoSize = False
+      BorderSpacing.Left = 4
+      Caption = 'Use Prediction'
+      Color = 7331825
+      Font.Height = -25
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object lblRelativeAltitude: TLabel[20]
+      Left = 128
+      Height = 57
+      Top = 288
+      Width = 184
+      Alignment = taCenter
+      AutoSize = False
+      Caption = '-'
+      Font.Color = 7331825
+      Font.Height = -43
+      Font.Name = 'Swiss911 UCm BT'
+      ParentColor = False
+      ParentFont = False
+    end
+  end
 end
