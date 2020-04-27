@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   Buttons, LCLTMSFNCMaps, Base, SourcesForm, Splash, Source, Miscellaneous,
-  payloads, direction, navigate, map, ssdv, log, settings;
+  payloads, direction, navigate, map, ssdv, log, settings, math;
 
 type
   TPayload = record
@@ -119,6 +119,7 @@ type
     function PlacePayloadInList(var HABPosition: THABPosition): Integer;
     procedure ShowSelectedButton(Button: TLabel);
     procedure ShowSelectedMapButton(Button: TLabel);
+    procedure DoPayloadCalcs(PreviousPosition: THabPosition; var HABPosition: THABPosition);
   public
     procedure NewPosition(SourceID: Integer; HABPosition: THABPosition);
     function LoadForm(Button: TLabel; NewForm: TfrmBase): Boolean;
@@ -553,7 +554,7 @@ begin
                 HABPosition.FlightMode := Payloads[Index].Previous.FlightMode;
 
                 // Calculate ascent rate etc
-                // DoPayloadCalcs(Payloads[Index].Previous, HABPosition);
+                DoPayloadCalcs(Payloads[Index].Previous, HABPosition);
 
                 // Update buttons
                 Payloads[Index].Button.Caption := HABPosition.PayloadID;
@@ -681,6 +682,52 @@ begin
             fmLaunched:     Result := 'balloon-' + Payloads[PayloadIndex].ColourName;
             fmDescending:   Result := 'parachute-' + Payloads[PayloadIndex].ColourName;
             fmLanded:       Result := 'payload-' + Payloads[PayloadIndex].ColourName;
+        end;
+    end;
+end;
+
+procedure TfrmMain.DoPayloadCalcs(PreviousPosition: THabPosition; var HABPosition: THABPosition);
+const
+    FlightModes: Array[0..8] of String = ('Idle', 'Launched', 'Descending', 'Homing', 'Direct To Target', 'Downwind', 'Upwind', 'Landing', 'Landed');
+begin
+    HABPosition.AscentRate := (HABPosition.Altitude - PreviousPosition.Altitude) / (86400 * (HABPosition.TimeStamp - PreviousPosition.TimeStamp));
+    HABPosition.MaxAltitude := max(HABPosition.Altitude, PreviousPosition.MaxAltitude);
+
+    // Flight mode
+    case PreviousPosition.FlightMode of
+        fmIdle: begin
+            if ((HABPosition.AscentRate > 2.0) and (HABPosition.Altitude > 100)) or
+               (HABPosition.Altitude > 5000) or
+               (Abs(HABPosition.AscentRate) > 20) or
+               ((HABPosition.AscentRate > 1.0) and (HABPosition.Altitude > 300)) then begin
+                HABPosition.FlightMode := fmLaunched;
+                // frmLog.AddMessage(HABPosition.PayloadID, FlightModes[Ord(Position.FlightMode)], True, True);
+            end;
+        end;
+
+        fmLaunched: begin
+            if HABPosition.AscentRate < -4 then begin
+                HABPosition.FlightMode := fmDescending;
+                // frmLog.AddMessage(Position.PayloadID, FlightModes[Ord(Position.FlightMode)], True, True);
+                if GetSettingBoolean('General', 'AlarmBeeps', False) then begin
+                    //tmrBleep.Tag := 3;
+                end;
+            end;
+        end;
+
+        fmDescending: begin
+            if HABPosition.AscentRate > -1 then begin
+                HABPosition.FlightMode := fmLanded;
+                // frmLog.AddMessage(Position.PayloadID, FlightModes[Ord(Position.FlightMode)], True, True);
+            end;
+        end;
+
+        fmLanded: begin
+            if ((HABPosition.AscentRate > 3.0) and (HABPosition.Altitude > 100)) or
+               ((HABPosition.AscentRate > 2.0) and (HABPosition.Altitude > 500)) then begin
+                HABPosition.FlightMode := fmLaunched;
+                // frmLog.AddMessage(Position.PayloadID, FlightModes[Ord(Position.FlightMode)], True, True);
+            end;
         end;
     end;
 end;

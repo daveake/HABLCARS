@@ -1,3 +1,87 @@
 inherited frmPayloads: TfrmPayloads
+  Left = 2746
+  Top = 126
   Caption = 'Payloads'
+  Font.Name = 'Swiss911 UCm BT'
+  OnCreate = FormCreate
+  inherited pnlMain: TPanel
+    object Panel1: TPanel[0]
+      Left = 4
+      Height = 416
+      Top = 4
+      Width = 228
+      Align = alLeft
+      BorderSpacing.Around = 4
+      BevelOuter = bvNone
+      ClientHeight = 416
+      ClientWidth = 228
+      Color = clYellow
+      ParentColor = False
+      TabOrder = 0
+      object Rectangle1: TPanel
+        Left = 4
+        Height = 408
+        Top = 4
+        Width = 220
+        Align = alClient
+        BorderSpacing.Around = 4
+        BevelOuter = bvNone
+        Color = clBlack
+        ParentColor = False
+        TabOrder = 0
+      end
+    end
+    object Panel3: TPanel[1]
+      Left = 468
+      Height = 416
+      Top = 4
+      Width = 228
+      Align = alLeft
+      BorderSpacing.Around = 4
+      BevelOuter = bvNone
+      ClientHeight = 416
+      ClientWidth = 228
+      Color = clYellow
+      ParentColor = False
+      TabOrder = 1
+      object Rectangle2: TPanel
+        Left = 4
+        Height = 408
+        Top = 4
+        Width = 220
+        Align = alClient
+        BorderSpacing.Around = 4
+        BevelOuter = bvNone
+        Color = clBlack
+        ParentColor = False
+        TabOrder = 0
+      end
+    end
+    object Panel5: TPanel[2]
+      Left = 236
+      Height = 416
+      Top = 4
+      Width = 228
+      Align = alLeft
+      BorderSpacing.Around = 4
+      BevelOuter = bvNone
+      ClientHeight = 416
+      ClientWidth = 228
+      Color = clYellow
+      ParentColor = False
+      TabOrder = 2
+      object Rectangle3: TPanel
+        Left = 4
+        Height = 408
+        Top = 4
+        Width = 220
+        Align = alClient
+        BorderSpacing.Around = 4
+        BevelOuter = bvNone
+        Color = clBlack
+        ParentColor = False
+        TabOrder = 0
+      end
+    end
+  end
 end
