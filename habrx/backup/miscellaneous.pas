@@ -110,9 +110,7 @@ end;
 
 function ImageFolder: String;
 begin
-    // Result := IncludeTrailingPathDelimiter(DataFolder + 'images');
-
-    Result := 'http://51.89.167.6/markers/';
+    Result := IncludeTrailingPathDelimiter(DataFolder + 'images');
 end;
 
 

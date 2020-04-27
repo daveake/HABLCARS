@@ -12,7 +12,7 @@ type
     private
 
     public
-
+      procedure ShowTimeSinceUpdate(Index: Integer; TimeSinceUpdate: TDateTime; Repeated: Boolean);
     end;
 
 var
@@ -21,6 +21,13 @@ var
 implementation
 
 {$R *.lfm}
+
+procedure TfrmPayloads.ShowTimeSinceUpdate(Index: Integer; TimeSinceUpdate: TDateTime; Repeated: Boolean);
+begin
+    //if (Index >= Low(Rectangles)) and (Index <= High(Rectangles)) then begin
+    //    Labels[Index,1].Text := FormatDateTime('nn:ss', TimeSinceUpdate) + RepeatString(Repeated);
+    //end;
+end;
 
 end.
 
