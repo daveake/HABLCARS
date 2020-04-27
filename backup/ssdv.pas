@@ -45,6 +45,7 @@ begin
     Browser.Parent := pnlMain;
     Browser.Align := alClient;
     // Browser.URL := 'https://ssdv.habhub.org/';
+    NewSelection(SelectedIndex);
 end;
 
 

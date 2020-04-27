@@ -5,10 +5,10 @@ unit navigate;
 interface
 
 uses
-    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, base;
+    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, TargetForm;
 
 type
-    TfrmNavigate = class(TfrmBase)
+    TfrmNavigate = class(TfrmTarget)
     private
 
     public

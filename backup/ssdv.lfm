@@ -1,0 +1,5 @@
+inherited frmSSDV: TfrmSSDV
+  Left = 1291
+  Top = 881
+  Caption = 'SSDV'
+end

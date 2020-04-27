@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   Buttons, LCLTMSFNCMaps, Base, SourcesForm, Splash, Source, Miscellaneous,
-  payloads, direction, navigate, map, ssdv, log, settings, math;
+  payloads, direction, navigate, map, ssdv, log, settings, math, TargetForm;
 
 type
   TPayload = record
@@ -388,6 +388,11 @@ begin
 
         NewForm.LoadForm;
 
+        if NewForm is TfrmTarget then begin
+            TfrmTarget(NewForm).NewSelection(SelectedPayload);
+        end;
+
+
         Result := True;
     end else begin
         Result := False;
@@ -648,9 +653,9 @@ begin
             Button.Font.Style := btnPayload1.Font.Style + [TFontStyle.fsUnderline];
 
             // Tell forms that need to know
-            //if frmSSDV <> nil then frmSSDV.NewSelection(SelectedPayload);
+            if frmSSDV <> nil then frmSSDV.NewSelection(SelectedPayload);
             if frmDirection <> nil then frmDirection.NewSelection(SelectedPayload);
-            //if frmNavigate <> nil then frmNavigate.NewSelection(SelectedPayload);
+            if frmNavigate <> nil then frmNavigate.NewSelection(SelectedPayload);
             if frmMap <> nil then frmMap.NewSelection(SelectedPayload);
 
             // Update main screen

@@ -33,7 +33,7 @@ type
     public
       FollowMode: TFollowMode;
       procedure SetMapService(MapService: TTMSFNCMapsService);
-      procedure LoadForm; override;
+      procedure LoadForm(SelectedPayload: Integer); override;
       procedure HideForm; override;
       procedure NewPosition(Index: Integer; HABPosition: THABPosition); override;
     end;
@@ -137,6 +137,8 @@ begin
             //GMap.UpdateMapPolyline(PolylineItems[Index].Polyline);
             if (FollowMode = fmPayload) and (Index = SelectedIndex) then begin
                 frmMain.GMap.SetCenterCoordinate(Positions[Index].Position.Latitude, Positions[Index].Position.Longitude);
+                frmMain.GMap.Options.DefaultLatitude := Positions[Index].Position.Latitude;
+                frmMain.GMap.Options.DefaultLongitude := Positions[Index].Position.Longitude;
             end;
         end;
 
@@ -147,7 +149,7 @@ begin
     end;
 end;
 
-procedure TfrmMap.LoadForm;
+procedure TfrmMap.LoadForm(SelectedPayload: Integer);
 begin
     inherited;
 end;
