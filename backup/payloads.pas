@@ -6,7 +6,7 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-    TargetForm, Types, Source;
+    LCLTMSFNCWidgetArrow, TargetForm, Types, Source;
 
 type
 

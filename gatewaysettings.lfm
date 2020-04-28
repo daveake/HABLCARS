@@ -1,0 +1,224 @@
+inherited frmLoRaGatewaySettings: TfrmLoRaGatewaySettings
+  Left = 2347
+  Top = 671
+  Caption = 'Gateway Settings'
+  OnCreate = FormCreate
+  inherited pnlMain: TPanel
+    inherited Panel1: TPanel
+      Height = 144
+      ClientHeight = 144
+      inherited Shape1: TShape
+        Height = 132
+      end
+      object Label1: TLabel[1]
+        Left = 32
+        Height = 21
+        Top = 17
+        Width = 123
+        Alignment = taRightJustify
+        Caption = 'Network Address:'
+        Font.Color = clWhite
+        Font.Height = -16
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtHost: TEdit[2]
+        Left = 168
+        Height = 29
+        Top = 16
+        Width = 352
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -16
+        OnKeyPress = edtFrequency2KeyPress
+        ParentFont = False
+        TabOrder = 0
+      end
+      object Label2: TLabel[3]
+        Left = 544
+        Height = 21
+        Top = 18
+        Width = 31
+        Alignment = taRightJustify
+        Caption = 'Port:'
+        Font.Color = clWhite
+        Font.Height = -16
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtPort: TEdit[4]
+        Left = 584
+        Height = 29
+        Top = 16
+        Width = 88
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -16
+        OnKeyPress = edtFrequency2KeyPress
+        ParentFont = False
+        TabOrder = 1
+      end
+      object Label3: TLabel[5]
+        Left = 44
+        Height = 21
+        Top = 57
+        Width = 111
+        Alignment = taRightJustify
+        Caption = 'Ch 0 Frequency:'
+        Font.Color = clWhite
+        Font.Height = -16
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtFrequency1: TEdit[6]
+        Left = 168
+        Height = 29
+        Top = 56
+        Width = 168
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -16
+        OnKeyPress = edtFrequency2KeyPress
+        ParentFont = False
+        TabOrder = 2
+      end
+      object chkUpload: TSpeedButton[7]
+        Left = 448
+        Height = 32
+        Top = 56
+        Width = 72
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = '<'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        Transparent = False
+        OnClick = chkUploadClick
+        ParentFont = False
+      end
+      object chkUpload1: TSpeedButton[8]
+        Left = 600
+        Height = 32
+        Top = 56
+        Width = 72
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = '>'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        Transparent = False
+        OnClick = chkUpload1Click
+        ParentFont = False
+      end
+      object chkUpload2: TSpeedButton[9]
+        Left = 600
+        Height = 32
+        Top = 96
+        Width = 72
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = '>'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        Transparent = False
+        OnClick = chkUpload2Click
+        ParentFont = False
+      end
+      object chkUpload3: TSpeedButton[10]
+        Left = 448
+        Height = 32
+        Top = 96
+        Width = 72
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = '<'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        Transparent = False
+        OnClick = chkUpload3Click
+        ParentFont = False
+      end
+      object edtFrequency2: TEdit[11]
+        Left = 168
+        Height = 29
+        Top = 96
+        Width = 168
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -16
+        OnKeyPress = edtFrequency2KeyPress
+        ParentFont = False
+        TabOrder = 3
+      end
+      object Label4: TLabel[12]
+        Left = 44
+        Height = 21
+        Top = 97
+        Width = 111
+        Alignment = taRightJustify
+        Caption = 'Ch 1 Frequency:'
+        Font.Color = clWhite
+        Font.Height = -16
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtMode1: TEdit[13]
+        Tag = 10
+        Left = 536
+        Height = 29
+        Top = 59
+        Width = 48
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -16
+        ParentFont = False
+        TabOrder = 4
+      end
+      object edtMode2: TEdit[14]
+        Tag = 10
+        Left = 536
+        Height = 29
+        Top = 99
+        Width = 48
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -16
+        ParentFont = False
+        TabOrder = 5
+      end
+    end
+    inherited Panel3: TPanel
+      Top = 144
+    end
+    inherited Shape2: TShape
+      Height = 232
+      Top = 186
+    end
+    inherited StaticText1: TStaticText
+      Height = 208
+      Top = 198
+      Caption = '"Network Address" is the hostname or IP address of the Raspberry Pi running the LoRa Gateway program.  If using hostname, please enable UDP broadcast on the gateway(s) and UDP listening, on the same port, in Settings/UDP'#13#10#13#10'"Port" is the TCP/IP port used by the gateway.'#13#10#13#10'Channel frequency and mode are sent to the gateway after Apply is touched.'#13#10#13#10'To configure the gateway, use a line such as the following in gateway.txt, ensuring that the port number matches that used here.'#13#10#13#10'ServerPort=6004'
+      Font.Height = -13
+    end
+  end
+end

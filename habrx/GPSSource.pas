@@ -63,10 +63,12 @@ begin
                         Direction := MyStrToFloat(Fields[8]);
                     end;
                     if Length(Fields[9]) = 6 then begin
-                        CurrentDate := EncodeDate(StrToIntDef(Copy(Fields[9], 5, 2), 0) + 2000,
-                                                  StrToIntDef(Copy(Fields[9], 3, 2), 0),
-                                                  StrToIntDef(Copy(Fields[9], 1, 2), 0));
-
+                        try
+                            CurrentDate := EncodeDate(StrToIntDef(Copy(Fields[9], 5, 2), 0) + 2000,
+                                                      StrToIntDef(Copy(Fields[9], 3, 2), 0),
+                                                      StrToIntDef(Copy(Fields[9], 1, 2), 0));
+                        except
+                        end;
                     end;
                 end;
                 Fields.Free;
@@ -120,8 +122,6 @@ begin
     while not Terminated do begin
         CommPort := GetSettingString(GroupName, 'Port', '');
         SetGroupChangedFlag(GroupName, False);
-
-        CommPort := 'COM5';
 
         try
             Position := default(THABPosition);

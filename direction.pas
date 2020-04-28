@@ -58,8 +58,13 @@ begin
     CarLatitude := CarLatitude * Pi / 180;
     CarLongitude := CarLongitude * Pi / 180;
 
-    Result := 6371000 * arccos(sin(CarLatitude) * sin(HABLatitude) +
-                               cos(CarLatitude) * cos(HABLatitude) * cos(HABLongitude-CarLongitude));
+    try
+        Result := 6371000 * arccos(sin(CarLatitude) * sin(HABLatitude) +
+                                   cos(CarLatitude) * cos(HABLatitude) * cos(HABLongitude-CarLongitude));
+
+    except
+        Result := 0;
+    end;
 end;
 
 function CalculateDirection(HABLatitude, HabLongitude, CarLatitude, CarLongitude: Double): Double;
@@ -101,8 +106,8 @@ begin
     //    TargetLatitude := Positions[SelectedIndex].Position.PredictedLatitude;
     //    TargetLongitude := Positions[SelectedIndex].Position.PredictedLongitude;
     //end else begin
-    //    TargetLatitude := Positions[SelectedIndex].Position.Latitude;
-    //    TargetLongitude := Positions[SelectedIndex].Position.Longitude;
+        TargetLatitude := Positions[SelectedIndex].Position.Latitude;
+        TargetLongitude := Positions[SelectedIndex].Position.Longitude;
     //end;
 
     // Horizontal distance to payload

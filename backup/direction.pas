@@ -58,8 +58,13 @@ begin
     CarLatitude := CarLatitude * Pi / 180;
     CarLongitude := CarLongitude * Pi / 180;
 
-    Result := 6371000 * arccos(sin(CarLatitude) * sin(HABLatitude) +
-                               cos(CarLatitude) * cos(HABLatitude) * cos(HABLongitude-CarLongitude));
+    try
+        Result := 6371000 * arccos(sin(CarLatitude) * sin(HABLatitude) +
+                                   cos(CarLatitude) * cos(HABLatitude) * cos(HABLongitude-CarLongitude));
+
+    except
+        Result := 0;
+    end;
 end;
 
 function CalculateDirection(HABLatitude, HabLongitude, CarLatitude, CarLongitude: Double): Double;
@@ -127,7 +132,7 @@ begin
     Direction := Direction - Positions[SelectedIndex].Position.Direction * Pi / 180;
 
     Radius := Min(shpCompass.Width, shpCompass.Height) / 2;
-    Radius := Radius * (1 - shpCompass.Pen.Width * 0.48 / Radius);
+    Radius := Radius * (1 - shpCompass.Pen.Width * 0.5 / Radius);
 
     shpDot.Left := Round(((shpCompass.Width / 2) + shpCompass.BorderSpacing.Around - shpDot.Width / 2) + Radius * sin(Direction));
     shpDot.Top := Round(((shpCompass.Height / 2) + shpCompass.BorderSpacing.Around - shpDot.Height / 2) - Radius * cos(Direction));

@@ -143,11 +143,9 @@ var
     List, WhiteList, SearchList, PayloadID, Request: String;
 begin
     while not Terminated do begin
-        // if GetSettingBoolean(GroupName, 'Enable', False) then begin
-        if True then begin
+        if GetSettingBoolean(GroupName, 'Enable', False) then begin
             // Get white list
-            // WhiteList := GetSettingString('Habitat', 'WhiteList', '');
-            WhiteList := 'BSS25';
+            WhiteList := GetSettingString('Habitat', 'WhiteList', '');
 
             // Get current payloads
             List := PayloadList;

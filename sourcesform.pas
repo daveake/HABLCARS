@@ -52,7 +52,7 @@ type
         procedure HabitatStatusCallback(SourceID: Integer; IsActive, OK: Boolean);
         procedure CarStatusCallback(SourceID: Integer; IsActive, OK: Boolean);
     public
-
+        procedure SendParameterToSource(SourceIndex: Integer; ValueName, Value: String);
     end;
 
 var
@@ -65,6 +65,12 @@ implementation
 uses main;
 
 { TfrmSources }
+
+procedure TfrmSources.SendParameterToSource(SourceIndex: Integer; ValueName, Value: String);
+begin
+    Sources[SourceIndex].Source.SendSetting(ValueName, Value);
+end;
+
 
 procedure TfrmSources.NewGPSPosition(Timestamp: TDateTime; Latitude, Longitude, Altitude, Direction: Double; UsingCompass: Boolean);
 var

@@ -1,0 +1,51 @@
+inherited frmUDPSettings: TfrmUDPSettings
+  Caption = 'UDP Settings'
+  OnCreate = FormCreate
+  inherited pnlMain: TPanel
+    inherited Panel1: TPanel
+      object Label1: TLabel[1]
+        Left = 128
+        Height = 25
+        Top = 25
+        Width = 161
+        Alignment = taRightJustify
+        Caption = 'UDP Listening Port:'
+        Font.Color = clWhite
+        Font.Height = -19
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtPort: TEdit[2]
+        Left = 304
+        Height = 33
+        Top = 25
+        Width = 168
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -19
+        OnKeyPress = edtPortKeyPress
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    inherited Panel3: TPanel
+      Height = 40
+      ClientHeight = 40
+      inherited btnApply: TSpeedButton
+        Height = 40
+      end
+      inherited btnCancel: TSpeedButton
+        Height = 40
+      end
+    end
+    inherited Shape2: TShape
+      Height = 282
+      Top = 136
+    end
+    inherited StaticText1: TStaticText
+      Height = 258
+      Top = 148
+      Caption = '"Port" is the UDP port to listen on.  To listen on more than one port, separate them with commas.'#13#10#13#10'Accepted formats are UKHAS sentences, "SENTENCE" messages from the HABDEC UDP broadcaster, OZIMUX and OZIPLOT formats.'
+    end
+  end
+end

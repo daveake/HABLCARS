@@ -6,7 +6,7 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-    base;
+    Variants, ComObj, base, Miscellaneous;
 
 type
 
@@ -15,8 +15,11 @@ type
     TfrmLog = class(TfrmBase)
         lstLog: TListBox;
         Panel1: TPanel;
+        procedure FormCreate(Sender: TObject);
+        procedure tmrUpdatesTimer(Sender: TObject);
     private
-
+      SpVoice: OleVariant;
+      procedure TextToSpeech(Speech: WideString);
     public
       procedure AddMessage(PayloadID, Temp: String; Speak, Tweet: Boolean);
     end;
@@ -28,6 +31,43 @@ implementation
 
 {$R *.lfm}
 
+procedure TfrmLog.tmrUpdatesTimer(Sender: TObject);
+begin
+end;
+
+procedure TfrmLog.FormCreate(Sender: TObject);
+begin
+    inherited;
+    SpVoice := CreateOleObject('SAPI.SpVoice');
+end;
+
+function SpellOut(Temp: String): String;
+var
+    i: Integer;
+begin
+    Result := '';
+
+    for i := 1 to Length(Temp) do begin
+        Result := Result + Copy(Temp, i, 1) + ' ';
+    end;
+end;
+
+procedure TfrmLog.TextToSpeech(Speech: WideString);
+var
+    SavedCW: Word;
+begin
+    // Change FPU interrupt mask to avoid SIGFPE exceptions
+    SavedCW := Get8087CW;
+    try
+        Set8087CW(SavedCW or $4);
+        SpVoice.Speak(Speech, 0);
+    finally
+      // Restore FPU mask
+      Set8087CW(SavedCW);
+    end;
+end;
+
+
 procedure TfrmLog.AddMessage(PayloadID, Temp: String; Speak, Tweet: Boolean);
 var
     Speech, Msg, TimedMsg: String;
@@ -37,8 +77,11 @@ begin
         Speech := Msg;
     end else begin
         Msg := PayloadID + ' - ' + Temp;
-        // Speech := SpellOut(PayloadID) + Temp;
-        Speech := PayloadID + ' ' + Temp;
+        if and GetSettingBoolean('General', 'SpellOut', False) then begin
+            Speech := SpellOut(PayloadID) + Temp;
+        end else begin
+            Speech := PayloadID + ' ' + Temp;
+        end;
     end;
 
     TimedMsg := formatDateTime('hh:nn:ss', Now) + ': ' + Msg;
@@ -49,9 +92,9 @@ begin
     // Application.ProcessMessages;
 
     // Text to speech, for Android
-    //if Speak and GetSettingBoolean('General', 'Speech', False) then begin
-    //    lstSpeech.Items.Add(Speech);
-    //end;
+    if Speak and GetSettingBoolean('General', 'Speech', False) then begin
+        TextToSpeech(Speech);
+    end;
 
     // Twitter
     //if Tweet and GetSettingBoolean('General', 'Tweet', False) then begin

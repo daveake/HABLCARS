@@ -9,8 +9,8 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, main, base, sourcesform, splash, Miscellaneous, payloads, direction,
-  navigate, ssdv, log, settings, GPSSource, HabitatSource
-  { you can add units after this };
+  navigate, ssdv, log, settings, GPSSource, HabitatSource, SettingsBase,
+  GeneralSettings, GPSSettings, GatewaySettings, UDPSettings, HabitatSettings;
 
 {$R *.res}
 

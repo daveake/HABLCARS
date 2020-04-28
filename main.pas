@@ -188,9 +188,10 @@ begin
                         Payloads[Index].Button.Font.Color := clRed;
                         Payloads[Index].LoggedLoss := True;
                         frmLog.AddMessage(Payloads[Index].Position.PayloadID, 'Signal Lost', True, False);
-                        //if GetSettingBoolean('General', 'AlarmBeeps', False) then begin
-                        //    tmrBleep.Tag := 2;
-                        //end;
+                        if GetSettingBoolean('General', 'AlarmBeeps', False) then begin
+                            Beep;
+                           // tmrBleep.Tag := 2;
+                        end;
                     end;
                 end else begin
                     Payloads[Index].Button.Font.Color := clGreen;
@@ -326,6 +327,8 @@ end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
+     INIFileName := DataFolder + 'HABLCARS.ini';
+
      CurrentForm := nil;
 
     // Payload info
@@ -341,7 +344,7 @@ begin
     Payloads[2].ColourName := 'red';
     Payloads[3].ColourName :='green';
 
-    // InitialiseSettings;
+    InitialiseSettings;
 
     SelectedPayload := 0;
 
@@ -475,9 +478,10 @@ begin
             end;
 
 
-            //if GetSettingBoolean('General', 'PositionBeeps', False) then begin
-            //    tmrBleep.Tag := 1;
-            //end;
+            if GetSettingBoolean('General', 'PositionBeeps', False) then begin
+               // mrBleep.Tag := 1;
+               Beep;
+            end;
         end;
 
         // Payloads and Chase Car
@@ -695,7 +699,10 @@ procedure TfrmMain.DoPayloadCalcs(PreviousPosition: THabPosition; var HABPositio
 const
     FlightModes: Array[0..8] of String = ('Idle', 'Launched', 'Descending', 'Homing', 'Direct To Target', 'Downwind', 'Upwind', 'Landing', 'Landed');
 begin
-    HABPosition.AscentRate := (HABPosition.Altitude - PreviousPosition.Altitude) / (86400 * (HABPosition.TimeStamp - PreviousPosition.TimeStamp));
+    if (HABPosition.TimeStamp > PreviousPosition.TimeStamp) and (PreviousPosition.TimeStamp > 0) then begin
+        HABPosition.AscentRate := (HABPosition.Altitude - PreviousPosition.Altitude) / (86400 * (HABPosition.TimeStamp - PreviousPosition.TimeStamp));
+    end;
+
     HABPosition.MaxAltitude := max(HABPosition.Altitude, PreviousPosition.MaxAltitude);
 
     // Flight mode

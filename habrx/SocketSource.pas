@@ -42,8 +42,8 @@ begin
     while not Terminated do begin
         if GetSettingBoolean(GroupName, 'Enabled', True) then begin
             // Connect to socket server
-            Host := '192.168.1.184';   //GetSettingString(GroupName, 'Host', '');
-            Port := 6004;        //GetSettingInteger(GroupName, 'Port', 0);
+            Host := GetSettingString(GroupName, 'Host', '');
+            Port := GetSettingInteger(GroupName, 'Port', 0);
             SetGroupChangedFlag(GroupName, False);
 
             if (Host = '') or (Port <= 0) then begin

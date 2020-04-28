@@ -42,8 +42,8 @@ begin
     while not Terminated do begin
         if GetSettingBoolean(GroupName, 'Enabled', True) then begin
             // Connect to socket server
-            Host := '192.168.1.184';   //GetSettingString(GroupName, 'Host', '');
-            Port := 6004;        //GetSettingInteger(GroupName, 'Port', 0);
+            Host := GetSettingString(GroupName, 'Host', '');
+            Port := GetSettingInteger(GroupName, 'Port', 0);
             SetGroupChangedFlag(GroupName, False);
 
             if (Host = '') or (Port <= 0) then begin
@@ -68,7 +68,7 @@ begin
 
                             while (AClient.LastError <> 104) and (AClient.LastError <> 10054) and (not GetGroupChangedFlag(GroupName)) do begin
                                 while Commands.Count > 0 do begin
-                                    AClient.SendString(Commands[0] + '\n');
+                                    AClient.SendString(Commands[0] + '\r\n');
                                     Commands.Delete(0);
                                 end;
 
@@ -82,17 +82,17 @@ begin
                             end;
                             // AClient.IOHandler.InputBuffer.clear;
                             // AClient.IOHandler.CloseGracefully;
-                            SyncCallback(SourceID, False, 'Disconnected from ' + HostOrIP + ' Error ' + IntToStr(AClient.LastError), Position);
+                            SyncCallback(SourceID, False, 'Disconnected from ' + HostOrIP, Position);
                             AClient.CloseSocket;
-                            Sleep(5000);
+                            Sleep(1000);
                         end else begin
-                            SyncCallback(SourceID, False, 'No Connection to ' + HostOrIP + ' Error ' + IntToStr(AClient.LastError), Position);
-                            Sleep(5000);
+                            SyncCallback(SourceID, False, 'No Connection to ' + HostOrIP, Position);
+                            Sleep(1000);
                         end;
                     except
                         // Wait before retrying
                         SyncCallback(SourceID, False, 'No Connection to ' + HostOrIP, Position);
-                        Sleep(5000);
+                        Sleep(1000);
                     end;
                 end;
             end;

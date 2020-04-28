@@ -40,7 +40,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="23">
+    <Units Count="29">
       <Unit0>
         <Filename Value="HABLCARS.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -172,6 +172,54 @@
         <Filename Value="habrx/UDPSource.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit22>
+      <Unit23>
+        <Filename Value="settingsbase.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmSettingsBase"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="SettingsBase"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="generalsettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmGeneralSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="GeneralSettings"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="gpssettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmGPSSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="GPSSettings"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="gatewaysettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLoRaGatewaySettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="GatewaySettings"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="udpsettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmUDPSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UDPSettings"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="habitatsettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmHabitatSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="HabitatSettings"/>
+      </Unit28>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

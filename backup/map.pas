@@ -33,7 +33,7 @@ type
     public
       FollowMode: TFollowMode;
       procedure SetMapService(MapService: TTMSFNCMapsService);
-      procedure LoadForm(SelectedPayload: Integer); override;
+      procedure LoadForm; override;
       procedure HideForm; override;
       procedure NewPosition(Index: Integer; HABPosition: THABPosition); override;
     end;
@@ -86,7 +86,7 @@ var
     FileName: String;
 begin
     FileName := ImageFolder + ImageName + '.png';
-    // http://51.89.167.6/markers/car-blue.png
+    // http://51.89.167.6:8080/markers/car-blue.png
 
     //if FileExists(FileName) then begin
     //    FileName := 'file:///' + FileName;
@@ -149,7 +149,7 @@ begin
     end;
 end;
 
-procedure TfrmMap.LoadForm(SelectedPayload: Integer);
+procedure TfrmMap.LoadForm;
 begin
     inherited;
 end;

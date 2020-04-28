@@ -3,13 +3,13 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="36">
+    <Units Count="44">
       <Unit0>
         <Filename Value="HABLCARS.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="24" Y="6"/>
-        <UsageCount Value="59"/>
+        <UsageCount Value="68"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>
@@ -17,10 +17,8 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="436"/>
-        <CursorPos X="78" Y="458"/>
-        <UsageCount Value="59"/>
+        <EditorIndex Value="4"/>
+        <UsageCount Value="68"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -30,11 +28,9 @@
         <ComponentName Value="frmBase"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
-        <CursorPos X="25" Y="19"/>
-        <UsageCount Value="55"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="33"/>
+        <UsageCount Value="64"/>
       </Unit2>
       <Unit3>
         <Filename Value="sourcesform.pas"/>
@@ -42,10 +38,10 @@
         <ComponentName Value="frmSources"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <CursorPos X="31" Y="25"/>
-        <UsageCount Value="53"/>
+        <TopLine Value="39"/>
+        <CursorPos Y="71"/>
+        <UsageCount Value="62"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="splash.pas"/>
@@ -55,22 +51,26 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="29" Y="30"/>
-        <UsageCount Value="53"/>
+        <UsageCount Value="62"/>
       </Unit4>
       <Unit5>
         <Filename Value="habrx/GatewaySource.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="71" Y="7"/>
-        <UsageCount Value="50"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="86"/>
+        <CursorPos Y="120"/>
+        <UsageCount Value="59"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="habrx/SocketSource.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="43"/>
-        <CursorPos X="89" Y="89"/>
-        <UsageCount Value="50"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="35"/>
+        <CursorPos X="78" Y="50"/>
+        <UsageCount Value="59"/>
+        <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="habrx/Source.pas"/>
@@ -78,14 +78,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="59"/>
         <CursorPos X="89" Y="105"/>
-        <UsageCount Value="50"/>
+        <UsageCount Value="59"/>
       </Unit7>
       <Unit8>
         <Filename Value="habrx/HABTypes.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="47" Y="19"/>
-        <UsageCount Value="50"/>
+        <UsageCount Value="59"/>
       </Unit8>
       <Unit9>
         <Filename Value="synapse/blcksock.pas"/>
@@ -93,7 +93,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1822"/>
         <CursorPos X="46" Y="1833"/>
-        <UsageCount Value="48"/>
+        <UsageCount Value="57"/>
       </Unit9>
       <Unit10>
         <Filename Value="map.pas"/>
@@ -102,12 +102,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Map"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="107"/>
-        <CursorPos X="27" Y="152"/>
-        <UsageCount Value="42"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="76"/>
+        <CursorPos X="80" Y="101"/>
+        <UsageCount Value="51"/>
       </Unit10>
       <Unit11>
         <Filename Value="targetform.pas"/>
@@ -116,12 +114,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="TargetForm"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="11"/>
-        <CursorPos X="33" Y="53"/>
-        <UsageCount Value="42"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <CursorPos X="79" Y="24"/>
+        <UsageCount Value="51"/>
       </Unit11>
       <Unit12>
         <Filename Value="payloads.pas"/>
@@ -129,10 +125,10 @@
         <ComponentName Value="frmPayloads"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="10"/>
         <TopLine Value="48"/>
         <CursorPos X="41" Y="58"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit12>
@@ -142,10 +138,11 @@
         <ComponentName Value="frmDirection"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="106"/>
-        <CursorPos X="71" Y="117"/>
-        <UsageCount Value="41"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="78"/>
+        <CursorPos X="91" Y="100"/>
+        <UsageCount Value="50"/>
+        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="navigate.pas"/>
@@ -155,7 +152,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="36" Y="11"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="49"/>
       </Unit14>
       <Unit15>
         <Filename Value="ssdv.pas"/>
@@ -163,12 +160,10 @@
         <ComponentName Value="frmSSDV"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos X="96" Y="28"/>
-        <UsageCount Value="40"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="49"/>
       </Unit15>
       <Unit16>
         <Filename Value="log.pas"/>
@@ -176,12 +171,10 @@
         <ComponentName Value="frmLog"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="17"/>
-        <CursorPos X="11" Y="25"/>
-        <UsageCount Value="40"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="54"/>
+        <CursorPos X="83" Y="70"/>
+        <UsageCount Value="49"/>
       </Unit16>
       <Unit17>
         <Filename Value="settings.pas"/>
@@ -189,66 +182,66 @@
         <ComponentName Value="frmSettings"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
-        <UsageCount Value="40"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="67"/>
+        <CursorPos X="78" Y="79"/>
+        <UsageCount Value="49"/>
       </Unit17>
       <Unit18>
         <Filename Value="habrx/GPSSource.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="31"/>
-        <CursorPos X="23" Y="94"/>
-        <UsageCount Value="40"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="21"/>
+        <CursorPos Y="72"/>
+        <UsageCount Value="49"/>
+        <Loaded Value="True"/>
       </Unit18>
       <Unit19>
         <Filename Value="habrx/CarUpload.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="43"/>
-        <CursorPos X="37" Y="88"/>
-        <UsageCount Value="40"/>
+        <CursorPos Y="64"/>
+        <UsageCount Value="49"/>
       </Unit19>
       <Unit20>
         <Filename Value="habrx/miscellaneous.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Miscellaneous"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="70"/>
-        <CursorPos X="43" Y="79"/>
-        <UsageCount Value="39"/>
+        <EditorIndex Value="5"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit20>
       <Unit21>
         <Filename Value="habrx/HabitatSource.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="135"/>
-        <CursorPos X="31" Y="167"/>
-        <UsageCount Value="35"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="57"/>
+        <CursorPos Y="102"/>
+        <UsageCount Value="44"/>
+        <Loaded Value="True"/>
       </Unit21>
       <Unit22>
         <Filename Value="habrx/UDPSource.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="20"/>
-        <CursorPos X="110" Y="32"/>
-        <UsageCount Value="35"/>
+        <CursorPos Y="36"/>
+        <UsageCount Value="44"/>
       </Unit22>
       <Unit23>
         <Filename Value="miscellaneous.pas"/>
         <UnitName Value="Miscellaneous"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="52" Y="8"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="29"/>
       </Unit23>
       <Unit24>
         <Filename Value="habrx/generics.collections.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="15"/>
         <CursorPos X="54" Y="19"/>
-        <UsageCount Value="19"/>
+        <UsageCount Value="18"/>
       </Unit24>
       <Unit25>
         <Filename Value="generics.collections/src/generics.collections.pas"/>
@@ -256,193 +249,282 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="19"/>
+        <UsageCount Value="18"/>
       </Unit25>
       <Unit26>
         <Filename Value="C:/lazarus/fpc/3.0.4/source/packages/fcl-net/examples/testhosts.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2"/>
         <CursorPos X="26" Y="44"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit26>
       <Unit27>
         <Filename Value="C:/lazarus/fpc/3.0.4/source/packages/fcl-net/examples/testhst.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="19"/>
         <CursorPos X="38" Y="61"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit27>
       <Unit28>
         <Filename Value="C:/lazarus/fpc/3.0.4/source/packages/fcl-net/examples/cnslookup.pp"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit28>
       <Unit29>
         <Filename Value="C:/lazarus/synapse/synautil.pas"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit29>
       <Unit30>
         <Filename Value="synapse/synsock.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="35"/>
         <CursorPos X="10" Y="72"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit30>
       <Unit31>
         <Filename Value="synapse/synautil.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos X="2" Y="52"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit31>
       <Unit32>
         <Filename Value="synapse/jedi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="591"/>
         <CursorPos X="6" Y="611"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit32>
       <Unit33>
         <Filename Value="synapse/ssfpc.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="632"/>
         <CursorPos Y="667"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit33>
       <Unit34>
         <Filename Value="../../../../../components/Synapse/source/lib/httpsend.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="193"/>
         <CursorPos X="21" Y="233"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit34>
       <Unit35>
         <Filename Value="C:/Users/dave/Documents/tmssoftware/TMS FNC Maps/LCLTMSFNCMaps.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="287"/>
         <CursorPos X="60" Y="331"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="13"/>
       </Unit35>
+      <Unit36>
+        <Filename Value="settingsbase.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmSettingsBase"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="SettingsBase"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="41"/>
+        <CursorPos X="47" Y="61"/>
+        <UsageCount Value="29"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="generalsettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmGeneralSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="GeneralSettings"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="46"/>
+        <CursorPos X="40" Y="51"/>
+        <UsageCount Value="27"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="gpssettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmGPSSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="GPSSettings"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="27"/>
+        <CursorPos Y="57"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="gatewaysettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLoRaGatewaySettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="GatewaySettings"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="77"/>
+        <CursorPos X="70" Y="99"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="udpsettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmUDPSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UDPSettings"/>
+        <EditorIndex Value="12"/>
+        <CursorPos X="44" Y="31"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="habitatsettings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmHabitatSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="HabitatSettings"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="13"/>
+        <CursorPos X="45" Y="26"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="../../../../../lazarus/lcl/include/control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3523"/>
+        <CursorPos Y="3568"/>
+        <UsageCount Value="10"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="HABLCARS.ini"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21" Y="12"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Ini"/>
+      </Unit43>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
-        <Filename Value="main.pas"/>
-        <Caret Line="319" Column="17" TopLine="274"/>
+        <Filename Value="sourcesform.pas"/>
+        <Caret Line="72" TopLine="39"/>
       </Position1>
       <Position2>
-        <Filename Value="main.pas"/>
-        <Caret Line="389" Column="26" TopLine="337"/>
+        <Filename Value="sourcesform.pas"/>
+        <Caret Line="71" TopLine="39"/>
       </Position2>
       <Position3>
-        <Filename Value="main.pas"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="71" Column="56" TopLine="26"/>
       </Position3>
       <Position4>
-        <Filename Value="base.pas"/>
-        <Caret Line="30" Column="54"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="72" TopLine="27"/>
       </Position4>
       <Position5>
-        <Filename Value="map.pas"/>
-        <Caret Line="36" Column="51" TopLine="29"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="71" TopLine="27"/>
       </Position5>
       <Position6>
-        <Filename Value="main.pas"/>
-        <Caret Line="81" Column="41" TopLine="67"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="72" TopLine="27"/>
       </Position6>
       <Position7>
-        <Filename Value="main.pas"/>
-        <Caret Line="125" Column="22" TopLine="81"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="71" TopLine="27"/>
       </Position7>
       <Position8>
-        <Filename Value="main.pas"/>
-        <Caret Line="216" Column="13" TopLine="171"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="72" TopLine="27"/>
       </Position8>
       <Position9>
-        <Filename Value="main.pas"/>
-        <Caret Line="267" Column="13" TopLine="222"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="71" TopLine="27"/>
       </Position9>
       <Position10>
-        <Filename Value="main.pas"/>
-        <Caret Line="272" Column="13" TopLine="227"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="72" TopLine="27"/>
       </Position10>
       <Position11>
-        <Filename Value="main.pas"/>
-        <Caret Line="277" Column="13" TopLine="232"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="71" TopLine="27"/>
       </Position11>
       <Position12>
-        <Filename Value="main.pas"/>
-        <Caret Line="282" Column="14" TopLine="237"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="72" TopLine="27"/>
       </Position12>
       <Position13>
-        <Filename Value="main.pas"/>
-        <Caret Line="287" Column="13" TopLine="242"/>
+        <Filename Value="gatewaysettings.pas"/>
+        <Caret Line="120" Column="87" TopLine="77"/>
       </Position13>
       <Position14>
-        <Filename Value="main.pas"/>
-        <Caret Line="297" Column="13" TopLine="252"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="120" Column="34" TopLine="86"/>
       </Position14>
       <Position15>
-        <Filename Value="main.pas"/>
-        <Caret Line="302" Column="13" TopLine="257"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="122" TopLine="86"/>
       </Position15>
       <Position16>
-        <Filename Value="main.pas"/>
-        <Caret Line="307" Column="13" TopLine="262"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="133" TopLine="86"/>
       </Position16>
       <Position17>
-        <Filename Value="main.pas"/>
-        <Caret Line="319" Column="17" TopLine="274"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="120" TopLine="86"/>
       </Position17>
       <Position18>
-        <Filename Value="targetform.pas"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="122" TopLine="86"/>
       </Position18>
       <Position19>
-        <Filename Value="map.pas"/>
-        <Caret Line="36" Column="25" TopLine="10"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="123" TopLine="86"/>
       </Position19>
       <Position20>
-        <Filename Value="main.pas"/>
-        <Caret Line="390" Column="9" TopLine="346"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="124" TopLine="86"/>
       </Position20>
       <Position21>
-        <Filename Value="main.pas"/>
-        <Caret Line="389" Column="25" TopLine="363"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="125" TopLine="86"/>
       </Position21>
       <Position22>
-        <Filename Value="main.pas"/>
-        <Caret Line="392" Column="9" TopLine="365"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="126" TopLine="86"/>
       </Position22>
       <Position23>
-        <Filename Value="main.pas"/>
-        <Caret Line="391" Column="23" TopLine="365"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="127" TopLine="86"/>
       </Position23>
       <Position24>
-        <Filename Value="main.pas"/>
-        <Caret Line="10" Column="76"/>
+        <Filename Value="habrx/GatewaySource.pas"/>
+        <Caret Line="128" TopLine="86"/>
       </Position24>
       <Position25>
-        <Filename Value="ssdv.pas"/>
-        <Caret Line="33" Column="59" TopLine="8"/>
+        <Filename Value="habrx/SocketSource.pas"/>
+        <Caret Line="71" Column="73" TopLine="35"/>
       </Position25>
       <Position26>
-        <Filename Value="targetform.pas"/>
+        <Filename Value="direction.pas"/>
+        <Caret Line="52" Column="27" TopLine="41"/>
       </Position26>
       <Position27>
-        <Filename Value="main.pas"/>
-        <Caret Line="20" Column="23"/>
+        <Filename Value="direction.pas"/>
+        <Caret Line="114" Column="34" TopLine="69"/>
       </Position27>
       <Position28>
-        <Filename Value="main.pas"/>
-        <Caret Line="159" Column="24" TopLine="114"/>
+        <Filename Value="direction.pas"/>
       </Position28>
       <Position29>
-        <Filename Value="main.pas"/>
-        <Caret Line="307" Column="30" TopLine="262"/>
+        <Filename Value="direction.pas"/>
+        <Caret Line="52" Column="27" TopLine="7"/>
       </Position29>
-      <Position30>
-        <Filename Value="main.pas"/>
-        <Caret Line="458" Column="78" TopLine="436"/>
-      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -450,25 +532,10 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="1">
+    <Watches Count="1">
       <Item1>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="map.pas"/>
-        <Line Value="139"/>
+        <Expression Value="Speech"/>
       </Item1>
-    </BreakPoints>
-    <Watches Count="3">
-      <Item1>
-        <Expression Value="FileName"/>
-      </Item1>
-      <Item2>
-        <Expression Value="btnGoogle.Font.Style"/>
-      </Item2>
-      <Item3>
-        <Expression Value="Positions[Index].Position.PayloadID"/>
-      </Item3>
     </Watches>
   </Debugging>
 </CONFIG>

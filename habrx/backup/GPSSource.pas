@@ -46,6 +46,10 @@ var
 begin
     FillChar(Position, SizeOf(Position), 0);
 
+    if CurrentDate = 0 then begin
+        CurrentDate := Trunc(Now);
+    end;
+
     try
         if Copy(Line, 1, 2) = '$G' then begin
             // Looks like an NME sentence so far
@@ -116,8 +120,6 @@ begin
     while not Terminated do begin
         CommPort := GetSettingString(GroupName, 'Port', '');
         SetGroupChangedFlag(GroupName, False);
-
-        CommPort := 'COM5';
 
         try
             Position := default(THABPosition);

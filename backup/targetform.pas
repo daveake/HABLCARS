@@ -64,7 +64,7 @@ begin
     // Update direction ?
     if SelectedIndex > 0 then begin
         if Positions[0].Changed or Positions[SelectedIndex].Changed then begin
-            // ProcessNewDirection(SelectedIndex);
+            ProcessNewDirection(SelectedIndex);
         end;
     end;
 

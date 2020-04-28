@@ -33,7 +33,7 @@ begin
         SetGroupChangedFlag(GroupName, False);
         PortList := GetSettingString(GroupName, 'Port', '');
 
-        PortList := '7001';
+        PortList := '12004';
 
         if PortList = '' then begin
             SyncCallback(SourceID, True, 'No ports specified', Position);

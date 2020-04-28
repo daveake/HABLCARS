@@ -1,0 +1,153 @@
+inherited frmGeneralSettings: TfrmGeneralSettings
+  Left = 2776
+  Top = 270
+  Caption = 'General Settings'
+  OnCreate = FormCreate
+  inherited pnlMain: TPanel
+    inherited Panel1: TPanel
+      Height = 115
+      ClientHeight = 115
+      inherited Shape1: TShape
+        Height = 103
+      end
+      object chkTweet: TSpeedButton[1]
+        Left = 16
+        Height = 32
+        Top = 64
+        Width = 124
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'Post To Twitter'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        GroupIndex = 1
+        Transparent = False
+        OnClick = chkSpeechClick
+        ParentFont = False
+      end
+      object chkPositionBeeps: TSpeedButton[2]
+        Left = 152
+        Height = 32
+        Top = 64
+        Width = 124
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'Position Beeps'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        GroupIndex = 2
+        Transparent = False
+        OnClick = chkSpeechClick
+        ParentFont = False
+      end
+      object chkAlarmBeeps: TSpeedButton[3]
+        Left = 288
+        Height = 32
+        Top = 64
+        Width = 124
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'Alarm Beeps'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        GroupIndex = 3
+        Transparent = False
+        OnClick = chkSpeechClick
+        ParentFont = False
+      end
+      object chkSpeech: TSpeedButton[4]
+        Left = 424
+        Height = 32
+        Top = 64
+        Width = 124
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'Speech'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        GroupIndex = 4
+        Transparent = False
+        OnClick = chkSpeechClick
+        ParentFont = False
+      end
+      object edtCallsign: TEdit[5]
+        Left = 328
+        Height = 40
+        Top = 16
+        Width = 168
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -24
+        OnEditingDone = edtCallsignEditingDone
+        OnKeyPress = edtCallsignKeyPress
+        ParentFont = False
+        TabOrder = 0
+      end
+      object Label1: TLabel[6]
+        Left = 200
+        Height = 30
+        Top = 17
+        Width = 124
+        Alignment = taRightJustify
+        Caption = 'Your Callsign:'
+        Font.Color = clWhite
+        Font.Height = -21
+        ParentColor = False
+        ParentFont = False
+      end
+      object chkSpellOut: TSpeedButton[7]
+        Left = 560
+        Height = 32
+        Top = 64
+        Width = 124
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'Spell Out'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        GroupIndex = 5
+        Transparent = False
+        OnClick = chkSpeechClick
+        ParentFont = False
+      end
+    end
+    inherited Panel3: TPanel
+      Top = 115
+    end
+    inherited Shape2: TShape
+      Height = 261
+      Top = 157
+    end
+    inherited StaticText1: TStaticText
+      Height = 237
+      Top = 169
+      Caption = '"Your Callsign" is used for telemetry uploads from this program.  Normally we leave it to the telemetry receiver (e.g. dl-fldigi or the LoRa Gateway) to upload to Habitat, but sometimes you may use a source (e.g. the a Bluetooth LoRa Receiver) that does not upload.'#13#10#13#10'"Position Beeps" enables a short speaker beep for every incoming telemetry position.'#13#10#13#10'"Alarm Beeps" enables beeps for alarms such as Signal Loss.'#13#10#13#10'"Speech" enables text-to-speech for log entries.  Works on Linux only, if espeak has been installed.'
+      Font.Height = -15
+    end
+  end
+end

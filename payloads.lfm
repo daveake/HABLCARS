@@ -32,7 +32,7 @@ inherited frmPayloads: TfrmPayloads
       end
     end
     object Panel3: TPanel[1]
-      Left = 468
+      Left = 236
       Height = 416
       Top = 4
       Width = 228
@@ -58,7 +58,7 @@ inherited frmPayloads: TfrmPayloads
       end
     end
     object Panel5: TPanel[2]
-      Left = 236
+      Left = 468
       Height = 416
       Top = 4
       Width = 228

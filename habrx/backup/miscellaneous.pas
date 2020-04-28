@@ -110,7 +110,9 @@ end;
 
 function ImageFolder: String;
 begin
-    Result := IncludeTrailingPathDelimiter(DataFolder + 'images');
+    // Result := IncludeTrailingPathDelimiter(DataFolder + 'images');
+
+    Result := 'http://51.89.167.6:8889/markers/';
 end;
 
 
@@ -313,19 +315,22 @@ end;
 
 procedure InitialiseSettings;
 begin
-    //Settings := TSettings.Create;
-
     if INIFileName <> '' then begin
         Ini := TIniFile.Create(INIFileName);
     end;
 end;
 
-function GetSettingValue(Key, Default: String): String;
+
+function GetSettingString(Section, Item, Default: String): String;
 var
+    Key: String;
     i: Integer;
 begin
-     Result := Default;
+    Result := Default;
 
+    Key := Section + '/' + Item;
+
+    // Cached setting ?
     for i := 1 to Settings.Count do begin
         if Settings.Settings[i].Name = Key then begin
             Result := Settings.Settings[i].Value;
@@ -333,20 +338,15 @@ begin
         end;
     end;
 
+    // Read from INI file
+    Result := Ini.ReadString(Section, Item, Default);
+
+    // Add to cache
     if Settings.Count < High(Settings.Settings) then begin
         Inc(Settings.Count);
         Settings.Settings[Settings.Count].Name := Key;
-        Settings.Settings[Settings.Count].Value := Default;
+        Settings.Settings[Settings.Count].Value := Result;
     end;
-end;
-
-function GetSettingString(Section, Item, Default: String): String;
-var
-    Key: String;
-begin
-    Key := Section + '/' + Item;
-
-    Result := GetSettingValue(Key, Default);
 end;
 
 function GetSettingInteger(Section, Item: String; Default: Integer): Integer;
@@ -381,6 +381,7 @@ procedure SetSettingValue(Key, Value: String);
 var
     i: Integer;
 begin
+    // Existing setting ?
     for i := 1 to Settings.Count do begin
         if Settings.Settings[i].Name = Key then begin
             Settings.Settings[i].Value := Value;
@@ -388,6 +389,7 @@ begin
         end;
     end;
 
+    // Add new setting
     if Settings.Count < High(Settings.Settings) then begin
         Inc(Settings.Count);
         Settings.Settings[Settings.Count].Name := Key;
