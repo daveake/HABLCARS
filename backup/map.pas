@@ -15,6 +15,7 @@ type
   TMapItem = record
     Marker:              TTMSFNCMapsMarker;
     //LandingMarker:     TTMSFNCMapsMarker;
+    PolyLine:             TTMSFNCMapsPolyline;
     ImageName:           String;
   end;
 
@@ -86,15 +87,13 @@ var
     FileName: String;
 begin
     FileName := ImageFolder + ImageName + '.png';
-    // http://51.89.167.6:8080/markers/car-blue.png
+    // http://51.89.167.6:8889/markers/car-blue.png
 
     //if FileExists(FileName) then begin
     //    FileName := 'file:///' + FileName;
     //end else begin
     //    FileName := '';
     //end;
-
-    frmMain.GMap.BeginUpdate;
 
     if MapItems[Index].Marker = nil then begin
         MapItems[Index].Marker := frmMain.GMap.AddMarker(Latitude, Longitude, PayloadID, FileName);
@@ -108,16 +107,17 @@ begin
         MapItems[Index].ImageName := ImageName;
         MapItems[Index].Marker.IconURL := FileName;
     end;
-
-    frmMain.GMap.EndUpdate;
 end;
 
 
 procedure TfrmMap.NewPosition(Index: Integer; HABPosition: THABPosition);
+var
+    PolyIndex: Integer;
 begin
     inherited;
 
     if OKToUpdateMap then begin
+        frmMain.GMap.BeginUpdate;
         // Find or create marker fo this payload
         if Index = 0 then begin
             AddOrUpdateMapMarker(Index, 'Car', HABPosition.Latitude, HABPosition.Longitude, 'car-blue');
@@ -133,8 +133,15 @@ begin
                                  HABPosition.Longitude,
                                  frmMain.BalloonIconName(Index));
 
-            //PolylineItems[Index].Polyline.Path.Add(Positions[Index].Position.Latitude, Positions[Index].Position.Longitude);
-            //GMap.UpdateMapPolyline(PolylineItems[Index].Polyline);
+            // Polyline
+            if MapItems[Index].PolyLine = nil then begin
+                MapItems[Index].PolyLine := frmMain.GMap.Polylines.Add;
+            end;
+            MapItems[Index].PolyLine.Coordinates.Add;
+            PolyIndex := MapItems[Index].PolyLine.Coordinates.Count-1;
+            MapItems[PolyIndex].PolyLine.Coordinates[Index].Latitude := HABPosition.Latitude;
+            MapItems[PolyIndex].PolyLine.Coordinates[Index].Longitude := HABPosition.Longitude;
+
             if (FollowMode = fmPayload) and (Index = SelectedIndex) then begin
                 frmMain.GMap.SetCenterCoordinate(Positions[Index].Position.Latitude, Positions[Index].Position.Longitude);
                 frmMain.GMap.Options.DefaultLatitude := Positions[Index].Position.Latitude;
@@ -146,6 +153,7 @@ begin
         //    AddOrUpdateMapMarker(Index, Positions[Index].Position.PayloadID + '-X', Positions[Index].Position.PredictedLatitude, Positions[Index].Position.PredictedLongitude, '???'); // frmMain.BalloonIconName(Index, True));
         //end;
         // Result := True;
+        frmMain.GMap.EndUpdate;
     end;
 end;
 
