@@ -54,6 +54,7 @@ end;
 
 procedure TfrmSettingsBase.ApplyChanges;
 begin
+    // UpdateIniFile;
     SetGroupChangedFlag(Group, True);
     btnApply.Enabled := False;
     btnCancel.Enabled := False;

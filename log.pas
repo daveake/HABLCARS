@@ -6,7 +6,7 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-    Variants, ComObj, base, Miscellaneous;
+    base, Miscellaneous, Speech;
 
 type
 
@@ -16,10 +16,10 @@ type
         lstLog: TListBox;
         Panel1: TPanel;
         procedure FormCreate(Sender: TObject);
+        procedure lstLogClick(Sender: TObject);
         procedure tmrUpdatesTimer(Sender: TObject);
     private
-      SpVoice: OleVariant;
-      procedure TextToSpeech(Speech: WideString);
+      SpeechThread: TSpeech;
     public
       procedure AddMessage(PayloadID, Temp: String; Speak, Tweet: Boolean);
     end;
@@ -38,7 +38,12 @@ end;
 procedure TfrmLog.FormCreate(Sender: TObject);
 begin
     inherited;
-    SpVoice := CreateOleObject('SAPI.SpVoice');
+
+    SpeechThread := TSpeech.Create;
+end;
+
+procedure TfrmLog.lstLogClick(Sender: TObject);
+begin
 end;
 
 function SpellOut(Temp: String): String;
@@ -49,21 +54,6 @@ begin
 
     for i := 1 to Length(Temp) do begin
         Result := Result + Copy(Temp, i, 1) + ' ';
-    end;
-end;
-
-procedure TfrmLog.TextToSpeech(Speech: WideString);
-var
-    SavedCW: Word;
-begin
-    // Change FPU interrupt mask to avoid SIGFPE exceptions
-    SavedCW := Get8087CW;
-    try
-        Set8087CW(SavedCW or $4);
-        SpVoice.Speak(Speech, 0);
-    finally
-      // Restore FPU mask
-      Set8087CW(SavedCW);
     end;
 end;
 
@@ -89,11 +79,8 @@ begin
     if lstLog.Items.Count > 12 then lstLog.Items.Delete(0);
     lstLog.ItemIndex := lstLog.Items.Add(TimedMsg);
 
-    // Application.ProcessMessages;
-
-    // Text to speech, for Android
     if Speak and GetSettingBoolean('General', 'Speech', False) then begin
-        TextToSpeech(Speech);
+        SpeechThread.AddMessage(Speech);
     end;
 
     // Twitter

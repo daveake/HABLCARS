@@ -40,7 +40,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="29">
+    <Units Count="30">
       <Unit0>
         <Filename Value="HABLCARS.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -220,6 +220,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="HabitatSettings"/>
       </Unit28>
+      <Unit29>
+        <Filename Value="speech.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit29>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

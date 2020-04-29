@@ -27,18 +27,18 @@ inherited frmSettingsBase: TfrmSettingsBase
     end
     object Panel3: TPanel[1]
       Left = 0
-      Height = 40
+      Height = 36
       Top = 90
       Width = 700
       Align = alTop
       BevelOuter = bvNone
       Caption = 'Panel3'
-      ClientHeight = 40
+      ClientHeight = 36
       ClientWidth = 700
       TabOrder = 1
       object btnApply: TSpeedButton
         Left = 484
-        Height = 40
+        Height = 36
         Top = 0
         Width = 100
         Align = alRight
@@ -55,7 +55,7 @@ inherited frmSettingsBase: TfrmSettingsBase
       end
       object btnCancel: TSpeedButton
         Left = 592
-        Height = 40
+        Height = 36
         Top = 0
         Width = 100
         Align = alRight
@@ -73,8 +73,8 @@ inherited frmSettingsBase: TfrmSettingsBase
     end
     object Shape2: TShape[2]
       Left = 6
-      Height = 282
-      Top = 136
+      Height = 286
+      Top = 132
       Width = 688
       Align = alClient
       BorderSpacing.Around = 6
@@ -85,8 +85,8 @@ inherited frmSettingsBase: TfrmSettingsBase
     end
     object StaticText1: TStaticText[3]
       Left = 18
-      Height = 258
-      Top = 148
+      Height = 262
+      Top = 144
       Width = 664
       Align = alClient
       BorderSpacing.Around = 18

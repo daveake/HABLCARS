@@ -63,6 +63,7 @@ procedure SetSettingString(Section, Item, Value: String);
 procedure SetSettingInteger(Section, Item: String; Value: Integer);
 procedure SetSettingBoolean(Section, Item: String; Value: Boolean);
 procedure SetGroupChangedFlag(Section: String; Changed: Boolean);
+//procedure UpdateIniFile;
 
 const
     GPS_SOURCE = 0;
@@ -338,14 +339,18 @@ begin
         end;
     end;
 
-    // Read from INI file
-    Result := Ini.ReadString(Section, Item, Default);
+    if Item <> '' then begin
+        // Read from INI file
+        if Ini <> nil then begin
+            Result := Ini.ReadString(Section, Item, Default);
+        end;
 
-    // Add to cache
-    if Settings.Count < High(Settings.Settings) then begin
-        Inc(Settings.Count);
-        Settings.Settings[Settings.Count].Name := Key;
-        Settings.Settings[Settings.Count].Value := Result;
+        // Add to cache
+        if Settings.Count < High(Settings.Settings) then begin
+            Inc(Settings.Count);
+            Settings.Settings[Settings.Count].Name := Key;
+            Settings.Settings[Settings.Count].Value := Result;
+        end;
     end;
 end;
 
@@ -405,11 +410,20 @@ begin
 
     SetSettingValue(Key, Value);
 
-    if Ini <> nil then begin
-        Ini.WriteString(Section, Item, Value);
-        Ini.UpdateFile;
+    if Item <> '' then begin
+        if Ini <> nil then begin
+            Ini.WriteString(Section, Item, Value);
+            Ini.UpdateFile;
+        end;
     end;
 end;
+
+//procedure UpdateIniFile;
+//begin
+//    if Ini <> nil then begin
+//        Ini.UpdateFile;
+//    end;
+//end;
 
 procedure SetSettingInteger(Section, Item: String; Value: Integer);
 begin
@@ -535,7 +549,7 @@ begin
     CarLongitude := CarLongitude * Pi / 180;
 
     try
-        Result := 6371000 * arccos(sin(CarLatitude) * sin(HABLatitude) +
+        Result := 6371000 * (sin(CarLatitude) * sin(HABLatitude) +
                                    cos(CarLatitude) * cos(HABLatitude) * cos(HABLongitude-CarLongitude));
     except
         Result := 0.0;

@@ -338,14 +338,18 @@ begin
         end;
     end;
 
-    // Read from INI file
-    Result := Ini.ReadString(Section, Item, Default);
+    if Item <> '' then begin
+        // Read from INI file
+        if Ini <> nil then begin
+            Result := Ini.ReadString(Section, Item, Default);
+        end;
 
-    // Add to cache
-    if Settings.Count < High(Settings.Settings) then begin
-        Inc(Settings.Count);
-        Settings.Settings[Settings.Count].Name := Key;
-        Settings.Settings[Settings.Count].Value := Result;
+        // Add to cache
+        if Settings.Count < High(Settings.Settings) then begin
+            Inc(Settings.Count);
+            Settings.Settings[Settings.Count].Name := Key;
+            Settings.Settings[Settings.Count].Value := Result;
+        end;
     end;
 end;
 
@@ -405,11 +409,14 @@ begin
 
     SetSettingValue(Key, Value);
 
-    if Ini <> nil then begin
-        Ini.WriteString(Section, Item, Value);
-        Ini.UpdateFile;
+    if Item <> '' then begin
+        if Ini <> nil then begin
+            Ini.WriteString(Section, Item, Value);
+            Ini.UpdateFile;
+        end;
     end;
 end;
+
 
 procedure SetSettingInteger(Section, Item: String; Value: Integer);
 begin

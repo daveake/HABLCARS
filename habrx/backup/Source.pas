@@ -2,8 +2,7 @@ unit Source;
 
 interface
 
-uses Classes, SysUtils, cthreads;
-
+uses Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls;
 
 type TFlightMode = (fmIdle, fmLaunched, fmDescending, fmLanded);
 

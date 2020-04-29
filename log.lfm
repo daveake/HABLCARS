@@ -1,6 +1,6 @@
 inherited frmLog: TfrmLog
-  Left = 212
-  Top = 441
+  Left = 2527
+  Top = 695
   Caption = 'Log'
   OnCreate = FormCreate
   inherited pnlMain: TPanel

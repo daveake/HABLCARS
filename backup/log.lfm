@@ -1,6 +1,6 @@
 inherited frmLog: TfrmLog
-  Left = 212
-  Top = 441
+  Left = 2527
+  Top = 695
   Caption = 'Log'
   OnCreate = FormCreate
   inherited pnlMain: TPanel
@@ -30,6 +30,7 @@ inherited frmLog: TfrmLog
         Font.Height = -28
         Font.Name = 'Swiss911 XCm BT'
         ItemHeight = 0
+        OnClick = lstLogClick
         ParentFont = False
         TabOrder = 0
       end
