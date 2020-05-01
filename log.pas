@@ -16,7 +16,6 @@ type
         lstLog: TListBox;
         Panel1: TPanel;
         procedure FormCreate(Sender: TObject);
-        procedure lstLogClick(Sender: TObject);
         procedure tmrUpdatesTimer(Sender: TObject);
     private
       SpeechThread: TSpeech;
@@ -40,10 +39,6 @@ begin
     inherited;
 
     SpeechThread := TSpeech.Create;
-end;
-
-procedure TfrmLog.lstLogClick(Sender: TObject);
-begin
 end;
 
 function SpellOut(Temp: String): String;

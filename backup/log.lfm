@@ -1,5 +1,5 @@
 inherited frmLog: TfrmLog
-  Left = 2527
+  Left = 1858
   Top = 695
   Caption = 'Log'
   OnCreate = FormCreate
@@ -32,7 +32,9 @@ inherited frmLog: TfrmLog
         ItemHeight = 0
         OnClick = lstLogClick
         ParentFont = False
+        ScrollWidth = 676
         TabOrder = 0
+        TopIndex = -1
       end
     end
   end

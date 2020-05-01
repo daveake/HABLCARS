@@ -5,6 +5,8 @@ interface
 uses Classes, SysUtils, Variants,
 {$IFDEF MSWINDOWS}
   ComObj,
+{$ELSE}
+
 {$ENDIF}
 Strings;
 
@@ -37,6 +39,7 @@ begin
     Messages.Add(Message);
 end;
 
+{$IFDEF MSWINDOWS}
 procedure TSpeech.Execute;
 var
     SpVoice: OleVariant;
@@ -67,5 +70,36 @@ begin
         Sleep(1000);
     end;
 end;
+{$ELSE}
+procedure TSpeech.Execute;
+var
+   FileName: AnsiString;
+   f: TextFile;
+begin
+    Messages := TStringList.Create;
+    FileName := GetTempDir + '/say.sh';
+
+    while not Terminated do begin
+        while Messages.Count > 0 do begin
+            // Create shell script
+            AssignFile(f, FileName);
+            ReWrite(f);
+            WriteLn(f, '#!/bin/sh');
+            WriteLn(f, '/usr/bin/espeak -g 5 "' + Messages[0] + '" --stdout | /usr/bin/aplay');
+            CloseFile(f);
+
+            fpChmod (FileName,&777);
+
+            // fpexecl ('./' + FileName,[]);
+            SysUtils.ExecuteProcess('/bin/bash', '-c ' + FileName, []);
+
+            // Bye Bye
+            Messages.Delete(0);
+        end;
+
+        Sleep(1000);
+    end;
+end;
+{$ENDIF}
 
 end.

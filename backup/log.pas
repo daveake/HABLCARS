@@ -44,9 +44,6 @@ end;
 
 procedure TfrmLog.lstLogClick(Sender: TObject);
 begin
-    AddMessage('DAVE', 'Is here', True, False);
-    AddMessage('JULIE', 'Is here', True, False);
-    AddMessage('DAISY', 'Is here', True, False);
 end;
 
 function SpellOut(Temp: String): String;
