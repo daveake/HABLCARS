@@ -139,8 +139,8 @@ begin
             end;
             MapItems[Index].PolyLine.Coordinates.Add;
             PolyIndex := MapItems[Index].PolyLine.Coordinates.Count-1;
-            MapItems[PolyIndex].PolyLine.Coordinates[Index].Latitude := HABPosition.Latitude;
-            MapItems[PolyIndex].PolyLine.Coordinates[Index].Longitude := HABPosition.Longitude;
+            MapItems[Index].PolyLine.Coordinates[PolyIndex].Latitude := HABPosition.Latitude;
+            MapItems[Index].PolyLine.Coordinates[PolyIndex].Longitude := HABPosition.Longitude;
 
             if (FollowMode = fmPayload) and (Index = SelectedIndex) then begin
                 frmMain.GMap.SetCenterCoordinate(Positions[Index].Position.Latitude, Positions[Index].Position.Longitude);

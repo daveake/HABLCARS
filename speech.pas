@@ -2,7 +2,11 @@ unit speech;
 
 interface
 
-uses Classes, SysUtils, Variants, ComObj, Strings;
+uses Classes, SysUtils, Variants,
+{$IFDEF MSWINDOWS}
+  ComObj,
+{$ENDIF}
+Strings;
 
 
 type
@@ -33,6 +37,7 @@ begin
     Messages.Add(Message);
 end;
 
+{$IFDEF MSWINDOWS}
 procedure TSpeech.Execute;
 var
     SpVoice: OleVariant;
@@ -63,5 +68,19 @@ begin
         Sleep(1000);
     end;
 end;
+{$ELSE}
+procedure TSpeech.Execute;
+begin
+    Messages := TStringList.Create;
+
+    while not Terminated do begin
+        while Messages.Count > 0 do begin
+            Messages.Delete(0);
+        end;
+
+        Sleep(1000);
+    end;
+end;
+{$ENDIF}
 
 end.

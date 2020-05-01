@@ -1,0 +1,5 @@
+inherited frmNavigate: TfrmNavigate
+  Left = 2875
+  Top = 945
+  Caption = 'Navigate'
+end

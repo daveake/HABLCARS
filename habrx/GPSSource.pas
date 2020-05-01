@@ -10,10 +10,8 @@ type
     { Private declarations }
   protected
     { Protected declarations }
-{$IFDEF MSWINDOWS}
     function ExtractPositionFrom(Line: String; PayloadID: String = ''): THABPosition; override;
     procedure Execute; override;
-{$ENDIF}
   public
     { Public declarations }
   end;

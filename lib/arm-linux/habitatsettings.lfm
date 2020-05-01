@@ -1,0 +1,70 @@
+inherited frmHabitatSettings: TfrmHabitatSettings
+  Left = 2476
+  Top = 950
+  Caption = 'Habitat Settings'
+  OnCreate = FormCreate
+  inherited pnlMain: TPanel
+    inherited Panel1: TPanel
+      Height = 130
+      ClientHeight = 130
+      inherited Shape1: TShape
+        Height = 118
+      end
+      object Label1: TLabel[1]
+        Left = 72
+        Height = 25
+        Top = 25
+        Width = 103
+        Alignment = taRightJustify
+        Caption = 'Payload List:'
+        Font.Color = clWhite
+        Font.Height = -19
+        ParentColor = False
+        ParentFont = False
+      end
+      object edtWhiteList: TEdit[2]
+        Left = 200
+        Height = 33
+        Top = 24
+        Width = 464
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -19
+        OnKeyPress = edtWhiteListKeyPress
+        ParentFont = False
+        TabOrder = 0
+      end
+      object chkEnable: TSpeedButton[3]
+        Left = 288
+        Height = 32
+        Top = 72
+        Width = 152
+        AllowAllUp = True
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'Enable'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        GroupIndex = 1
+        Transparent = False
+        OnClick = chkEnableClick
+        ParentFont = False
+      end
+    end
+    inherited Panel3: TPanel
+      Top = 130
+    end
+    inherited Shape2: TShape
+      Height = 246
+      Top = 172
+    end
+    inherited StaticText1: TStaticText
+      Height = 222
+      Top = 184
+    end
+  end
+end

@@ -1,0 +1,38 @@
+inherited frmLog: TfrmLog
+  Left = 2527
+  Top = 695
+  Caption = 'Log'
+  OnCreate = FormCreate
+  inherited pnlMain: TPanel
+    object Panel1: TPanel[0]
+      Left = 8
+      Height = 408
+      Top = 8
+      Width = 684
+      Align = alClient
+      BorderSpacing.Around = 8
+      BevelOuter = bvNone
+      ClientHeight = 408
+      ClientWidth = 684
+      Color = 7331825
+      ParentColor = False
+      TabOrder = 0
+      object lstLog: TListBox
+        Left = 4
+        Height = 400
+        Top = 4
+        Width = 676
+        Align = alClient
+        BorderSpacing.Around = 4
+        BorderStyle = bsNone
+        Color = clBlack
+        Font.Color = clYellow
+        Font.Height = -28
+        Font.Name = 'Swiss911 XCm BT'
+        ItemHeight = 0
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+  end
+end

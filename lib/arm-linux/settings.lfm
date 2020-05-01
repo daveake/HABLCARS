@@ -1,0 +1,117 @@
+inherited frmSettings: TfrmSettings
+  Left = 2761
+  Top = 431
+  Caption = 'Settings'
+  OnCreate = FormCreate
+  inherited pnlMain: TPanel
+    object Panel3: TPanel[0]
+      Left = 0
+      Height = 40
+      Top = 0
+      Width = 700
+      Align = alTop
+      BevelOuter = bvNone
+      Caption = 'Panel3'
+      ClientHeight = 40
+      ClientWidth = 700
+      Color = clBlack
+      ParentColor = False
+      TabOrder = 0
+      object btnGeneral: TSpeedButton
+        Left = 10
+        Height = 32
+        Top = 4
+        Width = 130
+        Align = alRight
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'General'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        Transparent = False
+        OnClick = btnGeneralClick
+        ParentFont = False
+      end
+      object btnUDP: TSpeedButton
+        Left = 424
+        Height = 32
+        Top = 4
+        Width = 130
+        Align = alRight
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'UDP'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        Transparent = False
+        OnClick = btnUDPClick
+        ParentFont = False
+      end
+      object btnHabitat: TSpeedButton
+        Left = 562
+        Height = 32
+        Top = 4
+        Width = 130
+        Align = alRight
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'Habitat'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        Transparent = False
+        OnClick = btnHabitatClick
+        ParentFont = False
+      end
+      object btnGateway: TSpeedButton
+        Left = 286
+        Height = 32
+        Top = 4
+        Width = 130
+        Align = alRight
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'Gateway'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        Transparent = False
+        OnClick = btnGatewayClick
+        ParentFont = False
+      end
+      object btnGPS: TSpeedButton
+        Left = 148
+        Height = 32
+        Top = 4
+        Width = 130
+        Align = alRight
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 4
+        BorderSpacing.Around = 4
+        Caption = 'GPS'
+        Color = 7331825
+        Flat = True
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        Transparent = False
+        OnClick = btnGPSClick
+        ParentFont = False
+      end
+    end
+  end
+end

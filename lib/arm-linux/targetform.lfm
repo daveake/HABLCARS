@@ -1,0 +1,10 @@
+inherited frmTarget: TfrmTarget
+  Left = 2768
+  Top = 156
+  Caption = 'Target'
+  object tmrUpdates: TTimer[1]
+    OnTimer = tmrUpdatesTimer
+    left = 88
+    top = 344
+  end
+end

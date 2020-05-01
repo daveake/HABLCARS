@@ -2,7 +2,11 @@ unit speech;
 
 interface
 
-uses Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls, Variants, ComObj;
+uses Classes, SysUtils, Variants,
+{$IFDEF MSWINDOWS}
+  ComObj,
+{$ENDIF}
+Strings;
 
 
 type
@@ -37,7 +41,7 @@ procedure TSpeech.Execute;
 var
     SpVoice: OleVariant;
     SavedCW: Word;
-    Message: TWideString;
+    Message: WideString;
 begin
     Messages := TStringList.Create;
 
