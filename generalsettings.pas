@@ -13,13 +13,14 @@ type
     { TfrmGeneralSettings }
 
     TfrmGeneralSettings = class(TfrmSettingsBase)
-        chkAlarmBeeps: TSpeedButton;
-        chkSpellOut: TSpeedButton;
-        chkTweet: TSpeedButton;
-        chkPositionBeeps: TSpeedButton;
-        chkSpeech: TSpeedButton;
+      chkAlarmBeeps: TButton;
+      chkPositionBeeps: TButton;
+      chkSpeech: TButton;
+      chkSpellOut: TButton;
+      chkTweet: TButton;
         edtCallsign: TEdit;
         Label1: TLabel;
+        procedure buttonClick(Sender: TObject);
         procedure chkSpeechClick(Sender: TObject);
         procedure edtCallsignEditingDone(Sender: TObject);
         procedure edtCallsignKeyPress(Sender: TObject; var Key: char);
@@ -48,7 +49,11 @@ end;
 
 procedure TfrmGeneralSettings.chkSpeechClick(Sender: TObject);
 begin
-    SettingsHaveChanged;
+end;
+
+procedure TfrmGeneralSettings.buttonClick(Sender: TObject);
+begin
+    LCARSCheckBoxClick(TButton(Sender));
 end;
 
 procedure TfrmGeneralSettings.edtCallsignKeyPress(Sender: TObject; var Key: char);
@@ -66,11 +71,11 @@ procedure TfrmGeneralSettings.ApplyChanges;
 begin
     SetSettingString(Group, 'Callsign', edtCallsign.Text);
 
-    SetSettingBoolean(Group, 'PositionBeeps', chkPositionBeeps.Down);
-    SetSettingBoolean(Group, 'AlarmBeeps', chkAlarmBeeps.Down);
-    SetSettingBoolean(Group, 'Speech', chkSpeech.Down);
-    SetSettingBoolean(Group, 'SpellOut', chkSpellOut.Down);
-    SetSettingBoolean(Group, 'Tweet', chkTweet.Down);
+    SetSettingBoolean(Group, 'PositionBeeps', GetLCARSCheckBoxValue(chkPositionBeeps));
+    SetSettingBoolean(Group, 'AlarmBeeps', GetLCARSCheckBoxValue(chkAlarmBeeps));
+    SetSettingBoolean(Group, 'Speech', GetLCARSCheckBoxValue(chkSpeech));
+    SetSettingBoolean(Group, 'SpellOut', GetLCARSCheckBoxValue(chkSpellOut));
+    SetSettingBoolean(Group, 'Tweet', GetLCARSCheckBoxValue(chkTweet));
 
     inherited;
 end;
@@ -81,11 +86,11 @@ begin
 
     edtCallsign.Text := GetSettingString(Group, 'Callsign', '');
 
-    chkPositionBeeps.Down := GetSettingBoolean(Group, 'PositionBeeps', False);
-    chkAlarmBeeps.Down := GetSettingBoolean(Group, 'AlarmBeeps', False);
-    chkSpellOut.Down := GetSettingBoolean(Group, 'SpellOut', False);
-    chkSpeech.Down := GetSettingBoolean(Group, 'Speech', False);
-    chkTweet.Down := GetSettingBoolean(Group, 'Tweet', False);
+    SetLCARSCheckBoxValue(chkPositionBeeps, GetSettingBoolean(Group, 'PositionBeeps', False));
+    SetLCARSCheckBoxValue(chkAlarmBeeps, GetSettingBoolean(Group, 'AlarmBeeps', False));
+    SetLCARSCheckBoxValue(chkSpellOut, GetSettingBoolean(Group, 'SpellOut', False));
+    SetLCARSCheckBoxValue(chkSpeech, GetSettingBoolean(Group, 'Speech', False));
+    SetLCARSCheckBoxValue(chkTweet, GetSettingBoolean(Group, 'Tweet', False));
 
     inherited;
 end;

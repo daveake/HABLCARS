@@ -11,7 +11,7 @@ object frmMain: TfrmMain
   OnActivate = FormActivate
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.6.0'
+  LCLVersion = '2.0.8.0'
   object pnlTop: TPanel
     Left = 0
     Height = 25
@@ -209,9 +209,9 @@ object frmMain: TfrmMain
         TabOrder = 0
         object Label3: TLabel
           Left = 762
-          Height = 30
+          Height = 28
           Top = -3
-          Width = 14
+          Width = 13
           Caption = 'X'
           Font.Height = -21
           Font.Style = [fsBold]
@@ -658,8 +658,6 @@ object frmMain: TfrmMain
           Circles = <>
           Rectangles = <>
           Markers = <>
-          Options.DefaultLatitude = 40.689247
-          Options.DefaultLongitude = -74.044502
           Service = msOpenLayers
         end
         object Panel1: TPanel

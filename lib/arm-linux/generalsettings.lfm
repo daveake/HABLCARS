@@ -1,6 +1,6 @@
 inherited frmGeneralSettings: TfrmGeneralSettings
-  Left = 2704
-  Top = 423
+  Left = 885
+  Top = 265
   Caption = 'General Settings'
   OnCreate = FormCreate
   inherited pnlMain: TPanel
@@ -10,134 +10,117 @@ inherited frmGeneralSettings: TfrmGeneralSettings
       inherited Shape1: TShape
         Height = 103
       end
-      object chkTweet: TSpeedButton[1]
-        Left = 16
-        Height = 32
-        Top = 64
-        Width = 124
-        AllowAllUp = True
-        BorderSpacing.Left = 4
-        BorderSpacing.Right = 4
-        BorderSpacing.Around = 4
-        Caption = 'Post To Twitter'
-        Color = 7331825
-        Flat = True
-        Font.Color = clBlack
-        Font.Height = -24
-        Font.Name = 'Swiss911 XCm BT'
-        GroupIndex = 1
-        Transparent = False
-        OnClick = chkSpeechClick
-        ParentFont = False
-      end
-      object chkPositionBeeps: TSpeedButton[2]
-        Left = 152
-        Height = 32
-        Top = 64
-        Width = 124
-        AllowAllUp = True
-        BorderSpacing.Left = 4
-        BorderSpacing.Right = 4
-        BorderSpacing.Around = 4
-        Caption = 'Position Beeps'
-        Color = 7331825
-        Flat = True
-        Font.Color = clBlack
-        Font.Height = -24
-        Font.Name = 'Swiss911 XCm BT'
-        GroupIndex = 2
-        Transparent = False
-        OnClick = chkSpeechClick
-        ParentFont = False
-      end
-      object chkAlarmBeeps: TSpeedButton[3]
-        Left = 288
-        Height = 32
-        Top = 64
-        Width = 124
-        AllowAllUp = True
-        BorderSpacing.Left = 4
-        BorderSpacing.Right = 4
-        BorderSpacing.Around = 4
-        Caption = 'Alarm Beeps'
-        Color = 7331825
-        Flat = True
-        Font.Color = clBlack
-        Font.Height = -24
-        Font.Name = 'Swiss911 XCm BT'
-        GroupIndex = 3
-        Transparent = False
-        OnClick = chkSpeechClick
-        ParentFont = False
-      end
-      object chkSpeech: TSpeedButton[4]
-        Left = 424
-        Height = 32
-        Top = 64
-        Width = 124
-        AllowAllUp = True
-        BorderSpacing.Left = 4
-        BorderSpacing.Right = 4
-        BorderSpacing.Around = 4
-        Caption = 'Speech'
-        Color = 7331825
-        Flat = True
-        Font.Color = clBlack
-        Font.Height = -24
-        Font.Name = 'Swiss911 XCm BT'
-        GroupIndex = 4
-        Transparent = False
-        OnClick = chkSpeechClick
-        ParentFont = False
-      end
-      object edtCallsign: TEdit[5]
+      object edtCallsign: TEdit[1]
         Left = 328
-        Height = 40
-        Top = 16
+        Height = 36
+        Top = 14
         Width = 168
-        Color = clBlack
-        Font.Color = clYellow
-        Font.Height = -24
+        BorderSpacing.Around = 1
+        Color = 7331825
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Style = [fsBold]
         OnEditingDone = edtCallsignEditingDone
         OnKeyPress = edtCallsignKeyPress
         ParentFont = False
         TabOrder = 0
       end
-      object Label1: TLabel[6]
+      object Label1: TLabel[2]
         Left = 200
-        Height = 30
+        Height = 26
         Top = 17
-        Width = 124
+        Width = 114
         Alignment = taRightJustify
         Caption = 'Your Callsign:'
         Font.Color = clWhite
-        Font.Height = -21
+        Font.Height = -19
         ParentColor = False
         ParentFont = False
       end
-      object chkSpellOut: TSpeedButton[7]
+      object chkSpellOut: TButton[3]
         Left = 560
         Height = 32
         Top = 64
         Width = 124
-        AllowAllUp = True
-        BorderSpacing.Left = 4
-        BorderSpacing.Right = 4
-        BorderSpacing.Around = 4
+        BorderSpacing.Right = 8
         Caption = 'Spell Out'
-        Color = 7331825
-        Flat = True
+        Color = 1084579
         Font.Color = clBlack
         Font.Height = -24
         Font.Name = 'Swiss911 XCm BT'
-        GroupIndex = 5
-        Transparent = False
-        OnClick = chkSpeechClick
+        OnClick = buttonClick
         ParentFont = False
+        TabOrder = 1
+      end
+      object chkSpeech: TButton[4]
+        Left = 424
+        Height = 32
+        Top = 64
+        Width = 124
+        BorderSpacing.Right = 8
+        Caption = 'Speech'
+        Color = 1084579
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        OnClick = buttonClick
+        ParentFont = False
+        TabOrder = 2
+      end
+      object chkAlarmBeeps: TButton[5]
+        Left = 288
+        Height = 32
+        Top = 64
+        Width = 124
+        BorderSpacing.Right = 8
+        Caption = 'Alarm Beeps'
+        Color = 1084579
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        OnClick = buttonClick
+        ParentFont = False
+        TabOrder = 3
+      end
+      object chkPositionBeeps: TButton[6]
+        Left = 152
+        Height = 32
+        Top = 64
+        Width = 124
+        BorderSpacing.Right = 8
+        Caption = 'Position Beeps'
+        Color = 1084579
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        OnClick = buttonClick
+        ParentFont = False
+        TabOrder = 4
+      end
+      object chkTweet: TButton[7]
+        Left = 16
+        Height = 32
+        Top = 64
+        Width = 124
+        BorderSpacing.Right = 8
+        Caption = 'Post To Twitter'
+        Color = 1084579
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        OnClick = buttonClick
+        ParentFont = False
+        TabOrder = 5
       end
     end
     inherited Panel3: TPanel
       Top = 115
+      inherited btnCancel: TButton
+        OnClick = btnCancelClick
+      end
+      inherited btnApply: TButton
+        OnClick = btnApplyClick
+      end
     end
     inherited Shape2: TShape
       Height = 261

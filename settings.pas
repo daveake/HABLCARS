@@ -6,18 +6,19 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-    base, SettingsBase, GeneralSettings, GPSSettings, GatewaySettings, UDPSettings, HabitatSettings;
+    StdCtrls, base, SettingsBase, GeneralSettings, GPSSettings, GatewaySettings,
+    UDPSettings, HabitatSettings;
 
 type
 
     { TfrmSettings }
 
     TfrmSettings = class(TfrmBase)
-        btnGeneral: TSpeedButton;
-        btnGateway: TSpeedButton;
-        btnGPS: TSpeedButton;
-        btnUDP: TSpeedButton;
-        btnHabitat: TSpeedButton;
+      btnGeneral: TButton;
+      btnGPS: TButton;
+      btnGateway: TButton;
+      btnUDP: TButton;
+      btnHabitat: TButton;
         Panel3: TPanel;
         procedure btnGatewayClick(Sender: TObject);
         procedure btnGeneralClick(Sender: TObject);
@@ -27,8 +28,8 @@ type
         procedure FormCreate(Sender: TObject);
     private
         CurrentForm: TfrmSettingsBase;
-        procedure ShowSelectedButton(Button: TSpeedButton);
-        procedure LoadSettingsForm(Button: TSpeedButton; NewForm: TfrmSettingsBase);
+        procedure ShowSelectedButton(Button: TButton);
+        procedure LoadSettingsForm(Button: TButton; NewForm: TfrmSettingsBase);
     public
         procedure LoadForm; override;
     public
@@ -46,27 +47,27 @@ implementation
 
 procedure TfrmSettings.btnGeneralClick(Sender: TObject);
 begin
-    LoadSettingsForm(TSpeedButton(Sender), frmGeneralSettings);
+    LoadSettingsForm(TButton(Sender), frmGeneralSettings);
 end;
 
 procedure TfrmSettings.btnGatewayClick(Sender: TObject);
 begin
-    LoadSettingsForm(TSpeedButton(Sender), frmLoRaGatewaySettings);
+    LoadSettingsForm(TButton(Sender), frmLoRaGatewaySettings);
 end;
 
 procedure TfrmSettings.btnGPSClick(Sender: TObject);
 begin
-    LoadSettingsForm(TSpeedButton(Sender), frmGPSSettings);
+    LoadSettingsForm(TButton(Sender), frmGPSSettings);
 end;
 
 procedure TfrmSettings.btnHabitatClick(Sender: TObject);
 begin
-    LoadSettingsForm(TSpeedButton(Sender), frmHabitatSettings);
+    LoadSettingsForm(TButton(Sender), frmHabitatSettings);
 end;
 
 procedure TfrmSettings.btnUDPClick(Sender: TObject);
 begin
-    LoadSettingsForm(TSpeedButton(Sender), frmUDPSettings);
+    LoadSettingsForm(TButton(Sender), frmUDPSettings);
 end;
 
 procedure TfrmSettings.FormCreate(Sender: TObject);
@@ -83,7 +84,7 @@ begin
     frmGeneralSettings := TfrmGeneralSettings.Create(nil);
 end;
 
-procedure TfrmSettings.LoadSettingsForm(Button: TSpeedButton; NewForm: TfrmSettingsBase);
+procedure TfrmSettings.LoadSettingsForm(Button: TButton; NewForm: TfrmSettingsBase);
 begin
     ShowSelectedButton(Button);
 
@@ -97,15 +98,15 @@ begin
     NewForm.LoadForm;
 end;
 
-procedure TfrmSettings.ShowSelectedButton(Button: TSpeedButton);
+procedure TfrmSettings.ShowSelectedButton(Button: TButton);
 begin
-    btnGeneral.Font.Style := btnGeneral.Font.Style - [TFontStyle.fsUnderline];
-    btnGPS.Font.Style := btnGPS.Font.Style - [TFontStyle.fsUnderline];
-    btnGateway.Font.Style := btnGateway.Font.Style - [TFontStyle.fsUnderline];
-    btnUDP.Font.Style := btnUDP.Font.Style - [TFontStyle.fsUnderline];
-    btnHabitat.Font.Style := btnHabitat.Font.Style - [TFontStyle.fsUnderline];
+    btnGeneral.Font.Style := btnGeneral.Font.Style - [TFontStyle.fsItalic];
+    btnGPS.Font.Style := btnGPS.Font.Style - [TFontStyle.fsItalic];
+    btnGateway.Font.Style := btnGateway.Font.Style - [TFontStyle.fsItalic];
+    btnUDP.Font.Style := btnUDP.Font.Style - [TFontStyle.fsItalic];
+    btnHabitat.Font.Style := btnHabitat.Font.Style - [TFontStyle.fsItalic];
 
-    Button.Font.Style := Button.Font.Style + [TFontStyle.fsUnderline];
+    Button.Font.Style := Button.Font.Style + [TFontStyle.fsItalic];
 end;
 
 procedure TfrmSettings.LoadForm;

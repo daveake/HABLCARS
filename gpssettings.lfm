@@ -1,6 +1,6 @@
 inherited frmGPSSettings: TfrmGPSSettings
-  Left = 2440
-  Top = 211
+  Left = 802
+  Top = 470
   Caption = 'GPS Settings'
   OnCreate = FormCreate
   inherited pnlMain: TPanel
@@ -12,9 +12,9 @@ inherited frmGPSSettings: TfrmGPSSettings
       end
       object Label1: TLabel[1]
         Left = 48
-        Height = 25
+        Height = 26
         Top = 17
-        Width = 90
+        Width = 89
         Alignment = taRightJustify
         Caption = 'Serial Port:'
         Font.Color = clWhite
@@ -24,19 +24,21 @@ inherited frmGPSSettings: TfrmGPSSettings
       end
       object edtPort: TEdit[2]
         Left = 152
-        Height = 33
+        Height = 30
         Top = 16
         Width = 168
-        Color = clBlack
-        Font.Color = clYellow
+        BorderStyle = bsNone
+        Color = 7331825
+        Font.Color = clBlack
         Font.Height = -19
+        Font.Style = [fsBold]
         OnKeyPress = edtPortKeyPress
         ParentFont = False
         TabOrder = 0
       end
       object Label2: TLabel[3]
         Left = 26
-        Height = 25
+        Height = 26
         Top = 65
         Width = 112
         Alignment = taRightJustify
@@ -48,41 +50,24 @@ inherited frmGPSSettings: TfrmGPSSettings
       end
       object edtCallsign: TEdit[4]
         Left = 152
-        Height = 33
+        Height = 30
         Top = 64
         Width = 168
-        Color = clBlack
-        Font.Color = clYellow
+        BorderStyle = bsNone
+        Color = 7331825
+        Font.Color = clBlack
         Font.Height = -19
+        Font.Style = [fsBold]
         OnKeyPress = edtPortKeyPress
         ParentFont = False
         TabOrder = 1
+        Text = '1234'
       end
-      object chkUpload: TSpeedButton[5]
-        Left = 520
-        Height = 32
-        Top = 17
-        Width = 152
-        AllowAllUp = True
-        BorderSpacing.Left = 4
-        BorderSpacing.Right = 4
-        BorderSpacing.Around = 4
-        Caption = 'Enable Upload'
-        Color = 7331825
-        Flat = True
-        Font.Color = clBlack
-        Font.Height = -24
-        Font.Name = 'Swiss911 XCm BT'
-        GroupIndex = 1
-        Transparent = False
-        OnClick = chkUploadClick
-        ParentFont = False
-      end
-      object Label3: TLabel[6]
-        Left = 423
-        Height = 25
-        Top = 66
-        Width = 83
+      object Label3: TLabel[5]
+        Left = 512
+        Height = 26
+        Top = 65
+        Width = 85
         Alignment = taRightJustify
         Caption = 'Period (s):'
         Font.Color = clWhite
@@ -90,27 +75,43 @@ inherited frmGPSSettings: TfrmGPSSettings
         ParentColor = False
         ParentFont = False
       end
-      object edtPeriod: TEdit[7]
-        Left = 520
-        Height = 33
-        Top = 65
-        Width = 152
-        Color = clBlack
-        Font.Color = clYellow
+      object edtPeriod: TEdit[6]
+        Left = 612
+        Height = 30
+        Top = 64
+        Width = 72
+        BorderStyle = bsNone
+        Color = 7331825
+        Font.Color = clBlack
         Font.Height = -19
+        Font.Style = [fsBold]
         OnKeyPress = edtPortKeyPress
         ParentFont = False
         TabOrder = 2
+      end
+      object chkUpload: TButton[7]
+        Left = 560
+        Height = 30
+        Top = 16
+        Width = 124
+        BorderSpacing.Right = 8
+        Caption = 'Enable Upload'
+        Color = 1084579
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Swiss911 XCm BT'
+        ParentFont = False
+        TabOrder = 3
       end
     end
     inherited Panel3: TPanel
       Height = 40
       Top = 120
       ClientHeight = 40
-      inherited btnApply: TSpeedButton
+      inherited btnCancel: TButton
         Height = 40
       end
-      inherited btnCancel: TSpeedButton
+      inherited btnApply: TButton
         Height = 40
       end
     end

@@ -40,7 +40,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="30">
+    <Units Count="40">
       <Unit0>
         <Filename Value="HABLCARS.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -224,6 +224,46 @@
         <Filename Value="speech.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit29>
+      <Unit30>
+        <Filename Value="synapse/synsock.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="synapse/synautil.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="synapse/jedi.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="synapse/ssfpc.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="synapse/synaser.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="synapse/httpsend.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="synapse/sswin32.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="synapse/synacode.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="synapse/synafpc.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="synapse/synaip.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit39>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -232,7 +272,7 @@
       <Filename Value="HABLCARS"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir)"/>
+      <IncludeFiles Value="$(ProjOutDir);synapse"/>
       <OtherUnitFiles Value="habrx;generics.collections/src;synapse"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
@@ -245,7 +285,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="4">
+    <Exceptions Count="5">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -258,6 +298,9 @@
       <Item4>
         <Name Value="ESynaSerError"/>
       </Item4>
+      <Item5>
+        <Name Value="EConvertError"/>
+      </Item5>
     </Exceptions>
   </Debugging>
 </CONFIG>

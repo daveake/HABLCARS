@@ -1,4 +1,6 @@
 inherited frmUDPSettings: TfrmUDPSettings
+  Left = 2485
+  Top = 3
   Caption = 'UDP Settings'
   OnCreate = FormCreate
   inherited pnlMain: TPanel

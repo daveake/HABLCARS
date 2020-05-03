@@ -30,7 +30,6 @@ inherited frmLog: TfrmLog
         Font.Height = -28
         Font.Name = 'Swiss911 XCm BT'
         ItemHeight = 0
-        OnClick = lstLogClick
         ParentFont = False
         ScrollWidth = 676
         TabOrder = 0

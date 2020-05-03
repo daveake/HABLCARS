@@ -10,10 +10,8 @@ type
     { Private declarations }
   protected
     { Protected declarations }
-{$IFDEF MSWINDOWS}
     function ExtractPositionFrom(Line: String; PayloadID: String = ''): THABPosition; override;
     procedure Execute; override;
-{$ENDIF}
   public
     { Public declarations }
   end;
@@ -123,17 +121,18 @@ begin
         CommPort := GetSettingString(GroupName, 'Port', '');
         SetGroupChangedFlag(GroupName, False);
 
-        try
-            Position := default(THABPosition);
+        Position := default(THABPosition);
 
-            SerialDevice := TBlockserial.Create;
+        SerialDevice := TBlockserial.Create;
 
-            SerialDevice.RaiseExcept := True;
-            SerialDevice.Connect(CommPort);
+        SerialDevice.RaiseExcept := False;
+        SerialDevice.Connect(CommPort);
+        if SerialDevice.LastError <> 0 then begin
+            SyncCallback(SourceID, False, 'Cannot open ' + CommPort + '(' + IntToStr(SerialDevice.LastError) + ')', Position);
+        end else begin
             SerialDevice.Config(4800,8,'N',0,False,False);
 
-
-            SyncCallback(SourceID, True, '', Position);
+            SyncCallback(SourceID, True, 'Connected to ' + CommPort, Position);
 
             while (not Terminated) and (not GetGroupChangedFlag(GroupName)) and (SerialDevice.LastError = 0) do begin
                 if SerialDevice.canread(1000) then  begin
@@ -152,9 +151,11 @@ begin
                     end;
                 end;
             end;
-        finally
+
+            SerialDevice.CloseSocket;
             SerialDevice.Free;
-            SyncCallback(SourceID, False, '', Position);
+
+            SyncCallback(SourceID, False, 'Disconnected', Position);
         end;
 
         Sleep(100);

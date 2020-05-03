@@ -1,6 +1,6 @@
 inherited frmHabitatSettings: TfrmHabitatSettings
-  Left = 2476
-  Top = 950
+  Left = 1198
+  Top = 557
   Caption = 'Habitat Settings'
   OnCreate = FormCreate
   inherited pnlMain: TPanel
@@ -12,9 +12,9 @@ inherited frmHabitatSettings: TfrmHabitatSettings
       end
       object Label1: TLabel[1]
         Left = 72
-        Height = 25
+        Height = 26
         Top = 25
-        Width = 103
+        Width = 106
         Alignment = taRightJustify
         Caption = 'Payload List:'
         Font.Color = clWhite
@@ -24,35 +24,31 @@ inherited frmHabitatSettings: TfrmHabitatSettings
       end
       object edtWhiteList: TEdit[2]
         Left = 200
-        Height = 33
+        Height = 36
         Top = 24
         Width = 464
-        Color = clBlack
-        Font.Color = clYellow
+        Color = 7331825
+        Font.Color = clBlack
         Font.Height = -19
+        Font.Style = [fsBold]
         OnKeyPress = edtWhiteListKeyPress
         ParentFont = False
         TabOrder = 0
       end
-      object chkEnable: TSpeedButton[3]
-        Left = 288
-        Height = 32
+      object chkEnable: TButton[3]
+        Left = 280
+        Height = 38
         Top = 72
-        Width = 152
-        AllowAllUp = True
-        BorderSpacing.Left = 4
-        BorderSpacing.Right = 4
-        BorderSpacing.Around = 4
+        Width = 144
+        BorderSpacing.Right = 8
         Caption = 'Enable'
-        Color = 7331825
-        Flat = True
+        Color = 1084579
         Font.Color = clBlack
-        Font.Height = -24
+        Font.Height = -29
         Font.Name = 'Swiss911 XCm BT'
-        GroupIndex = 1
-        Transparent = False
         OnClick = chkEnableClick
         ParentFont = False
+        TabOrder = 1
       end
     end
     inherited Panel3: TPanel

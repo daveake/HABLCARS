@@ -11,7 +11,7 @@ uses
   Forms, main, base, sourcesform, splash, Miscellaneous, payloads, direction,
   navigate, ssdv, log, settings, GPSSource, HabitatSource, SettingsBase,
   GeneralSettings, GPSSettings, GatewaySettings, UDPSettings, HabitatSettings,
-  speech;
+  speech, synaser, synautil, synsock;
 
 {$R *.res}
 

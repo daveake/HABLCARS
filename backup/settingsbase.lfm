@@ -1,4 +1,6 @@
 inherited frmSettingsBase: TfrmSettingsBase
+  Left = 878
+  Top = 559
   Caption = 'Settings Base'
   inherited pnlMain: TPanel
     object Panel1: TPanel[0]
@@ -36,24 +38,7 @@ inherited frmSettingsBase: TfrmSettingsBase
       ClientHeight = 36
       ClientWidth = 700
       TabOrder = 1
-      object btnApply: TSpeedButton
-        Left = 484
-        Height = 36
-        Top = 0
-        Width = 100
-        Align = alRight
-        BorderSpacing.Right = 8
-        Caption = 'Apply'
-        Color = 1084579
-        Flat = True
-        Font.Color = clBlack
-        Font.Height = -32
-        Font.Name = 'Swiss911 XCm BT'
-        Transparent = False
-        OnClick = btnApplyClick
-        ParentFont = False
-      end
-      object btnCancel: TSpeedButton
+      object btnCancel: TButton
         Left = 592
         Height = 36
         Top = 0
@@ -62,13 +47,28 @@ inherited frmSettingsBase: TfrmSettingsBase
         BorderSpacing.Right = 8
         Caption = 'Cancel'
         Color = 1084579
-        Flat = True
         Font.Color = clBlack
         Font.Height = -32
         Font.Name = 'Swiss911 XCm BT'
-        Transparent = False
         OnClick = btnCancelClick
         ParentFont = False
+        TabOrder = 0
+      end
+      object btnApply: TButton
+        Left = 484
+        Height = 36
+        Top = 0
+        Width = 100
+        Align = alRight
+        BorderSpacing.Right = 8
+        Caption = 'Apply'
+        Color = 1084579
+        Font.Color = clBlack
+        Font.Height = -32
+        Font.Name = 'Swiss911 XCm BT'
+        OnClick = btnApplyClick
+        ParentFont = False
+        TabOrder = 1
       end
     end
     object Shape2: TShape[2]

@@ -1,15 +1,15 @@
 inherited frmUDPSettings: TfrmUDPSettings
-  Left = 2485
-  Top = 3
+  Left = 480
+  Top = 803
   Caption = 'UDP Settings'
   OnCreate = FormCreate
   inherited pnlMain: TPanel
     inherited Panel1: TPanel
       object Label1: TLabel[1]
         Left = 128
-        Height = 25
+        Height = 26
         Top = 25
-        Width = 161
+        Width = 163
         Alignment = taRightJustify
         Caption = 'UDP Listening Port:'
         Font.Color = clWhite
@@ -19,12 +19,13 @@ inherited frmUDPSettings: TfrmUDPSettings
       end
       object edtPort: TEdit[2]
         Left = 304
-        Height = 33
-        Top = 25
+        Height = 36
+        Top = 22
         Width = 168
-        Color = clBlack
-        Font.Color = clYellow
+        Color = 7331825
+        Font.Color = clBlack
         Font.Height = -19
+        Font.Style = [fsBold]
         OnKeyPress = edtPortKeyPress
         ParentFont = False
         TabOrder = 0
@@ -33,10 +34,10 @@ inherited frmUDPSettings: TfrmUDPSettings
     inherited Panel3: TPanel
       Height = 40
       ClientHeight = 40
-      inherited btnApply: TSpeedButton
+      inherited btnCancel: TButton
         Height = 40
       end
-      inherited btnCancel: TSpeedButton
+      inherited btnApply: TButton
         Height = 40
       end
     end

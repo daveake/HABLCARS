@@ -1,5 +1,5 @@
 inherited frmSources: TfrmSources
-  Left = 2784
+  Left = 1858
   Top = 906
   Caption = 'Sources'
   OnCreate = FormCreate
@@ -34,7 +34,7 @@ inherited frmSources: TfrmSources
         TabOrder = 0
         object Label1: TLabel
           Left = 4
-          Height = 30
+          Height = 28
           Top = 0
           Width = 688
           Align = alTop
@@ -47,8 +47,8 @@ inherited frmSources: TfrmSources
         end
         object lblGateway1: TLabel
           Left = 2
-          Height = 30
-          Top = 32
+          Height = 28
+          Top = 30
           Width = 688
           Align = alTop
           Alignment = taCenter
@@ -61,8 +61,8 @@ inherited frmSources: TfrmSources
         end
         object lblGateway1RSSI: TLabel
           Left = 2
-          Height = 30
-          Top = 64
+          Height = 28
+          Top = 60
           Width = 688
           Align = alTop
           Alignment = taCenter
@@ -105,7 +105,7 @@ inherited frmSources: TfrmSources
         TabOrder = 0
         object Label3: TLabel
           Left = 4
-          Height = 30
+          Height = 28
           Top = 0
           Width = 688
           Align = alTop
@@ -118,8 +118,8 @@ inherited frmSources: TfrmSources
         end
         object lblGPS: TLabel
           Left = 2
-          Height = 30
-          Top = 32
+          Height = 28
+          Top = 30
           Width = 688
           Align = alTop
           Alignment = taCenter
@@ -162,7 +162,7 @@ inherited frmSources: TfrmSources
         TabOrder = 0
         object Label4: TLabel
           Left = 4
-          Height = 30
+          Height = 28
           Top = 0
           Width = 688
           Align = alTop
@@ -175,8 +175,8 @@ inherited frmSources: TfrmSources
         end
         object lblHabitat: TLabel
           Left = 2
-          Height = 30
-          Top = 32
+          Height = 28
+          Top = 30
           Width = 688
           Align = alTop
           Alignment = taCenter
@@ -219,7 +219,7 @@ inherited frmSources: TfrmSources
         TabOrder = 0
         object Label5: TLabel
           Left = 4
-          Height = 30
+          Height = 28
           Top = 0
           Width = 688
           Align = alTop
@@ -232,8 +232,8 @@ inherited frmSources: TfrmSources
         end
         object lblUDP: TLabel
           Left = 2
-          Height = 30
-          Top = 32
+          Height = 28
+          Top = 30
           Width = 688
           Align = alTop
           Alignment = taCenter

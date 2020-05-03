@@ -63,6 +63,8 @@ begin
     SetSettingString(Group, 'Frequency_1', edtFrequency2.Text);
     SetSettingInteger(Group, 'Mode_1', StrToIntDef(edtMode2.Text, 0));
 
+    SendSettingsToDevice;
+
     inherited;
 end;
 

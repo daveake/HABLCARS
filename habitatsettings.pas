@@ -13,7 +13,7 @@ type
     { TfrmHabitatSettings }
 
     TfrmHabitatSettings = class(TfrmSettingsBase)
-        chkEnable: TSpeedButton;
+      chkEnable: TButton;
         edtWhiteList: TEdit;
         Label1: TLabel;
         procedure chkEnableClick(Sender: TObject);
@@ -37,7 +37,7 @@ implementation
 
 procedure TfrmHabitatSettings.chkEnableClick(Sender: TObject);
 begin
-    SettingsHaveChanged;
+    LCARSCheckBoxClick(TButton(Sender));
 end;
 
 procedure TfrmHabitatSettings.edtWhiteListKeyPress(Sender: TObject;
@@ -54,7 +54,7 @@ end;
 
 procedure TfrmHabitatSettings.ApplyChanges;
 begin
-    SetSettingBoolean(Group, 'Enable', chkEnable.Down);
+    SetSettingBoolean(Group, 'Enable', GetLCARSCheckBoxValue(chkEnable));
     SetSettingString(Group, 'WhiteList', edtWhiteList.Text);
 
     inherited;
@@ -64,7 +64,7 @@ procedure TfrmHabitatSettings.CancelChanges;
 begin
     inherited;
 
-    chkEnable.Down := GetSettingBoolean(Group, 'Enable', False);
+    SetLCARSCheckBoxValue(chkEnable, GetSettingBoolean(Group, 'Enable', False));
     edtWhiteList.Text := GetSettingString(Group, 'WhiteList', '');
 end;
 

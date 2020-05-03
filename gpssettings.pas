@@ -13,7 +13,7 @@ type
     { TfrmGPSSettings }
 
     TfrmGPSSettings = class(TfrmSettingsBase)
-        chkUpload: TSpeedButton;
+      chkUpload: TButton;
         edtPort: TEdit;
         edtCallsign: TEdit;
         edtPeriod: TEdit;
@@ -53,7 +53,7 @@ end;
 
 procedure TfrmGPSSettings.chkUploadClick(Sender: TObject);
 begin
-    SettingsHaveChanged;
+    LCARSCheckBoxClick(TButton(Sender));
 end;
 
 procedure TfrmGPSSettings.ApplyChanges;
@@ -63,7 +63,7 @@ begin
     inherited;
 
     SetSettingString('CHASE', 'Callsign', edtCallsign.Text);
-    SetSettingBoolean('CHASE', 'Upload', chkUpload.Down);
+    SetSettingBoolean('CHASE', 'Upload', GetLCARSCheckBoxValue(chkUpload));
     SetSettingInteger('CHASE', 'Period', StrToIntDef(edtPeriod.Text, 0));
 end;
 
@@ -74,7 +74,7 @@ begin
     edtPort.Text := GetSettingString(Group, 'Port', '');
 
     edtCallsign.Text := GetSettingString('CHASE', 'Callsign', '');
-    chkUpload.Down := GetSettingBoolean('CHASE', 'Upload', False);
+    SetLCARSCheckBoxValue(chkUpload, GetSettingBoolean('CHASE', 'Upload', False));
     edtPeriod.Text := GetSettingString('CHASE', 'Period', '');
 
     inherited;

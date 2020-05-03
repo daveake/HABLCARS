@@ -13,10 +13,11 @@ type
     { TfrmHabitatSettings }
 
     TfrmHabitatSettings = class(TfrmSettingsBase)
-        chkEnable: TSpeedButton;
+      chkUpload: TButton;
         edtWhiteList: TEdit;
         Label1: TLabel;
-        procedure chkEnableClick(Sender: TObject);
+        procedure chkUploadClick(Sender: TObject);
+        procedure edtWhiteListKeyPress(Sender: TObject; var Key: char);
         procedure FormCreate(Sender: TObject);
     private
     protected
@@ -34,7 +35,13 @@ implementation
 
 { TfrmHabitatSettings }
 
-procedure TfrmHabitatSettings.chkEnableClick(Sender: TObject);
+procedure TfrmHabitatSettings.chkUploadClick(Sender: TObject);
+begin
+    LCARSCheckBoxClick(TButton(Sender));
+end;
+
+procedure TfrmHabitatSettings.edtWhiteListKeyPress(Sender: TObject;
+    var Key: char);
 begin
     SettingsHaveChanged;
 end;

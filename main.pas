@@ -404,18 +404,17 @@ end;
 
 procedure TfrmMain.ShowSelectedButton(Button: TLabel);
 begin
-    btnPayloads.Font.Style := btnPayloads.Font.Style - [TFontStyle.fsUnderline];
-    btnDirection.Font.Style := btnDirection.Font.Style - [TFontStyle.fsUnderline];
-    btnMap.Font.Style := btnMap.Font.Style - [TFontStyle.fsUnderline];
-    btnNavigate.Font.Style := btnNavigate.Font.Style - [TFontStyle.fsUnderline];
-    btnSSDV.Font.Style := btnSSDV.Font.Style - [TFontStyle.fsUnderline];
-    btnLog.Font.Style := btnLog.Font.Style - [TFontStyle.fsUnderline];
-    btnSettings.Font.Style := btnSettings.Font.Style - [TFontStyle.fsUnderline];
-
-    btnSources.Font.Style := btnSources.Font.Style - [TFontStyle.fsUnderline];
+    btnPayloads.Font.Style := btnPayloads.Font.Style - [TFontStyle.fsItalic];
+    btnDirection.Font.Style := btnDirection.Font.Style - [TFontStyle.fsItalic];
+    btnMap.Font.Style := btnMap.Font.Style - [TFontStyle.fsItalic];
+    btnNavigate.Font.Style := btnNavigate.Font.Style - [TFontStyle.fsItalic];
+    btnSSDV.Font.Style := btnSSDV.Font.Style - [TFontStyle.fsItalic];
+    btnLog.Font.Style := btnLog.Font.Style - [TFontStyle.fsItalic];
+    btnSettings.Font.Style := btnSettings.Font.Style - [TFontStyle.fsItalic];
+    btnSources.Font.Style := btnSources.Font.Style - [TFontStyle.fsItalic];
 
     if Button <> nil then begin
-        Button.Font.Style := Button.Font.Style + [TFontStyle.fsUnderline];
+        Button.Font.Style := Button.Font.Style + [TFontStyle.fsItalic];
     end;
 end;
 

@@ -224,7 +224,7 @@ inherited frmSources: TfrmSources
           Width = 688
           Align = alTop
           BorderSpacing.Left = 4
-          Caption = 'Habitat'
+          Caption = 'UDP'
           Font.Color = clWhite
           Font.Height = -21
           ParentColor = False

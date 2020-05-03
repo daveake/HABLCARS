@@ -404,18 +404,17 @@ end;
 
 procedure TfrmMain.ShowSelectedButton(Button: TLabel);
 begin
-    btnPayloads.Font.Style := btnPayloads.Font.Style - [TFontStyle.fsUnderline];
-    btnDirection.Font.Style := btnDirection.Font.Style - [TFontStyle.fsUnderline];
-    btnMap.Font.Style := btnMap.Font.Style - [TFontStyle.fsUnderline];
-    btnNavigate.Font.Style := btnNavigate.Font.Style - [TFontStyle.fsUnderline];
-    btnSSDV.Font.Style := btnSSDV.Font.Style - [TFontStyle.fsUnderline];
-    btnLog.Font.Style := btnLog.Font.Style - [TFontStyle.fsUnderline];
-    btnSettings.Font.Style := btnSettings.Font.Style - [TFontStyle.fsUnderline];
-
-    btnSources.Font.Style := btnSources.Font.Style - [TFontStyle.fsUnderline];
+    btnPayloads.Font.Style := btnPayloads.Font.Style - [TFontStyle.fsBold];
+    btnDirection.Font.Style := btnDirection.Font.Style - [TFontStyle.fsBold];
+    btnMap.Font.Style := btnMap.Font.Style - [TFontStyle.fsBold];
+    btnNavigate.Font.Style := btnNavigate.Font.Style - [TFontStyle.fsBold];
+    btnSSDV.Font.Style := btnSSDV.Font.Style - [TFontStyle.fsBold];
+    btnLog.Font.Style := btnLog.Font.Style - [TFontStyle.fsBold];
+    btnSettings.Font.Style := btnSettings.Font.Style - [TFontStyle.fsBold];
+    btnSources.Font.Style := btnSources.Font.Style - [TFontStyle.fsBold];
 
     if Button <> nil then begin
-        Button.Font.Style := Button.Font.Style + [TFontStyle.fsUnderline];
+        Button.Font.Style := Button.Font.Style + [TFontStyle.fsBold];
     end;
 end;
 
@@ -699,7 +698,7 @@ procedure TfrmMain.DoPayloadCalcs(PreviousPosition: THabPosition; var HABPositio
 const
     FlightModes: Array[0..8] of String = ('Idle', 'Launched', 'Descending', 'Homing', 'Direct To Target', 'Downwind', 'Upwind', 'Landing', 'Landed');
 begin
-    if HABPosition.TimeStamp > PreviousPosition.TimeStamp then begin
+    if (HABPosition.TimeStamp > PreviousPosition.TimeStamp) and (PreviousPosition.TimeStamp > 0) then begin
         HABPosition.AscentRate := (HABPosition.Altitude - PreviousPosition.Altitude) / (86400 * (HABPosition.TimeStamp - PreviousPosition.TimeStamp));
     end;
 

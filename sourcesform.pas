@@ -141,6 +141,8 @@ procedure TfrmSources.GPSCallback(ID: Integer; Connected: Boolean; Line: String;
 begin
     if HABPosition.InUse and not Application.Terminated then begin
         NewGPSPosition(HABPosition.TimeStamp, HABPosition.Latitude, HABPosition.Longitude, HABPosition.Altitude, HABPosition.Direction, False);
+    end else if Line <> '' then begin
+        lblGPS.Caption := Line;
     end;
 end;
 
